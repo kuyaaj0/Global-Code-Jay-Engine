@@ -32,3 +32,19 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Global Code Jay Engine Custom Adds
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+.cxx/
+cmake-build-*/
+build/
+bin/
+out/
+turbo_config.json
+.idea/
+
+

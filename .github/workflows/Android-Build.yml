@@ -23,26 +23,26 @@ jobs:
     - name: Set up Android NDK (For C++ Math/Matrix)
       uses: android-actions/setup-android@v3
 
-    - name: Create Base Gradle Build Files
+    - name: Create Base Project Configuration
       run: |
         cat << 'GRADLE' > build.gradle
         buildscript {
-            repositories { google() { content { includeGroup("com.android.tools.build") } }; mavenCentral() }
+            repositories { google(); mavenCentral() }
             dependencies { classpath 'com.android.tools.build:gradle:8.1.1' }
         }
         allprojects { repositories { google(); mavenCentral() } }
         GRADLE
         
         echo "include ':GameTurboApp'" > settings.gradle
+        chmod +x gradlew || true
 
-    - name: Assemble Test Build APK
+    - name: Assemble Mobile Debug APK
       run: |
-        echo "Executing native compiler tasks..."
+        # Creates a safe wrapper to execute gradle build commands on the cloud
+        gradle assembleDebug --stacktrace
 
     - name: Upload Finished Testing Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: Global-Code-Jay-Engine-Test-APK
-        path: |
-          **/*.apk
-          **/turbo_config.json
+        path: GameTurboApp/build/outputs/apk/debug/*.apk

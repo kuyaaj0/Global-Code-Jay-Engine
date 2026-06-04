@@ -25,21 +25,48 @@ jobs:
 
     - name: Generate Project Configuration Wrapper
       run: |
+        # 1. Write the root workspace configuration using compatible stable version tracks
         cat << 'GRADLE' > build.gradle
         buildscript {
             repositories { google(); mavenCentral() }
-            dependencies { classpath 'com.android.tools.build:gradle:8.1.1' }
+            dependencies { classpath 'com.android.tools.build:gradle:8.3.2' }
         }
         allprojects { repositories { google(); mavenCentral() } }
         GRADLE
         
+        # 2. Map subproject targets
         echo "include ':GameTurboApp'" > settings.gradle
         
-        gradle wrapper --gradle-version 8.1.1
+        # 3. Apply the exact same version parameters to the target subproject
+        mkdir -p GameTurboApp
+        cat << 'SUBGRADLE' > GameTurboApp/build.gradle
+        plugins {
+            id 'com.android.application'
+        }
+        android {
+            namespace 'com.game.gameturbo'
+            compileSdk 34
+            defaultConfig {
+                applicationId "com.game.gameturbo"
+                minSdk 21
+                targetSdk 34
+                versionCode 1
+                versionName "1.0"
+                ndk { abiFilters 'armeabi-v7a', 'arm64-v8a' }
+            }
+            externalNativeBuild {
+                cmake { path "../NativeEngine/CMakeLists.txt" }
+            }
+        }
+        SUBGRADLE
+
+        # 4. Generate local gradlew using Gradle 8.7 to completely stop method mismatch crashes
+        gradle wrapper --gradle-version 8.7
         chmod +x gradlew
 
     - name: Assemble Mobile Debug APK
       run: |
+        # Executes using the clean local gradle wrapper environment safely
         ./gradlew :GameTurboApp:assembleDebug --stacktrace
 
     - name: Upload Finished Testing Artifacts

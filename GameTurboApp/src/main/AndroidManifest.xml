@@ -1,20 +1,22 @@
-<manifest xmlns:android="http://android.com"
-    package="com.game.gameturbo">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://android.com">
 
     <application
         android:allowBackup="true"
         android:label="Global Code Jay Engine"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         
-        <!-- Game Turbo Hub Main Entrance -->
+        <!-- Game Turbo Hub Main Entrance Activity Configuration -->
         <activity 
-            android:name=".MainActivity"
+            android:name="com.game.gameturbo.MainActivity"
             android:exported="true"
             android:screenOrientation="landscape">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
     </application>
 </manifest>

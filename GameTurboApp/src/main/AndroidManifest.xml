@@ -6,7 +6,6 @@
         android:label="Global Code Jay Engine"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         
-        <!-- Game Turbo Hub Main Entrance Activity Configuration -->
         <activity 
             android:name="com.game.gameturbo.MainActivity"
             android:exported="true"

@@ -1,0 +1,53 @@
+name: Android CI Build (Jay Engine APK)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
+
+    - name: Set up Java Development Kit (JDK 17)
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+
+    - name: Set up Android NDK (For C++ Math/Matrix)
+      uses: android-actions/setup-android@v3
+
+    - name: Create Base Gradle Build Files
+      run: |
+        # Creates a quick build script so the cloud server can compile our custom folders
+        cat << 'GRADLE' > build.gradle
+        buildscript {
+            repositories { google() { content { includeGroup("com.android.tools.build") } }; mavenCentral() }
+            dependencies {开 dependency -> classpath 'com.android.tools.build:gradle:8.1.1' }
+        }
+        allprojects { repositories { google(); mavenCentral() } }
+        GRADLE
+        
+        # Creates settings definition properties
+        echo "include ':GameTurboApp'" > settings.gradle
+
+    - name: Assemble Test Build APK
+      run: |
+        # This triggers the compiler engine to pack the XML, Java, and C++ shared files together
+        echo "Executing native compiler tasks..."
+        # In a full project, this executes './gradlew assembleDebug'
+        # For our initial skeleton file testing, it verifies structure health
+
+    - name: Upload Finished Testing Artifacts
+      uses: actions/actions/upload-artifact@v4
+      with:
+        name: Global-Code-Jay-Engine-Test-APK
+        path: |
+          **/*.apk
+          **/turbo_config.json

@@ -23,7 +23,7 @@ jobs:
     - name: Set up Android NDK (For C++ Math/Matrix)
       uses: android-actions/setup-android@v3
 
-    - name: Create Base Project Configuration
+    - name: Generate Project Configuration Wrapper
       run: |
         cat << 'GRADLE' > build.gradle
         buildscript {
@@ -34,12 +34,13 @@ jobs:
         GRADLE
         
         echo "include ':GameTurboApp'" > settings.gradle
-        chmod +x gradlew || true
+        
+        gradle wrapper --gradle-version 8.1.1
+        chmod +x gradlew
 
     - name: Assemble Mobile Debug APK
       run: |
-        # Creates a safe wrapper to execute gradle build commands on the cloud
-        gradle assembleDebug --stacktrace
+        ./gradlew :GameTurboApp:assembleDebug --stacktrace
 
     - name: Upload Finished Testing Artifacts
       uses: actions/upload-artifact@v4

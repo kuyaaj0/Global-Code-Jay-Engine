@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.game.gameturbo'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.game.gameturbo"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        // Connect the Android NDK for native high-speed execution
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    // Direct link to your unified multi-platform CMake file!
+    externalNativeBuild {
+        cmake {
+            path "../NativeEngine/CMakeLists.txt"
+        }
+    }
+}

@@ -3,8 +3,8 @@
 #include <string>
 #include "json.hpp"
 
-#include "OriginalFunkin/FunkinSettings.hpp"
-#include "PsychEngine/ClientPrefs.hpp"
+//#include "OriginalFunkin/FunkinSettings.hpp"
+//#include "PsychEngine/ClientPrefs.hpp"
 
 using json = nlohmann::json;
 

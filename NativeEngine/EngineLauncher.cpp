@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "nlohmann/json.hpp"
+#include "json.hpp"
 
 #include "OriginalFunkin/FunkinSettings.hpp"
 #include "PsychEngine/ClientPrefs.hpp"

@@ -37,8 +37,8 @@ void launchSelectedEngine(const std::string& configPath) {
 
         std::cout << "[Status] Original FNF Selected\n";
 
-        FunkinO::Game::funkinSetting::downscroll = downscroll;
-        FunkinO::Game::funkinSetting::middlescroll = middlescroll;
+        //FunkinO::Game::funkinSetting::downscroll = downscroll;
+       // FunkinO::Game::funkinSetting::middlescroll = middlescroll;
 
         // TODO: REAL ENGINE START
         // FunkinO::Game::startGameplay();
@@ -48,8 +48,8 @@ void launchSelectedEngine(const std::string& configPath) {
 
         std::cout << "[Status] Psych Engine Selected\n";
 
-        Psych::Backend::ClientPrefs::downScroll = downscroll;
-        Psych::Backend::ClientPrefs::middleScroll = middlescroll;
+       // Psych::Backend::ClientPrefs::downScroll = downscroll;
+       // Psych::Backend::ClientPrefs::middleScroll = middlescroll;
 
         // TODO: REAL ENGINE START
         // Psych::Backend::initLuaModcharts();

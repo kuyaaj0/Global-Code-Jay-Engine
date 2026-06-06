@@ -21,6 +21,9 @@ set(ENGINE_SOURCES
 if(ANDROID)
     # Compiles your code into a high-performance native mobile library (.so)
     add_library(jay_engine SHARED ${ENGINE_SOURCES})
+
+    target_include_directories(jay_engine PRIVATE
+    ${CMAKE_SOURCE_DIR}/external)
     
     # Connects Android system logs, EGL context, and OpenGLES 3 graphics drivers
     target_link_libraries(jay_engine android log GLESv3 EGL)

@@ -43,6 +43,17 @@ public class MainActivity extends Activity {
         final CheckBox chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
         final CheckBox chkModcharts = findViewById(R.id.chkModcharts);
 
+        final CheckBox chkPerformanceMode = findViewById(R.id.chkPerformanceMode);
+        final CheckBox chkLowEndMode = findViewById(R.id.chkLowEndMode);
+        final CheckBox chkMatrix4 = findViewById(R.id.chkMatrix4);
+        
+        final CheckBox chkEnable3D = findViewById(R.id.chkEnable3D);
+        final CheckBox chkPerspective = findViewById(R.id.chkPerspective);
+        final CheckBox chkMatrixTransforms = findViewById(R.id.chkMatrixTransforms);
+        final CheckBox chkOptimizeLua = findViewById(R.id.chkOptimizeLua);
+        final CheckBox chkNotITG = findViewById(R.id.chkNotITG);
+        final CheckBox chkDepthSorting = findViewById(R.id.chkDepthSorting);
+
         // LEFT: Original FNF
         btnOriginal.setOnClickListener(v -> {
             activeEngineTarget = 0;
@@ -96,14 +107,26 @@ public class MainActivity extends Activity {
 
             // Build JSON config
             String jsonConfigString =
-                    "{\"engine\":" + activeEngineTarget +
-                    ",\"downscroll\":" + chkDownscroll.isChecked() +
-                    ",\"middlescroll\":" + chkMiddlescroll.isChecked() +
-                    ",\"lua_modcharts\":" + chkModcharts.isChecked() +
-                    ",\"scroll_speed\":" + String.format("%.2f", targetSpeed) +
-                    ",\"safe_frames\":" + customSafeFrames +
-                    "}";
+                "{"
+                + "\"engine\":" + activeEngineTarget
+                + ",\"downscroll\":" + chkDownscroll.isChecked()
+                + ",\"middlescroll\":" + chkMiddlescroll.isChecked()
+                + ",\"lua_modcharts\":" + chkModcharts.isChecked()
+                + ",\"scroll_speed\":" + String.format("%.2f", targetSpeed)
+                + ",\"safe_frames\":" + customSafeFrames
+                
+                + ",\"performance_mode\":" + chkPerformanceMode.isChecked()
+                + ",\"low_end_mode\":" + chkLowEndMode.isChecked()
+                + ",\"matrix4_pipeline\":" + chkMatrix4.isChecked()
+                
+                + ",\"enable_3d\":" + chkEnable3D.isChecked()
+                + ",\"perspective_camera\":" + chkPerspective.isChecked()
+                + ",\"matrix_transforms\":" + chkMatrixTransforms.isChecked()
+                + ",\"optimize_lua\":" + chkOptimizeLua.isChecked()
+                + ",\"notitg_effects\":" + chkNotITG.isChecked()
+                + ",\"depth_sorting\":" + chkDepthSorting.isChecked()
 
+                + "}";
             // Save file
             File cacheFile = new File(getFilesDir(), "turbo_config.json");
 

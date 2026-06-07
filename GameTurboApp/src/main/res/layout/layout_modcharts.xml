@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#20242C"
+    android:padding="20dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- Title -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MODCHART SETTINGS"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="14sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Main Options -->
+
+    <CheckBox
+        android:id="@+id/chkEnable3D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable 3D Modchart Rendering"
+        android:textColor="#FFFFFF"/>
+
+    <CheckBox
+        android:id="@+id/chkPerspective"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perspective Camera"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <CheckBox
+        android:id="@+id/chkMatrixTransforms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matrix4 Transform Pipeline"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <CheckBox
+        android:id="@+id/chkOptimizeLua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Optimize Lua Execution"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Divider -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"/>
+
+    <!-- Experimental Section -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXPERIMENTAL FEATURES"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="13sp"/>
+
+    <CheckBox
+        android:id="@+id/chkNotITG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NotITG Style Effects"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <CheckBox
+        android:id="@+id/chkDepthSorting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Depth Sorting Renderer"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Information Box -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#181B20"
+        android:padding="12dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Development Notes"
+            android:textColor="#00E5FF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="These systems are planned for future Matrix4 and mobile optimization experiments. They currently serve as placeholders for upcoming engine modules."
+            android:textColor="#BBBBBB"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

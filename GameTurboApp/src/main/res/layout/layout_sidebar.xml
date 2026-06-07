@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1A1C22"
+    android:padding="16dp">
+
+    <!-- Logo -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GLOBAL CODE"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="#00E5FF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JAY ENGINE"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alpha v0.1"
+        android:textSize="11sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Section -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENGINE"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnOriginal"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="🎮 Original FNF"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="#111215"
+        android:backgroundTint="#00E5FF"/>
+
+    <Button
+        android:id="@+id/btnPsych"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:text="🧩 Psych Engine"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2C2F38"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Navigation -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAVIGATION"
+        android:textColor="#00E5FF"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚙ Gameplay"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:padding="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🚀 Performance"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:padding="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🧩 Modcharts"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:padding="6dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ℹ About"
+        android:textColor="#DDDDDD"
+        android:textSize="14sp"
+        android:padding="6dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Footer -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Designed for FNF Engines"
+        android:textColor="#666666"
+        android:textSize="10sp"/>
+
+</LinearLayout>

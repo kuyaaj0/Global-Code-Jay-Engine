@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#20242C"
+    android:padding="20dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- Section Title -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENGINE CONFIGURATION"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="14sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Current Engine -->
+
+    <TextView
+        android:id="@+id/txtEngineTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Original FNF Configuration"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/txtEngineDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Standard unmodded ruleset. Optimized for low-end hardware paths."
+        android:textColor="#A5ADB8"
+        android:textSize="13sp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Engine Information -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#181B20"
+        android:padding="16dp"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected Engine"
+            android:textColor="#00E5FF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Use the left sidebar to switch between Original FNF and Psych Engine."
+            android:textColor="#DDDDDD"
+            android:textSize="12sp"
+            android:layout_marginTop="6dp"/>
+
+    </LinearLayout>
+
+    <!-- Future Features -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Features"
+            android:textColor="#00E5FF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Engine Profiles"
+            android:textColor="#CCCCCC"
+            android:textSize="12sp"
+            android:layout_marginTop="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Auto Detection"
+            android:textColor="#CCCCCC"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Multi-Version Support"
+            android:textColor="#CCCCCC"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="• Engine Diagnostics"
+            android:textColor="#CCCCCC"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

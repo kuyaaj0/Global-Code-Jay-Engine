@@ -1,180 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="#111215">
 
-    <!-- LEFT NAVBAR (Engine Switcher Panel) -->
+    <!-- LEFT SIDEBAR -->
+    <include
+        layout="@layout/layout_sidebar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <!-- RIGHT CONTENT -->
     <LinearLayout
-        android:layout_width="140dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#1A1C22"
-        android:padding="12dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GLOBAL JAY"
-            android:textColor="#00FFCC"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="4dp"/>
-            
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ENGINE HUB"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"/>
-
-        <Button
-            android:id="@+id/btnOriginal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Original FNF"
-            android:textSize="11sp"
-            android:textColor="#111215"
-            android:backgroundTint="#00FFCC"/>
-
-        <Button
-            android:id="@+id/btnPsych"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Psych Fork"
-            android:textSize="11sp"
-            android:textColor="#AAAAAA"
-            android:backgroundTint="#2C2F38"
-            android:layout_marginTop="12dp"/>
-    </LinearLayout>
-
-    <!-- RIGHT MAIN WORKSPACE -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <!-- TOP RIGHT NAVBAR (Gameplay Mechanics Presets) -->
-        <LinearLayout
+        <!-- HEADER -->
+        <include
+            layout="@layout/layout_topbar"/>
+
+        <!-- SCROLLABLE CONTENT -->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end|center_vertical"
-            android:background="#16171B"
-            android:padding="8dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:scrollbars="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SCROLL SPEED:"
-                android:textColor="#888888"
-                android:textSize="11sp"
-                android:layout_marginEnd="6dp"
-                android:textStyle="bold"/>
-
-            <!-- Numeric field to change scroll speed outside the game -->
-            <EditText
-                android:id="@+id/edtScrollSpeed"
-                android:layout_width="50dp"
-                android:layout_height="36dp"
-                android:text="2.0"
-                android:textColor="#00FFCC"
-                android:textSize="12sp"
-                android:background="#2C2F38"
-                android:gravity="center"
-                android:inputType="numberDecimal"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JUDGMENT WINDOW:"
-                android:textColor="#888888"
-                android:textSize="11sp"
-                android:layout_marginEnd="6dp"
-                android:textStyle="bold"/>
-
-            <!-- Button selector to switch hit accuracy frames instantly -->
-            <Button
-                android:id="@+id/btnSafeFrames"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:text="SAFE: 10 FRAMES"
-                android:textSize="10sp"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#2C2F38"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"/>
-        </LinearLayout>
-
-        <!-- MAIN CENTRAL AREA (Stays as standard setup) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="24dp">
-
-            <TextView
-                android:id="@+id/txtEngineTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Original FNF Configuration"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
-
-            <TextView
-                android:id="@+id/txtEngineDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Standard unmodded ruleset. Optimized for low-end hardware paths."
-                android:textColor="#777777"
-                android:textSize="12sp"
-                android:layout_marginBottom="24dp"/>
-
-            <CheckBox
-                android:id="@+id/chkDownscroll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enable Downscroll"
-                android:textColor="#E0E0E0"
-                android:layout_marginBottom="12dp"/>
-
-            <CheckBox
-                android:id="@+id/chkMiddlescroll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Enable Middlescroll"
-                android:textColor="#E0E0E0"
-                android:layout_marginBottom="12dp"/>
-
-            <CheckBox
-                android:id="@+id/chkModcharts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Execute Lua Modcharts (3D/4D Skews)"
-                android:textColor="#888888"
-                android:visibility="gone" 
-                android:layout_marginBottom="12dp"/>
-
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <Button
-                android:id="@+id/btnLaunch"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="LAUNCH ACTIVE ENGINE TARGET"
-                android:textColor="#111215"
-                android:textStyle="bold"
-                android:backgroundTint="#00FFCC"/>
-        </LinearLayout>
+                <include
+                    layout="@layout/layout_engine"/>
+
+                <include
+                    layout="@layout/layout_gameplay"/>
+
+                <include
+                    layout="@layout/layout_performance"/>
+
+                <include
+                    layout="@layout/layout_modcharts"/>
+
+                <include
+                    layout="@layout/layout_launch"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </LinearLayout>
+
 </LinearLayout>

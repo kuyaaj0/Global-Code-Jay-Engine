@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#20242C"
+    android:padding="20dp"
+    android:layout_marginBottom="16dp">
+
+    <!-- Title -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GAMEPLAY SETTINGS"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="14sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Gameplay Options -->
+
+    <CheckBox
+        android:id="@+id/chkDownscroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Downscroll"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"/>
+
+    <CheckBox
+        android:id="@+id/chkMiddlescroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Middlescroll"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"/>
+
+    <CheckBox
+        android:id="@+id/chkModcharts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable Lua Modcharts"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Divider -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#30343D"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"/>
+
+    <!-- Scroll Speed -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SCROLL SPEED"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="13sp"/>
+
+    <EditText
+        android:id="@+id/edtScrollSpeed"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:text="2.0"
+        android:textColor="#00E5FF"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:background="#181B20"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Safe Frames -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JUDGMENT WINDOW"
+        android:textStyle="bold"
+        android:textColor="#00E5FF"
+        android:textSize="13sp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btnSafeFrames"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:text="SAFE: 10 FRAMES"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2C2F38"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

@@ -1,3 +1,4 @@
+#include "Rendering/Matrix4Render.hpp"
 #include "Config/EngineConfig.hpp"
 #include <iostream>
 #include <fstream>
@@ -65,6 +66,13 @@ int safeFrames = config.value("safe_frames", 10);
     std::cout << "NotITG Effects: " << notitgEffects << std::endl;
     std::cout << "Depth Sorting: " << depthSorting << std::endl;
 
+    if (EngineConfig::matrix4Pipeline)
+{
+    std::cout << "[Jay Engine] Matrix4 Pipeline Enabled." << std::endl;
+
+    Matrix4Render::initialize();
+}
+    
     if (chosenEngine == 0) {
 
         std::cout << "[Status] Original FNF Selected\n";

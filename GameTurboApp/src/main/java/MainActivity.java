@@ -22,8 +22,12 @@ public class MainActivity extends Activity {
     public native void syncAndLaunchEngine();
 
     static {
+    try {
         System.loadLibrary("jay_engine");
+    } catch (UnsatisfiedLinkError e) {
+        e.printStackTrace();
     }
+}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +141,11 @@ public class MainActivity extends Activity {
             }
 
             // 🔥 CRITICAL FIX: CALL NATIVE ENGINE
-            syncAndLaunchEngine();
+            try {
+                syncAndLaunchEngine();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
     }
 }

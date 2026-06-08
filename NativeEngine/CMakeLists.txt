@@ -16,6 +16,7 @@ set(ENGINE_SOURCES
     Math/Vector3.cpp
     Math/Matrix4.cpp
     Renderer/Camera3D.cpp
+    Gameplay/Note3D.cpp
    # OriginalFunkin/FunkinGameplay.cpp
    # PsychEngine/PsychGameplay.cpp
 )

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.11)
 
 # Define the engine project name
 project(GlobalCodeJayEngine CXX)
@@ -14,6 +14,7 @@ set(ENGINE_SOURCES
     Config/EngineConfig.cpp
     Rendering/Matrix4Renderer.cpp
     Math/Vector3.cpp
+    Math/Matrix4.cpp
    # OriginalFunkin/FunkinGameplay.cpp
    # PsychEngine/PsychGameplay.cpp
 )

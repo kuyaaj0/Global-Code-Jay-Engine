@@ -28,10 +28,41 @@ void launchSelectedEngine(const std::string& configPath) {
     int chosenEngine = config.value("engine", 0);
     bool downscroll = config.value("downscroll", false);
     bool middlescroll = config.value("middlescroll", false);
+    bool luaModcharts = config.value("lua_modcharts", false);
+    
+    bool performanceMode = config.value("performance_mode", false);
+    bool lowEndMode = config.value("low_end_mode", false);
+    bool matrix4Pipeline = config.value("matrix4_pipeline", false);
+    
+    bool enable3D = config.value("enable_3d", false);
+    bool perspectiveCamera = config.value("perspective_camera", false);
+    bool matrixTransforms = config.value("matrix_transforms", false);
+    bool optimizeLua = config.value("optimize_lua", false);
+    bool notitgEffects = config.value("notitg_effects", false);
+    bool depthSorting = config.value("depth_sorting", false);
+
+float scrollSpeed = config.value("scroll_speed", 2.0f);
+int safeFrames = config.value("safe_frames", 10);
 
     std::cout << "========================================\n";
     std::cout << " GLOBAL CODE JAY ENGINE LAUNCHER\n";
     std::cout << "========================================\n";
+
+    //this are the part of the string settings part
+    std::cout << "[Settings]" << std::endl;
+    std::cout << "Scroll Speed: " << scrollSpeed << std::endl;
+    std::cout << "Safe Frames: " << safeFrames << std::endl;
+    
+    std::cout << "Performance Mode: " << performanceMode << std::endl;
+    std::cout << "Low End Mode: " << lowEndMode << std::endl;
+    std::cout << "Matrix4 Pipeline: " << matrix4Pipeline << std::endl;
+    
+    std::cout << "3D Rendering: " << enable3D << std::endl;
+    std::cout << "Perspective Camera: " << perspectiveCamera << std::endl;
+    std::cout << "Matrix Transforms: " << matrixTransforms << std::endl;
+    std::cout << "Optimize Lua: " << optimizeLua << std::endl;
+    std::cout << "NotITG Effects: " << notitgEffects << std::endl;
+    std::cout << "Depth Sorting: " << depthSorting << std::endl;
 
     if (chosenEngine == 0) {
 

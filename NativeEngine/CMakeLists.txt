@@ -12,7 +12,7 @@ set(ENGINE_SOURCES
     main.cpp
     EngineLauncher.cpp
     Config/EngineConfig.cpp
-    Render/Matrix4Renderer.cpp
+    Render/Matrix4Render.cpp
     Math/Vector3.cpp
     Math/Matrix4.cpp
    # OriginalFunkin/FunkinGameplay.cpp

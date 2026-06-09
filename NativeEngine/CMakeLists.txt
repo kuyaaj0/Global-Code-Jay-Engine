@@ -20,6 +20,8 @@ set(ENGINE_SOURCES
     Gameplay/NoteManager.cpp
     Gameplay/SongPosition.cpp
     Gameplay/StrumLine3D.cpp
+    Modifiers/Modifier.cpp
+    Modifiers/ModifierManager.cpp
    # OriginalFunkin/FunkinGameplay.cpp
    # PsychEngine/PsychGameplay.cpp
 )

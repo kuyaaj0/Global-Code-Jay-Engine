@@ -16,6 +16,7 @@ set(ENGINE_SOURCES
     Math/Vector3.cpp
     Math/Matrix4.cpp
     Renderer/Camera3D.cpp
+    Transform/Transform.cpp
     Gameplay/Note3D.cpp
     Gameplay/NoteManager.cpp
     Gameplay/SongPosition.cpp

@@ -2,9 +2,13 @@
 
 #include "../Math/Vector3.hpp"
 
+#include "../Transform/Transform.hpp"
+
 class Note3D
 {
 public:
+
+    Transform transform;
 
     // Position in 3D space
     Vector3 position;

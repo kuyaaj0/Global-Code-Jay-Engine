@@ -1,7 +1,5 @@
 #include "Vector3.hpp"
 
-#include <cmath>
-
 Vector3::Vector3()
 {
     x = 0.0f;
@@ -9,14 +7,14 @@ Vector3::Vector3()
     z = 0.0f;
 }
 
-Vector3::Vector3(float xValue, float yValue, float zValue)
+Vector3::Vector3(float X,float Y,float Z)
 {
-    x = xValue;
-    y = yValue;
-    z = zValue;
+    x = X;
+    y = Y;
+    z = Z;
 }
 
-Vector3 Vector3::operator+(const Vector3& other) const
+Vector3 Vector3::operator+(const Vector3& other)
 {
     return Vector3(
         x + other.x,
@@ -25,7 +23,7 @@ Vector3 Vector3::operator+(const Vector3& other) const
     );
 }
 
-Vector3 Vector3::operator-(const Vector3& other) const
+Vector3 Vector3::operator-(const Vector3& other)
 {
     return Vector3(
         x - other.x,
@@ -34,41 +32,11 @@ Vector3 Vector3::operator-(const Vector3& other) const
     );
 }
 
-Vector3 Vector3::operator*(float scalar) const
+Vector3 Vector3::operator*(float value)
 {
     return Vector3(
-        x * scalar,
-        y * scalar,
-        z * scalar
+        x * value,
+        y * value,
+        z * value
     );
-}
-
-Vector3 Vector3::operator/(float scalar) const
-{
-    return Vector3(
-        x / scalar,
-        y / scalar,
-        z / scalar
-    );
-}
-
-float Vector3::length() const
-{
-    return std::sqrt(
-        x * x +
-        y * y +
-        z * z
-    );
-}
-
-void Vector3::normalize()
-{
-    float len = length();
-
-    if(len <= 0.0f)
-        return;
-
-    x /= len;
-    y /= len;
-    z /= len;
 }

@@ -18,6 +18,7 @@ set(ENGINE_SOURCES
     Renderer/Camera3D.cpp
     Gameplay/Note3D.cpp
     Gameplay/NoteManager.cpp
+    Gameplay/SongPosition.cpp
    # OriginalFunkin/FunkinGameplay.cpp
    # PsychEngine/PsychGameplay.cpp
 )

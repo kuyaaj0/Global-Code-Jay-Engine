@@ -23,6 +23,16 @@ manager.addModifier(new Brake());
 manager.addModifier(new Wave());
 manager.addModifier(new Flip());
 manager.addModifier(new Invert());
+
+manager.addModifier(new XMod());
+manager.addModifier(new CMod());
+manager.addModifier(new MMod());
+
+manager.addModifier(new Perspective());
+
+manager.addModifier(new RotateX());
+manager.addModifier(new RotateY());
+manager.addModifier(new RotateZ());
 }
 
 void ModifierManager::addModifier(

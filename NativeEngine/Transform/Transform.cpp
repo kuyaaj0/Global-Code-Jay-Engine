@@ -2,28 +2,33 @@
 
 Transform::Transform()
 {
-    position = Vector3(0,0,0);
+    Reset();
+}
+
+void Transform::Reset()
+{
+    position = Vector3(0.0f, 0.0f, 0.0f);
 
     rotation = Quaternion::Identity();
 
-    scale = Vector3(1,1,1);
+    scale = Vector3(1.0f, 1.0f, 1.0f);
 
-    UpdateMatrix();
+    Update();
 }
 
-void Transform::UpdateMatrix()
+void Transform::Update()
 {
-    Matrix4 T =
+    Matrix4 translation =
         Matrix4::Translation(
             position.x,
             position.y,
             position.z
         );
 
-    Matrix4 R =
+    Matrix4 rotationMatrix =
         rotation.ToMatrix();
 
-    Matrix4 S =
+    Matrix4 scaleMatrix =
         Matrix4::Scale(
             scale.x,
             scale.y,
@@ -31,10 +36,18 @@ void Transform::UpdateMatrix()
         );
 
     localMatrix =
-        T * R * S;
+        translation *
+        rotationMatrix *
+        scaleMatrix;
 
-    worldMatrix =
-        localMatrix;
+    worldMatrix = localMatrix;
+}
+
+void Transform::SetPosition(
+const Vector3& pos)
+{
+    position = pos;
+    Update();
 }
 
 void Transform::Translate(
@@ -43,7 +56,16 @@ const Vector3& delta)
     position =
         position + delta;
 
-    UpdateMatrix();
+    Update();
+}
+
+void Transform::SetRotation(
+const Quaternion& rot)
+{
+    rotation = rot;
+    rotation.Normalize();
+
+    Update();
 }
 
 void Transform::Rotate(
@@ -54,14 +76,17 @@ const Quaternion& delta)
 
     rotation.Normalize();
 
-    UpdateMatrix();
+    Update();
 }
 
 void Transform::SetScale(
-const Vector3& newScale)
+const Vector3& scl)
 {
-    scale =
-        newScale;
+    scale = scl;
+    Update();
+}
 
-    UpdateMatrix();
+Matrix4 Transform::GetMatrix() const
+{
+    return worldMatrix;
 }

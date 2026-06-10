@@ -2,7 +2,7 @@
 
 ModifierManager::ModifierManager()
 {
-   // ModifierManager manager;
+   ModifierManager manager;
 
 manager.addModifier(new Reverse());
 manager.addModifier(new Drunk());

@@ -2,7 +2,7 @@
 
 #include "../Math/Matrix4.hpp"
 #include "../Math/Vector4.hpp"
-#include "../Core/Camera3D.hpp"
+#include "Camera3D.hpp"
 
 class Matrix4Renderer
 {

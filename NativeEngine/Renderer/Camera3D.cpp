@@ -2,27 +2,79 @@
 
 Camera3D::Camera3D()
 {
-    position = Vector3(0.0f, 0.0f, -10.0f);
-    rotation = Vector3(0.0f, 0.0f, 0.0f);
+    fov = 70.0f;
+
+    nearPlane = 0.1f;
+
+    farPlane = 1000.0f;
+
+    aspectRatio = 16.0f / 9.0f;
+
+    Update();
 }
 
-Matrix4 Camera3D::getViewMatrix() const
+void Camera3D::Update()
 {
-    Matrix4 translate =
-        Matrix4::Translation(
-            -position.x,
-            -position.y,
-            -position.z
-        );
+    UpdateView();
 
-    Matrix4 rotateX =
-        Matrix4::RotationX(-rotation.x);
+    UpdateProjection();
+}
 
-    Matrix4 rotateY =
-        Matrix4::RotationY(-rotation.y);
+void Camera3D::UpdateView()
+{
+    transform.Update();
 
-    Matrix4 rotateZ =
-        Matrix4::RotationZ(-rotation.z);
+    viewMatrix =
+        transform.GetMatrix();
+}
 
-    return rotateZ * rotateY * rotateX * translate;
+void Camera3D::UpdateProjection()
+{
+    projectionMatrix =
+        Matrix4::IdentityMatrix();
+
+    // Perspective projection will be expanded later
+}
+
+void Camera3D::SetAspectRatio(
+float aspect)
+{
+    aspectRatio = aspect;
+
+    UpdateProjection();
+}
+
+void Camera3D::SetFOV(
+float value)
+{
+    fov = value;
+
+    UpdateProjection();
+}
+
+void Camera3D::Move(
+const Vector3& delta)
+{
+    transform.Translate(delta);
+
+    UpdateView();
+}
+
+void Camera3D::LookAt(
+const Vector3& target)
+{
+    // Placeholder
+    // Future implementation:
+    // Compute forward/right/up vectors
+    // Build view matrix
+}
+
+Matrix4 Camera3D::GetViewMatrix() const
+{
+    return viewMatrix;
+}
+
+Matrix4 Camera3D::GetProjectionMatrix() const
+{
+    return projectionMatrix;
 }

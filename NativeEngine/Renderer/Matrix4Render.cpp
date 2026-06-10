@@ -1,54 +1,66 @@
-#include "Matrix4Render.hpp"
+#include "Matrix4Renderer.hpp"
 
-#include <iostream>
-
-static bool g_initialized = false;
-
-void Matrix4Render::initialize()
+Matrix4Renderer::Matrix4Renderer()
 {
-    if(g_initialized)
-        return;
-
-    std::cout << "[Matrix4Render] Initializing..." << std::endl;
-
-    g_initialized = true;
+    activeCamera = nullptr;
 }
 
-void Matrix4Render::shutdown()
+void Matrix4Renderer::SetCamera(
+Camera3D* camera)
 {
-    if(!g_initialized)
-        return;
-
-    std::cout << "[Matrix4Renderer] Shutdown." << std::endl;
-
-    g_initialized = false;
+    activeCamera = camera;
 }
 
-void Matrix4Render::update(float deltaTime)
+Vector4 Matrix4Renderer::ApplyTransform(
+const Matrix4& world,
+const Vector4& vertex)
 {
-    if(!g_initialized)
-        return;
-
-    // Future Matrix4 calculations here
+    return world.Transform(vertex);
 }
 
-void Matrix4Render::beginFrame()
+Vector4 Matrix4Renderer::ApplyView(
+const Vector4& vertex)
 {
-    if(!g_initialized)
-        return;
+    if(activeCamera == nullptr)
+        return vertex;
 
-    // Future rendering setup
+    return
+        activeCamera
+        ->GetViewMatrix()
+        .Transform(vertex);
 }
 
-void Matrix4Render::endFrame()
+Vector4 Matrix4Renderer::ApplyProjection(
+const Vector4& vertex)
 {
-    if(!g_initialized)
-        return;
+    if(activeCamera == nullptr)
+        return vertex;
 
-    // Future rendering cleanup
+    return
+        activeCamera
+        ->GetProjectionMatrix()
+        .Transform(vertex);
 }
 
-bool Matrix4Render::isInitialized()
+Vector4 Matrix4Renderer::WorldToScreen(
+const Matrix4& world,
+const Vector4& vertex)
 {
-    return g_initialized;
+    Vector4 result =
+        ApplyTransform(
+            world,
+            vertex
+        );
+
+    result =
+        ApplyView(
+            result
+        );
+
+    result =
+        ApplyProjection(
+            result
+        );
+
+    return result;
 }

@@ -9,20 +9,20 @@ Camera3D::Camera3D()
 Matrix4 Camera3D::getViewMatrix() const
 {
     Matrix4 translate =
-        Matrix4::translation(
+        Matrix4::Translation(
             -position.x,
             -position.y,
             -position.z
         );
 
     Matrix4 rotateX =
-        Matrix4::rotationX(-rotation.x);
+        Matrix4::RotationX(-rotation.x);
 
     Matrix4 rotateY =
-        Matrix4::rotationY(-rotation.y);
+        Matrix4::RotationY(-rotation.y);
 
     Matrix4 rotateZ =
-        Matrix4::rotationZ(-rotation.z);
+        Matrix4::RotationZ(-rotation.z);
 
     return rotateZ * rotateY * rotateX * translate;
 }

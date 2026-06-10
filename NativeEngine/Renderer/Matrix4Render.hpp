@@ -1,18 +1,37 @@
 #pragma once
 
-class Matrix4Render
+#include "../Math/Matrix4.hpp"
+#include "../Math/Vector4.hpp"
+#include "../Core/Camera3D.hpp"
+
+class Matrix4Renderer
 {
+
 public:
 
-    static void initialize();
+    Camera3D* activeCamera;
 
-    static void shutdown();
+    Matrix4Renderer();
 
-    static void update(float deltaTime);
+    void SetCamera(
+        Camera3D* camera
+    );
 
-    static void beginFrame();
+    Vector4 ApplyTransform(
+        const Matrix4& world,
+        const Vector4& vertex
+    );
 
-    static void endFrame();
+    Vector4 ApplyView(
+        const Vector4& vertex
+    );
 
-    static bool isInitialized();
+    Vector4 ApplyProjection(
+        const Vector4& vertex
+    );
+
+    Vector4 WorldToScreen(
+        const Matrix4& world,
+        const Vector4& vertex
+    );
 };

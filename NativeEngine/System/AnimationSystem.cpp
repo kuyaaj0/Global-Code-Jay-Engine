@@ -1,5 +1,5 @@
 #include "AnimationSystem.hpp"
-#include "../Objects/Character.hpp"
+#include "../Object/Character.hpp"
 
 AnimationSystem::AnimationSystem()
 {

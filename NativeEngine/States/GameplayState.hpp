@@ -3,7 +3,7 @@
 #include "../Gameplay/NoteManager.hpp"
 #include "../Modifier/ModifierManager.hpp"
 #include "../PlayField/PlayField.hpp"
-#include "../Gameplay/StrumLine.hpp"
+#include "../Object/StrumLine.hpp"
 #include "ChartParser.hpp"
 
 #include "../Audio/AudioManager.hpp"

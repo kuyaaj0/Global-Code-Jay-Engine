@@ -1,0 +1,72 @@
+#include "Renderer.hpp"
+
+Renderer::Renderer()
+{
+    activeCamera = nullptr;
+}
+
+void Renderer::SetCamera(
+Camera3D* camera)
+{
+    activeCamera = camera;
+
+    matrixRenderer.SetCamera(camera);
+}
+
+void Renderer::BeginFrame()
+{
+    // Future:
+    // Clear render queue
+    // Reset statistics
+}
+
+void Renderer::EndFrame()
+{
+    // Future:
+    // Flush render queue
+    // Present frame
+}
+
+void Renderer::Clear()
+{
+    // Future:
+    // Clear color buffer
+    // Clear depth buffer
+}
+
+void Renderer::DrawVertex(
+const Matrix4& world,
+const Vector4& vertex)
+{
+    Vector4 screenVertex =
+        matrixRenderer.WorldToScreen(
+            world,
+            vertex
+        );
+
+    // Future:
+    // Send screenVertex to GPU
+}
+
+void Renderer::DrawQuad(
+const Matrix4& world,
+const Vector4 vertices[4])
+{
+    for(int i=0;i<4;i++)
+    {
+        DrawVertex(
+            world,
+            vertices[i]
+        );
+    }
+}
+
+void Renderer::DrawNote(
+const Matrix4& world,
+const Vector4 vertices[4])
+{
+    DrawQuad(
+        world,
+        vertices
+    );
+}

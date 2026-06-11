@@ -1,35 +1,61 @@
 #pragma once
 
+#include "../Transform/Transform.hpp"
 #include "../Math/Vector3.hpp"
 
-#include "../Transform/Transform.hpp"
+class Renderer;
 
 class Note3D
 {
+
 public:
 
     Transform transform;
 
-    // Position in 3D space
-    Vector3 position;
+    Vector3 velocity;
 
-    // Rotation in degrees/radians
-    Vector3 rotation;
+    Vector3 acceleration;
 
-    // Scale multiplier
-    Vector3 scale;
+    float alpha;
 
-    // FNF lane
-    int lane;
+    float angle;
 
-    // Visibility
-    bool visible;
+    float width;
 
-    // Whether this is a sustain note
-    bool sustain;
+    float height;
 
-    // Song timing
+    float scale;
+
     float strumTime;
 
+    bool visible;
+
+    bool alive;
+
+    bool sustain;
+
+    bool mustPress;
+
+    int lane;
+
+    int noteData;
+
+    int player;
+
     Note3D();
+
+    void Update(
+        float dt
+    );
+
+    void Render(
+        Renderer& renderer
+    );
+
+    void Reset();
+
+    void Kill();
+
+    void Revive();
+
 };

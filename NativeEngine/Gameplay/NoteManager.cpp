@@ -1,45 +1,74 @@
 #include "NoteManager.hpp"
 
-#include <iostream>
+#include "../Renderer/Renderer.hpp"
+
+#include <algorithm>
 
 NoteManager::NoteManager()
 {
+
 }
 
-void NoteManager::spawnNote(
-    int lane,
-    float strumTime
-)
+void NoteManager::SpawnNote(
+const Note3D& note)
 {
-    Note3D note;
-
-    note.lane = lane;
-    note.strumTime = strumTime;
-
     notes.push_back(note);
-
-    std::cout
-        << "[NoteManager] Spawned Note"
-        << " Lane=" << lane
-        << " Time=" << strumTime
-        << std::endl;
 }
 
-void NoteManager::update(
-    float songPosition
-)
+void NoteManager::Update(
+float dt)
 {
     for(auto& note : notes)
     {
-        float distance =
-            note.strumTime - songPosition;
+        if(note.alive)
+        {
+            note.Update(dt);
+        }
+    }
 
-        note.position.y =
-            distance * 0.45f;
+    RemoveDeadNotes();
+}
+
+void NoteManager::Render(
+Renderer& renderer)
+{
+    for(auto& note : notes)
+    {
+        if(note.visible && note.alive)
+        {
+            note.Render(renderer);
+        }
     }
 }
 
-void NoteManager::clear()
+void NoteManager::RemoveDeadNotes()
+{
+    notes.erase(
+
+        std::remove_if(
+
+            notes.begin(),
+
+            notes.end(),
+
+            [](const Note3D& note)
+            {
+                return !note.alive;
+            }
+
+        ),
+
+        notes.end()
+
+    );
+}
+
+void NoteManager::Clear()
 {
     notes.clear();
+}
+
+int NoteManager::GetNoteCount() const
+{
+    return static_cast<int>(notes.size());
 }

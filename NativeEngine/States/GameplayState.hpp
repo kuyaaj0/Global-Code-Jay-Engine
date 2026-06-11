@@ -8,7 +8,7 @@
 
 #include "../Audio/AudioManager.hpp"
 #include "InputManager.hpp"
-#include "Events/EventSystem.hpp"
+#include "Event/EventSystem.hpp"
 
 #include "../Renderer/Renderer.hpp"
 

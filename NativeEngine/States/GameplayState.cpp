@@ -1,45 +1,126 @@
 #include "GameplayState.hpp"
 
+#include "../Loader/SongLoader.hpp"
+#include "../Loader/ChartParser.hpp"
+
+#include "../Backend/Conductor.hpp"
+#include "../Gameplay/NoteManager.hpp"
+#include "../Modifier/ModifierManager.hpp"
+
+#include "../Object/Character.hpp"
+#include "../Stage/Stage.hpp"
+
+#include "../Hud/HUD.hpp"
+
+#include "../Scripting/ScriptManager.hpp"
+
 GameplayState::GameplayState()
 {
+    songLoader = nullptr;
 
+    chartParser = nullptr;
+
+    conductor = nullptr;
+
+    noteManager = nullptr;
+
+    modifierManager = nullptr;
+
+    player = nullptr;
+
+    opponent = nullptr;
+
+    stage = nullptr;
+
+    hud = nullptr;
+
+    scripts = nullptr;
 }
 
-void GameplayState::Load()
+bool GameplayState::Initialize()
 {
-    playField.Reset();
+    songLoader = new SongLoader();
 
-    noteManager.Clear();
+    chartParser = new ChartParser();
 
-    modifierManager.Reset();
+    conductor = new Conductor();
+
+    noteManager = new NoteManager();
+
+    modifierManager = new ModifierManager();
+
+    player = new Character();
+
+    opponent = new Character();
+
+    stage = new Stage();
+
+    hud = new HUD();
+
+    scripts = new ScriptManager();
+
+    return true;
 }
 
-void GameplayState::Update(
-float dt)
+void GameplayState::LoadSong(
+const char* songName)
 {
-    input.Update();
+    songLoader->Load(songName);
 
-    events.Update(
-        audio.GetPosition()
-    );
+    chartParser->Parse(songName);
+}
 
-    noteManager.Update(dt);
+void GameplayState::Update()
+{
+    conductor->Update();
+
+    noteManager->Update();
+
+    modifierManager->Update();
+
+    player->Update();
+
+    opponent->Update();
+
+    stage->Update();
+
+    hud->Update();
+
+    scripts->ExecuteAll();
 }
 
 void GameplayState::Render()
 {
-    renderer.BeginFrame();
+    stage->Render();
 
-    noteManager.Render(renderer);
+    player->Render();
 
-    renderer.EndFrame();
+    opponent->Render();
+
+    noteManager->Render();
+
+    hud->Render();
 }
 
-void GameplayState::Reset()
+void GameplayState::Shutdown()
 {
-    noteManager.Clear();
+    delete scripts;
 
-    modifierManager.Reset();
+    delete hud;
 
-    playField.Reset();
+    delete stage;
+
+    delete opponent;
+
+    delete player;
+
+    delete modifierManager;
+
+    delete noteManager;
+
+    delete conductor;
+
+    delete chartParser;
+
+    delete songLoader;
 }

@@ -12,7 +12,7 @@ set(ENGINE_SOURCES
     main.cpp
     EngineLauncher.cpp
     Config/EngineConfig.cpp
-    Renderer/Matrix4Render.cpp
+    Renderer/Matrix4Renderer.cpp
     Math/Vector3.cpp
     Math/Matrix4.cpp
     Renderer/Camera3D.cpp

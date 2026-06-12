@@ -1,16 +1,14 @@
 #pragma once
 
-#include "../Gameplay/NoteManager.hpp"
-#include "../Modifier/ModifierManager.hpp"
-#include "../PlayField/PlayField.hpp"
-#include "../Object/StrumLine.hpp"
-#include "ChartParser.hpp"
-
-#include "../Audio/AudioManager.hpp"
-#include "InputManager.hpp"
-#include "Event/EventSystem.hpp"
-
-#include "../Renderer/Renderer.hpp"
+class SongLoader;
+class ChartParser;
+class Conductor;
+class NoteManager;
+class ModifierManager;
+class Character;
+class Stage;
+class HUD;
+class ScriptManager;
 
 class GameplayState
 {
@@ -19,36 +17,38 @@ public:
 
     GameplayState();
 
-    void Load();
+    bool Initialize();
 
-    void Update(
-        float dt
+    void LoadSong(
+        const char* songName
     );
+
+    void Update();
 
     void Render();
 
-    void Reset();
+    void Shutdown();
 
 private:
 
-    Renderer renderer;
+    SongLoader* songLoader;
 
-    AudioManager audio;
+    ChartParser* chartParser;
 
-    InputManager input;
+    Conductor* conductor;
 
-    EventSystem events;
+    NoteManager* noteManager;
 
-    ChartParser parser;
+    ModifierManager* modifierManager;
 
-    NoteManager noteManager;
+    Character* player;
 
-    ModifierManager modifierManager;
+    Character* opponent;
 
-    PlayField playField;
+    Stage* stage;
 
-    StrumLine playerStrums[4];
+    HUD* hud;
 
-    StrumLine opponentStrums[4];
+    ScriptManager* scripts;
 
 };

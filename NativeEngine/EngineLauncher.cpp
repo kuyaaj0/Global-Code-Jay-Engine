@@ -70,7 +70,7 @@ int safeFrames = config.value("safe_frames", 10);
 {
     std::cout << "[Jay Engine] Matrix4 Pipeline Enabled." << std::endl;
 
-    Matrix4Render::initialize();
+    Matrix4Renderer::initialize();
 }
     
     if (chosenEngine == 0) {

@@ -1,7 +1,7 @@
 #include "GameplayState.hpp"
 
 #include "../Loader/SongLoader.hpp"
-#include "../Loader/ChartParser.hpp"
+#include "ChartParser.hpp"
 
 #include "../Backend/Conductor.hpp"
 #include "../Gameplay/NoteManager.hpp"

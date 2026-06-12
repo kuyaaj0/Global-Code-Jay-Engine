@@ -2,11 +2,11 @@
 
 #include "../Systems/WindowManager.hpp"
 #include "../Renderer/Renderer.hpp"
-#include "../Input/InputManager.hpp"
+#include "../States/InputManager.hpp"
 #include "../Audio/AudioManager.hpp"
-#include "../Managers/AssetManager.hpp"
+#include "../Manager/AssetManager.hpp"
 #include "../Scripting/ScriptManager.hpp"
-#include "../Gameplay/GameplayState.hpp"
+#include "../States/GameplayState.hpp"
 
 Engine::Engine()
 {

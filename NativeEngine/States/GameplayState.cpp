@@ -77,7 +77,8 @@ void GameplayState::Update()
 );
     
     noteManager->Update(
-    conductor->GetSongPosition()
+    conductor->GetSongPosition(),
+    modifierManager
 );
 
     modifierManager->Update();

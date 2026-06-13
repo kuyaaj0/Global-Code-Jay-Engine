@@ -70,15 +70,21 @@ float songPosition)
         if(note == nullptr)
             continue;
 
-        // We'll compare lane/time later
-        // after upgrading Note3D.
+        if(note->IsHit())
+            continue;
 
-        float distance = 0.0f;
+        if(note->GetLane() != lane)
+            continue;
+
+        float distance =
+            std::fabs(
+                note->GetTime() -
+                songPosition
+            );
 
         if(distance < closestDistance)
         {
             closestDistance = distance;
-
             closest = note;
         }
     }

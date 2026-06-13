@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+
 #include "NoteData.hpp"
 
 class Note3D;
@@ -13,21 +14,27 @@ public:
 
     NoteManager();
 
+    ~NoteManager();
+
     void Update(
         float songPosition,
         ModifierManager* modifiers
     );
 
     void Render();
-    
-    NoteData* FindClosestNote(
-    int lane,
-    float songPosition
-);
 
-void MarkHit(
-    NoteData* note
-);
+    void AddNote(
+        Note3D* note
+    );
+
+    Note3D* FindClosestNote(
+        int lane,
+        float songPosition
+    );
+
+    void MarkHit(
+        Note3D* note
+    );
 
 private:
 

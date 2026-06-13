@@ -12,7 +12,16 @@ public:
     Note3D();
 
     void SetLane(int lane);
+
     void SetTime(float time);
+
+    void SetHit(bool value);
+
+    int GetLane() const;
+
+    float GetTime() const;
+
+    bool IsHit() const;
 
     void Update(
         float songPosition,
@@ -26,6 +35,7 @@ private:
     int lane;
 
     float noteTime;
+
     bool hit;
 
     Vector3 position;

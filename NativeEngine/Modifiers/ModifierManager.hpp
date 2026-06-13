@@ -1,61 +1,34 @@
 #pragma once
 
-#include "../Gameplay/Note3D.hpp"
+#include "../Math/Vector3.hpp"
 
 class ModifierManager
 {
 
 public:
 
-    float reverse;
-
-    float drunk;
-
-    float tipsy;
-
-    float tornado;
-
-    float zigzag;
-
-    float bounce;
-
-    float mini;
-
-    float hidden;
-
-    float sudden;
-
-    float boost;
-
-    float brake;
-
-    float wave;
-
-    float flip;
-
-    float invert;
-
-    float xmod;
-
-    float cmod;
-
-    float mmod;
-
-    float perspective;
-
-    float rotateX;
-
-    float rotateY;
-
-    float rotateZ;
-
     ModifierManager();
 
-    void Reset();
+    void SetReverse(float value);
+    void SetBoost(float value);
+    void SetBrake(float value);
+    void SetWave(float value);
+    void SetMini(float value);
+    void SetFlip(float value);
 
-    void Apply(
-        Note3D& note,
-        float songPosition
+    Vector3 Apply(
+        int lane,
+        float distance,
+        Vector3 position
     );
+
+private:
+
+    float reverse;
+    float boost;
+    float brake;
+    float wave;
+    float mini;
+    float flip;
 
 };

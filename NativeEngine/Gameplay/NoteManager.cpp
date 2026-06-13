@@ -22,7 +22,7 @@ ModifierManager* modifiers)
 
 void NoteManager::Render()
 {
-    for(auto note : notes)
+    for(Note3D* note : notes)
     {
         note->Render();
     }

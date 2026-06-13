@@ -23,6 +23,26 @@ void Note3D::SetTime(float value)
     noteTime = value;
 }
 
+void Note3D::SetHit(bool value)
+{
+    hit = value;
+}
+
+int Note3D::GetLane() const
+{
+    return lane;
+}
+
+float Note3D::GetTime() const
+{
+    return noteTime;
+}
+
+bool Note3D::IsHit() const
+{
+    return hit;
+}
+
 void Note3D::Update(
 float songPosition,
 ModifierManager* modifiers)

@@ -16,6 +16,15 @@ public:
     );
 
     void Render();
+    
+    NoteData* FindClosestNote(
+    int lane,
+    float songPosition
+);
+
+void MarkHit(
+    NoteData* note
+);
 
 private:
 

@@ -1,5 +1,9 @@
 #pragma once
 
+#include "../Math/Vector3.hpp"
+
+class ModifierManager;
+
 class Note3D
 {
 
@@ -7,16 +11,12 @@ public:
 
     Note3D();
 
-    void SetLane(
-        int lane
-    );
-
-    void SetTime(
-        float time
-    );
+    void SetLane(int lane);
+    void SetTime(float time);
 
     void Update(
-        float currentSongPosition
+        float songPosition,
+        ModifierManager* modifiers
     );
 
     void Render();
@@ -27,6 +27,6 @@ private:
 
     float noteTime;
 
-    float yPosition;
+    Vector3 position;
 
 };

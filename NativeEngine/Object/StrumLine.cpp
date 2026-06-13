@@ -1,43 +1,17 @@
 #include "StrumLine.hpp"
 
-#include "../Renderer/Renderer.hpp"
-
 StrumLine::StrumLine()
 {
-    Reset();
+
 }
 
-void StrumLine::Reset()
-{
-    transform.Reset();
-
-    lane = 0;
-
-    player = 0;
-
-    pressed = false;
-
-    confirm = false;
-
-    staticState = true;
-
-    alpha = 1.0f;
-
-    angle = 0.0f;
-}
-
-void StrumLine::Update(
-float dt)
+JudgeResult StrumLine::Judge(
+int lane,
+float songPosition,
+NoteManager* notes)
 {
     // Future:
-    // receptor animations
-    // press animation
-    // confirm animation
-}
+    // Search nearest note
 
-void StrumLine::Render(
-Renderer& renderer)
-{
-    // Future:
-    // draw receptor sprite
+    return JudgeResult::Sick;
 }

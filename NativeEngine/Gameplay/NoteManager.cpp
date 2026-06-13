@@ -1,74 +1,58 @@
 #include "NoteManager.hpp"
 
-#include "../Renderer/Renderer.hpp"
-
-#include <algorithm>
+#include "Note3D.hpp"
 
 NoteManager::NoteManager()
 {
 
 }
 
-void NoteManager::SpawnNote(
-const Note3D& note)
+void NoteManager::LoadNotes(
+const std::vector<NoteData>& chart)
 {
-    notes.push_back(note);
-}
+    Clear();
 
-void NoteManager::Update(
-float dt)
-{
-    for(auto& note : notes)
+    for(const auto& data : chart)
     {
-        if(note.alive)
-        {
-            note.Update(dt);
-        }
-    }
+        Note3D* note =
+            new Note3D();
 
-    RemoveDeadNotes();
-}
+        note->SetLane(
+            data.lane
+        );
 
-void NoteManager::Render(
-Renderer& renderer)
-{
-    for(auto& note : notes)
-    {
-        if(note.visible && note.alive)
-        {
-            note.Render(renderer);
-        }
+        note->SetTime(
+            data.time
+        );
+
+        notes.push_back(
+            note
+        );
     }
 }
 
-void NoteManager::RemoveDeadNotes()
+void NoteManager::Update()
 {
-    notes.erase(
+    for(auto note : notes)
+    {
+        note->Update();
+    }
+}
 
-        std::remove_if(
-
-            notes.begin(),
-
-            notes.end(),
-
-            [](const Note3D& note)
-            {
-                return !note.alive;
-            }
-
-        ),
-
-        notes.end()
-
-    );
+void NoteManager::Render()
+{
+    for(auto note : notes)
+    {
+        note->Render();
+    }
 }
 
 void NoteManager::Clear()
 {
-    notes.clear();
-}
+    for(auto note : notes)
+    {
+        delete note;
+    }
 
-int NoteManager::GetNoteCount() const
-{
-    return static_cast<int>(notes.size());
+    notes.clear();
 }

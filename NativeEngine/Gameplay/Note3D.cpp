@@ -1,40 +1,55 @@
 #include "Note3D.hpp"
 
+#include "../Modifier/ModifierManager.hpp"
+
 Note3D::Note3D()
 {
     lane = 0;
 
     noteTime = 0.0f;
 
-    yPosition = 0.0f;
+    position = Vector3();
 }
 
-void Note3D::SetLane(
-int value)
+void Note3D::SetLane(int value)
 {
     lane = value;
 }
 
-void Note3D::SetTime(
-float value)
+void Note3D::SetTime(float value)
 {
     noteTime = value;
 }
 
 void Note3D::Update(
-float currentSongPosition)
+float songPosition,
+ModifierManager* modifiers)
 {
     float distance =
         noteTime -
-        currentSongPosition;
+        songPosition;
 
-    yPosition =
-        distance *
-        0.45f;
+    position.x =
+        lane * 120.0f;
+
+    position.y =
+        distance * 0.45f;
+
+    position.z = 0.0f;
+
+    if(modifiers != nullptr)
+    {
+        position =
+            modifiers->Apply(
+                lane,
+                distance,
+                position
+            );
+    }
 }
 
 void Note3D::Render()
 {
     // Future:
-    // Draw note at yPosition
+    // Renderer->Draw(position)
 }

@@ -66,8 +66,12 @@ void GameplayState::LoadSong(
 const char* songName)
 {
     songLoader->Load(songName);
-
+    
     chartParser->Parse(songName);
+    
+    noteManager->LoadNotes(
+    chartParser->GetNotes()
+);
 }
 
 void GameplayState::Update(

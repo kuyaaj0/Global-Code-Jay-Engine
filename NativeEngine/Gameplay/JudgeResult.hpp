@@ -2,9 +2,15 @@
 
 enum class JudgeResult
 {
+
     Marvelous,
+
     Sick,
+
     Good,
+
     Bad,
+
     Miss
+
 };

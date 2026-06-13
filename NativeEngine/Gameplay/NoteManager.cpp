@@ -27,3 +27,12 @@ void NoteManager::Render()
         note->Render();
     }
 }
+
+NoteData* FindClosestNote(
+    int lane,
+    float songPosition
+);
+
+void MarkHit(
+    NoteData* note
+);

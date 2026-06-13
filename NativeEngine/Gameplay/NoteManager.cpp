@@ -28,11 +28,11 @@ void NoteManager::Render()
     }
 }
 
-NoteData* FindClosestNote(
-    int lane,
-    float songPosition
-);
-
-void MarkHit(
-    NoteData* note
-);
+void NoteManager::MarkHit(
+NoteData* note)
+{
+    if(note != nullptr)
+    {
+        note->hit = true;
+    }
+}

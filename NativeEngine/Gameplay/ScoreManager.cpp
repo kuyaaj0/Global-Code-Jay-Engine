@@ -2,46 +2,48 @@
 
 ScoreManager::ScoreManager()
 {
-    Reset();
-}
-
-void ScoreManager::Reset()
-{
     score = 0;
-    combo = 0;
-    misses = 0;
-    maxCombo = 0;
-    accuracy = 100.0f;
-}
 
-void ScoreManager::AddScore(int value)
-{
-    score += value;
-}
-
-void ScoreManager::AddCombo()
-{
-    combo++;
-
-    if(combo > maxCombo)
-        maxCombo = combo;
-}
-
-void ScoreManager::BreakCombo()
-{
     combo = 0;
 }
 
-void ScoreManager::RegisterHit(float rating)
+void ScoreManager::AddJudge(
+JudgeResult result)
 {
-    AddCombo();
+    switch(result)
+    {
+        case JudgeResult::Marvelous:
+            score += 350;
+            combo++;
+            break;
 
-    score += (int)(350 * rating);
+        case JudgeResult::Sick:
+            score += 300;
+            combo++;
+            break;
+
+        case JudgeResult::Good:
+            score += 200;
+            combo++;
+            break;
+
+        case JudgeResult::Bad:
+            score += 50;
+            combo = 0;
+            break;
+
+        case JudgeResult::Miss:
+            combo = 0;
+            break;
+    }
 }
 
-void ScoreManager::RegisterMiss()
+int ScoreManager::GetScore() const
 {
-    misses++;
+    return score;
+}
 
-    BreakCombo();
+int ScoreManager::GetCombo() const
+{
+    return combo;
 }

@@ -1,32 +1,26 @@
 #pragma once
 
+#include "JudgeResult.hpp"
+
 class ScoreManager
 {
 
 public:
 
+    ScoreManager();
+
+    void AddJudge(
+        JudgeResult result
+    );
+
+    int GetScore() const;
+
+    int GetCombo() const;
+
+private:
+
     int score;
 
     int combo;
-
-    int misses;
-
-    int maxCombo;
-
-    float accuracy;
-
-    ScoreManager();
-
-    void Reset();
-
-    void AddScore(int value);
-
-    void AddCombo();
-
-    void BreakCombo();
-
-    void RegisterHit(float rating);
-
-    void RegisterMiss();
 
 };

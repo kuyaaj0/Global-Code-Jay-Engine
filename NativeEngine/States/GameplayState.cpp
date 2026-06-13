@@ -72,9 +72,13 @@ const char* songName)
 
 void GameplayState::Update()
 {
-    conductor->Update();
-
-    noteManager->Update();
+    conductor->Update(
+    deltaTime
+);
+    
+    noteManager->Update(
+    conductor->GetSongPosition()
+);
 
     modifierManager->Update();
 

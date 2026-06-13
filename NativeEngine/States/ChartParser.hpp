@@ -1,36 +1,25 @@
 #pragma once
 
-#include <string>
 #include <vector>
 
-struct ChartNote
-{
-
-    float strumTime;
-
-    int lane;
-
-    bool sustain;
-
-    int player;
-
-};
+#include "../Gameplay/NoteData.hpp"
 
 class ChartParser
 {
 
 public:
 
-    std::vector<ChartNote> notes;
-
     ChartParser();
 
-    bool LoadChart(
-        const std::string& path
+    bool Parse(
+        const char* path
     );
 
-    void Clear();
+    const std::vector<NoteData>&
+    GetNotes() const;
 
-    int GetNoteCount() const;
+private:
+
+    std::vector<NoteData> notes;
 
 };

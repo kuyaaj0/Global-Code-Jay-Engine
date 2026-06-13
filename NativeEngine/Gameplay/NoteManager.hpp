@@ -2,35 +2,29 @@
 
 #include <vector>
 
-#include "Note3D.hpp"
+#include "NoteData.hpp"
 
-class Renderer;
+class Note3D;
 
 class NoteManager
 {
 
 public:
 
-    std::vector<Note3D> notes;
-
     NoteManager();
 
-    void SpawnNote(
-        const Note3D& note
+    void LoadNotes(
+        const std::vector<NoteData>& chart
     );
 
-    void Update(
-        float dt
-    );
+    void Update();
 
-    void Render(
-        Renderer& renderer
-    );
-
-    void RemoveDeadNotes();
+    void Render();
 
     void Clear();
 
-    int GetNoteCount() const;
+private:
+
+    std::vector<Note3D*> notes;
 
 };

@@ -5,30 +5,39 @@ Conductor::Conductor()
     bpm = 120.0f;
 
     songPosition = 0.0f;
-
-    curBeat = 0;
-
-    curStep = 0;
-
-    SetBPM(bpm);
 }
 
-void Conductor::SetBPM(float value)
+void Conductor::SetBPM(
+float value)
 {
     bpm = value;
-
-    crochet = 60000.0f / bpm;
-
-    stepCrochet = crochet / 4.0f;
 }
 
-void Conductor::Update(float milliseconds)
+void Conductor::SetSongPosition(
+float position)
 {
-    songPosition = milliseconds;
+    songPosition = position;
+}
 
-    curBeat =
-        (int)(songPosition / crochet);
+void Conductor::Update(
+float deltaTime)
+{
+    songPosition += deltaTime;
+}
 
-    curStep =
-        (int)(songPosition / stepCrochet);
+float Conductor::GetSongPosition() const
+{
+    return songPosition;
+}
+
+float Conductor::GetBeat() const
+{
+    return
+        songPosition /
+        (60000.0f / bpm);
+}
+
+float Conductor::GetStep() const
+{
+    return GetBeat() * 4.0f;
 }

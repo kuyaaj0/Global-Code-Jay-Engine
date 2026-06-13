@@ -7,22 +7,16 @@ class SongLoader
 
 public:
 
-    bool LoadSong(
+    SongLoader();
 
-        const std::string& folder
-
+    bool Load(
+        const std::string& song
     );
 
-    bool LoadChart(
+    std::string GetSongPath() const;
 
-        const std::string& chart
+private:
 
-    );
-
-    bool LoadAudio(
-
-        const std::string& audio
-
-    );
+    std::string currentSong;
 
 };

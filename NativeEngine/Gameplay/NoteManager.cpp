@@ -8,12 +8,14 @@ NoteManager::NoteManager()
 }
 
 void NoteManager::Update(
-float songPosition)
+float songPosition,
+ModifierManager* modifiers)
 {
     for(auto note : notes)
     {
         note->Update(
-            songPosition
+            songPosition,
+            modifiers
         );
     }
 }

@@ -70,7 +70,9 @@ const char* songName)
     chartParser->Parse(songName);
 }
 
-void GameplayState::Update()
+void GameplayState::Update(
+    float deltaTime
+)
 {
     conductor->Update(
     deltaTime

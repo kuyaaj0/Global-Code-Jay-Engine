@@ -7,35 +7,14 @@ NoteManager::NoteManager()
 
 }
 
-void NoteManager::LoadNotes(
-const std::vector<NoteData>& chart)
-{
-    Clear();
-
-    for(const auto& data : chart)
-    {
-        Note3D* note =
-            new Note3D();
-
-        note->SetLane(
-            data.lane
-        );
-
-        note->SetTime(
-            data.time
-        );
-
-        notes.push_back(
-            note
-        );
-    }
-}
-
-void NoteManager::Update()
+void NoteManager::Update(
+float songPosition)
 {
     for(auto note : notes)
     {
-        note->Update();
+        note->Update(
+            songPosition
+        );
     }
 }
 
@@ -45,14 +24,4 @@ void NoteManager::Render()
     {
         note->Render();
     }
-}
-
-void NoteManager::Clear()
-{
-    for(auto note : notes)
-    {
-        delete note;
-    }
-
-    notes.clear();
 }

@@ -11,6 +11,8 @@ struct NoteData
 
     bool mustHit;
 
+    bool hit;
+
     NoteData()
     {
         time = 0.0f;
@@ -20,6 +22,8 @@ struct NoteData
         sustainLength = 0.0f;
 
         mustHit = true;
+
+        hit = false;
     }
 
 };

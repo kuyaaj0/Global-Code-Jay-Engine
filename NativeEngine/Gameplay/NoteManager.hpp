@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include "NoteData.hpp"
 
 class Note3D;
 class ModifierManager;

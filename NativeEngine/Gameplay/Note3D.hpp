@@ -26,6 +26,7 @@ private:
     int lane;
 
     float noteTime;
+    bool hit;
 
     Vector3 position;
 

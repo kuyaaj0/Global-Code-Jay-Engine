@@ -12,7 +12,8 @@ public:
     NoteManager();
 
     void Update(
-        float songPosition
+        float songPosition,
+        ModifierManager* modifiers
     );
 
     void Render();

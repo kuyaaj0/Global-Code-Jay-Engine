@@ -2,39 +2,40 @@
 
 HealthManager::HealthManager()
 {
-    Reset();
+    health = 1.0f;
 }
 
-void HealthManager::Reset()
+void HealthManager::ApplyJudge(
+JudgeResult result)
 {
-    maxHealth = 2.0f;
-
-    health = maxHealth;
-
-    dead = false;
-}
-
-void HealthManager::AddHealth(float amount)
-{
-    health += amount;
-
-    if(health > maxHealth)
-        health = maxHealth;
-}
-
-void HealthManager::RemoveHealth(float amount)
-{
-    health -= amount;
-
-    if(health <= 0.0f)
+    switch(result)
     {
-        health = 0.0f;
+        case JudgeResult::Marvelous:
+        case JudgeResult::Sick:
+            health += 0.02f;
+            break;
 
-        dead = true;
+        case JudgeResult::Good:
+            health += 0.01f;
+            break;
+
+        case JudgeResult::Bad:
+            health -= 0.03f;
+            break;
+
+        case JudgeResult::Miss:
+            health -= 0.08f;
+            break;
     }
+
+    if(health > 2.0f)
+        health = 2.0f;
+
+    if(health < 0.0f)
+        health = 0.0f;
 }
 
-bool HealthManager::IsDead() const
+float HealthManager::GetHealth() const
 {
-    return dead;
+    return health;
 }

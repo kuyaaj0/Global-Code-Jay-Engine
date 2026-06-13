@@ -1,77 +1,40 @@
 #include "Note3D.hpp"
-#include "../Renderer/Renderer.hpp"
 
 Note3D::Note3D()
 {
-    Reset();
-}
-
-void Note3D::Reset()
-{
-    transform.Reset();
-
-    velocity = Vector3(0,0,0);
-
-    acceleration = Vector3(0,0,0);
-
-    alpha = 1.0f;
-
-    angle = 0.0f;
-
-    width = 64.0f;
-
-    height = 64.0f;
-
-    scale = 1.0f;
-
-    strumTime = 0.0f;
-
-    visible = true;
-
-    alive = true;
-
-    sustain = false;
-
-    mustPress = false;
-
     lane = 0;
 
-    noteData = 0;
+    noteTime = 0.0f;
 
-    player = 0;
+    yPosition = 0.0f;
+}
+
+void Note3D::SetLane(
+int value)
+{
+    lane = value;
+}
+
+void Note3D::SetTime(
+float value)
+{
+    noteTime = value;
 }
 
 void Note3D::Update(
-float dt)
+float currentSongPosition)
 {
-    velocity =
-        velocity +
-        acceleration * dt;
+    float distance =
+        noteTime -
+        currentSongPosition;
 
-    transform.Translate(
-        velocity * dt
-    );
+    yPosition =
+        distance *
+        0.45f;
 }
 
-void Note3D::Render(
-Renderer& renderer)
+void Note3D::Render()
 {
-    if(!visible)
-        return;
-
-    if(!alive)
-        return;
-
-    // Rendering implementation
-    // will be connected to Renderer later
-}
-
-void Note3D::Kill()
-{
-    alive = false;
-}
-
-void Note3D::Revive()
-{
-    alive = true;
+    // Future:
+    // Draw note at yPosition
 }

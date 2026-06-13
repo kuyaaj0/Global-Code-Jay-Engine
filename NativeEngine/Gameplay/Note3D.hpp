@@ -1,61 +1,32 @@
 #pragma once
 
-#include "../Transform/Transform.hpp"
-#include "../Math/Vector3.hpp"
-
-class Renderer;
-
 class Note3D
 {
 
 public:
 
-    Transform transform;
+    Note3D();
 
-    Vector3 velocity;
+    void SetLane(
+        int lane
+    );
 
-    Vector3 acceleration;
+    void SetTime(
+        float time
+    );
 
-    float alpha;
+    void Update(
+        float currentSongPosition
+    );
 
-    float angle;
+    void Render();
 
-    float width;
-
-    float height;
-
-    float scale;
-
-    float strumTime;
-
-    bool visible;
-
-    bool alive;
-
-    bool sustain;
-
-    bool mustPress;
+private:
 
     int lane;
 
-    int noteData;
+    float noteTime;
 
-    int player;
-
-    Note3D();
-
-    void Update(
-        float dt
-    );
-
-    void Render(
-        Renderer& renderer
-    );
-
-    void Reset();
-
-    void Kill();
-
-    void Revive();
+    float yPosition;
 
 };

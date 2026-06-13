@@ -23,7 +23,9 @@ public:
         const char* songName
     );
 
-    void Update();
+    void Update(
+    float deltaTime
+);
 
     void Render();
 

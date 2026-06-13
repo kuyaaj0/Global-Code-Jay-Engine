@@ -1,19 +1,24 @@
 #include "SongLoader.hpp"
 
-bool SongLoader::LoadSong(
-const std::string& folder)
+SongLoader::SongLoader()
 {
+
+}
+
+bool SongLoader::Load(
+const std::string& song)
+{
+    currentSong = song;
+
+    // Future:
+    // Locate song folder
+    // Load instrumental
+    // Load voices
+
     return true;
 }
 
-bool SongLoader::LoadChart(
-const std::string& chart)
+std::string SongLoader::GetSongPath() const
 {
-    return true;
-}
-
-bool SongLoader::LoadAudio(
-const std::string& audio)
-{
-    return true;
+    return currentSong;
 }

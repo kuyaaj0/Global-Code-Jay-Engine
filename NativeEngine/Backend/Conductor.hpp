@@ -5,22 +5,30 @@ class Conductor
 
 public:
 
-    float bpm;
-
-    float crochet;
-
-    float stepCrochet;
-
-    float songPosition;
-
-    int curBeat;
-
-    int curStep;
-
     Conductor();
 
-    void SetBPM(float value);
+    void SetBPM(
+        float bpm
+    );
 
-    void Update(float milliseconds);
+    void SetSongPosition(
+        float position
+    );
+
+    void Update(
+        float deltaTime
+    );
+
+    float GetSongPosition() const;
+
+    float GetBeat() const;
+
+    float GetStep() const;
+
+private:
+
+    float bpm;
+
+    float songPosition;
 
 };

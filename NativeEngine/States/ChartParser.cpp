@@ -1,46 +1,40 @@
 #include "ChartParser.hpp"
 
-#include <fstream>
-
 ChartParser::ChartParser()
 {
 
 }
 
-bool ChartParser::LoadChart(
-const std::string& path)
+bool ChartParser::Parse(
+const char* path)
 {
-    Clear();
+    notes.clear();
 
-    std::ifstream file(path);
+    // Future:
+    // Read JSON chart
 
-    if(!file.is_open())
-    {
-        return false;
-    }
+    NoteData note;
 
-    // Placeholder:
-    // Future JSON parser
-    // Example:
-    //
-    // strumTime
-    // lane
-    // sustain
-    // player
+    note.time = 1000.0f;
+    note.lane = 0;
 
-    file.close();
+    notes.push_back(note);
+
+    note.time = 1250.0f;
+    note.lane = 2;
+
+    notes.push_back(note);
+
+    note.time = 1500.0f;
+    note.lane = 1;
+
+    notes.push_back(note);
 
     return true;
 }
 
-void ChartParser::Clear()
+const std::vector<NoteData>&
+ChartParser::GetNotes() const
 {
-    notes.clear();
-}
-
-int ChartParser::GetNoteCount() const
-{
-    return static_cast<int>(
-        notes.size()
-    );
+    return notes;
 }

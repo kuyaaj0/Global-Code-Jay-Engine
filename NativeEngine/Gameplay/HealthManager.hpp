@@ -1,24 +1,22 @@
 #pragma once
 
+#include "JudgeResult.hpp"
+
 class HealthManager
 {
 
 public:
 
-    float health;
-
-    float maxHealth;
-
-    bool dead;
-
     HealthManager();
 
-    void Reset();
+    void ApplyJudge(
+        JudgeResult result
+    );
 
-    void AddHealth(float amount);
+    float GetHealth() const;
 
-    void RemoveHealth(float amount);
+private:
 
-    bool IsDead() const;
+    float health;
 
 };

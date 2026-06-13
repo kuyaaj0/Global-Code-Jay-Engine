@@ -98,6 +98,5 @@ Note3D* note)
     if(note == nullptr)
         return;
 
-    // We'll implement this after
-    // adding hit state to Note3D.
+    note->SetHit(true);
 }

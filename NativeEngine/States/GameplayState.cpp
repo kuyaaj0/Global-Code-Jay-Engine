@@ -87,8 +87,6 @@ void GameplayState::Update(
     modifierManager
 );
 
-    modifierManager->Update();
-
     player->Update();
 
     opponent->Update();

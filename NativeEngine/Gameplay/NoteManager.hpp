@@ -3,6 +3,7 @@
 #include <vector>
 
 class Note3D;
+class ModifierManager;
 
 class NoteManager
 {

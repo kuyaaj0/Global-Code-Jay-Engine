@@ -5,13 +5,57 @@ StrumLine::StrumLine()
 
 }
 
-JudgeResult StrumLine::Judge(
+JudgeResult
+StrumLine::Judge(
 int lane,
 float songPosition,
 NoteManager* notes)
 {
-    // Future:
-    // Search nearest note
 
-    return JudgeResult::Sick;
+    NoteData* note =
+        notes->FindClosestNote(
+            lane,
+            songPosition
+        );
+
+    if(note == nullptr)
+    {
+        return JudgeResult::Miss;
+    }
+
+    float diff =
+        fabs(
+            note->time -
+            songPosition
+        );
+
+    if(diff <= 22.0f)
+    {
+        notes->MarkHit(note);
+
+        return JudgeResult::Marvelous;
+    }
+
+    if(diff <= 45.0f)
+    {
+        notes->MarkHit(note);
+
+        return JudgeResult::Sick;
+    }
+
+    if(diff <= 90.0f)
+    {
+        notes->MarkHit(note);
+
+        return JudgeResult::Good;
+    }
+
+    if(diff <= 135.0f)
+    {
+        notes->MarkHit(note);
+
+        return JudgeResult::Bad;
+    }
+
+    return JudgeResult::Miss;
 }

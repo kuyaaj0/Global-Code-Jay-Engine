@@ -7,6 +7,11 @@
 #include "../Gameplay/NoteManager.hpp"
 #include "../Modifier/ModifierManager.hpp"
 
+#include "InputManager.hpp"
+#include "../Object/StrumLine.hpp"
+#include "../Gameplay/ScoreManager.hpp"
+#include "../Gameplay/HealthManager.hpp"
+
 #include "../Object/Character.hpp"
 #include "../Stage/Stage.hpp"
 
@@ -25,6 +30,14 @@ GameplayState::GameplayState()
     noteManager = nullptr;
 
     modifierManager = nullptr;
+
+    inputManager = nullptr;
+    
+    strumLine = nullptr;
+    
+    scoreManager = nullptr;
+    
+    healthManager = nullptr;
 
     player = nullptr;
 
@@ -48,6 +61,14 @@ bool GameplayState::Initialize()
     noteManager = new NoteManager();
 
     modifierManager = new ModifierManager();
+
+    inputManager = new InputManager();
+    
+    strumLine = new StrumLine();
+    
+    scoreManager = new ScoreManager();
+    
+    healthManager = new HealthManager();
 
     player = new Character();
 
@@ -81,6 +102,8 @@ void GameplayState::Update(
     conductor->Update(
     deltaTime
 );
+
+    inputManager->Update();
     
     noteManager->Update(
     conductor->GetSongPosition(),
@@ -124,6 +147,14 @@ void GameplayState::Shutdown()
     delete player;
 
     delete modifierManager;
+
+    delete healthManager;
+    
+    delete scoreManager;
+    
+    delete strumLine;
+    
+    delete inputManager;
 
     delete noteManager;
 

@@ -1,5 +1,9 @@
 #include "StrumLine.hpp"
 
+#include "Note3D.hpp"
+
+#include <cmath>
+
 StrumLine::StrumLine()
 {
 

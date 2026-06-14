@@ -1,10 +1,15 @@
 #pragma once
 
+
 class SongLoader;
 class ChartParser;
 class Conductor;
 class NoteManager;
 class ModifierManager;
+class InputManager;
+class StrumLine;
+class ScoreManager;
+class HealthManager;
 class Character;
 class Stage;
 class HUD;
@@ -42,6 +47,14 @@ private:
     NoteManager* noteManager;
 
     ModifierManager* modifierManager;
+
+    InputManager* inputManager;
+
+    StrumLine* strumLine;
+
+    ScoreManager* scoreManager;
+
+    HealthManager* healthManager;
 
     Character* player;
 

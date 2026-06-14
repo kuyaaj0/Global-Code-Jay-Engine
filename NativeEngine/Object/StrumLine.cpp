@@ -25,7 +25,7 @@ NoteManager* notes)
 
     float diff =
         fabs(
-            note->time -
+            note->GetTime() -
             songPosition
         );
 

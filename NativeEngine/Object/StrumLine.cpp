@@ -12,7 +12,7 @@ float songPosition,
 NoteManager* notes)
 {
 
-    NoteData* note =
+    Note3D* note =
         notes->FindClosestNote(
             lane,
             songPosition

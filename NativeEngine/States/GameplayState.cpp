@@ -104,6 +104,23 @@ void GameplayState::Update(
 );
 
     inputManager->Update();
+
+    for(int lane = 0; lane < 4; lane++)
+{
+    if(inputManager->IsLanePressed(lane))
+    {
+        JudgeResult result =
+            strumLine->Judge(
+                lane,
+                conductor->GetSongPosition(),
+                noteManager
+            );
+
+        scoreManager->AddJudge(result);
+
+        healthManager->ApplyJudge(result);
+    }
+}
     
     noteManager->Update(
     conductor->GetSongPosition(),
@@ -115,6 +132,15 @@ void GameplayState::Update(
     opponent->Update();
 
     stage->Update();
+
+    hud->score =
+    scoreManager->GetScore();
+
+    hud->combo =
+    scoreManager->GetCombo();
+
+    hud->health =
+    healthManager->GetHealth();
 
     hud->Update();
 

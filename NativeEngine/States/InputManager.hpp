@@ -9,8 +9,13 @@ public:
 
     void Update();
 
-    bool IsLanePressed(
-        int lane
-    ) const;
+    void SetLaneState(
+    int lane,
+    bool pressed
+);
+
+bool IsLanePressed(
+    int lane
+) const;
 
 };

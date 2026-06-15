@@ -10,12 +10,16 @@ public:
     void Update();
 
     void SetLaneState(
-    int lane,
-    bool pressed
-);
+        int lane,
+        bool pressed
+    );
 
-bool IsLanePressed(
-    int lane
-) const;
+    bool IsLanePressed(
+        int lane
+    ) const;
+
+private:
+
+    bool lanePressed[4];
 
 };

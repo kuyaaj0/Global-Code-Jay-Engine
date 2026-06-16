@@ -23,6 +23,8 @@ public:
 
     bool IsHit() const;
 
+    const Vector3& GetPosition() const;
+
     void Update(
         float songPosition,
         ModifierManager* modifiers

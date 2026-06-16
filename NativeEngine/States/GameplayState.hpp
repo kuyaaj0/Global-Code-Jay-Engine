@@ -8,6 +8,7 @@ class NoteManager;
 class ModifierManager;
 class InputManager;
 class StrumLine;
+class Renderer;
 class ScoreManager;
 class HealthManager;
 class Character;
@@ -32,7 +33,9 @@ public:
     float deltaTime
 );
 
-    void Render();
+    void Render(
+    Renderer* renderer
+    );
 
     void Shutdown();
 

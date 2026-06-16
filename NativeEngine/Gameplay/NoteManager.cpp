@@ -57,6 +57,15 @@ ModifierManager* modifiers)
         note->GetHeight();
 
     // Rendering code goes here next
+    if(
+    !note->IsHit() &&
+    !note->IsMissed() &&
+    songPosition >
+    note->GetTime() + 135.0f
+)
+{
+    note->SetMissed(true);
+}
 }
 }
 

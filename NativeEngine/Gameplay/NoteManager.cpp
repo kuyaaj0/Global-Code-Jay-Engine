@@ -1,5 +1,8 @@
 #include "NoteManager.hpp"
 
+#include "../Math/Matrix4.hpp"
+#include "../Math/Vector4.hpp"
+
 #include "Note3D.hpp"
 
 #include "../Renderer/Renderer.hpp"
@@ -37,15 +40,24 @@ float songPosition,
 ModifierManager* modifiers)
 {
     for(Note3D* note : notes)
-    {
-        if(note != nullptr)
-        {
-            note->Update(
-                songPosition,
-                modifiers
-            );
-        }
-    }
+{
+    if(note == nullptr)
+        continue;
+
+    if(note->IsHit())
+        continue;
+
+    const Vector3& position =
+        note->GetPosition();
+
+    float width =
+        note->GetWidth();
+
+    float height =
+        note->GetHeight();
+
+    // Rendering code goes here next
+}
 }
 
 void NoteManager::Render(
@@ -61,6 +73,48 @@ Renderer* renderer)
 
         if(note->IsHit())
             continue;
+
+        Matrix4 world =
+    Matrix4::Translation(
+        position.x,
+        position.y,
+        position.z
+    );
+
+        Vector4 vertices[4];
+
+vertices[0] = Vector4(
+    -width * 0.5f,
+    -height * 0.5f,
+    0.0f,
+    1.0f
+);
+
+vertices[1] = Vector4(
+     width * 0.5f,
+    -height * 0.5f,
+     0.0f,
+     1.0f
+);
+
+vertices[2] = Vector4(
+     width * 0.5f,
+     height * 0.5f,
+     0.0f,
+     1.0f
+);
+
+vertices[3] = Vector4(
+    -width * 0.5f,
+     height * 0.5f,
+     0.0f,
+     1.0f
+);
+
+        renderer->DrawNote(
+        world,
+        vertices
+        );
 
         // Rendering code will go here next
     }

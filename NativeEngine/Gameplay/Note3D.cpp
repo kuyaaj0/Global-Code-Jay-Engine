@@ -12,6 +12,7 @@ Note3D::Note3D()
     height = 64.0f;
 
     hit = false;
+    missed = false;
 
     position = Vector3();
 }
@@ -54,6 +55,16 @@ float Note3D::GetHeight() const
 bool Note3D::IsHit() const
 {
     return hit;
+}
+
+void Note3D::SetMissed(bool value)
+{
+    missed = value;
+}
+
+bool Note3D::IsMissed() const
+{
+    return missed;
 }
 
 const Vector3& Note3D::GetPosition() const

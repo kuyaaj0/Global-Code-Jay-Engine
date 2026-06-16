@@ -27,6 +27,9 @@ public:
 
     bool IsHit() const;
 
+    void SetMissed(bool value);
+    bool IsMissed() const;
+
     const Vector3& GetPosition() const;
 
     void Update(
@@ -48,6 +51,7 @@ private:
     float height;
 
     bool hit;
+    bool missed;
 
     Vector3 position;
 

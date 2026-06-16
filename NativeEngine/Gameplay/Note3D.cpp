@@ -99,8 +99,12 @@ ModifierManager* modifiers)
     }
 }
 
-void Note3D::Render()
+void Note3D::Render(
+Renderer* renderer)
 {
+    if(renderer == nullptr)
+        return;
+
     // Future:
-    // Renderer->Draw(position)
+    // build quad + draw note here
 }

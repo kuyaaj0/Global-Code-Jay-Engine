@@ -5,6 +5,7 @@
 
 #include "../Backend/Conductor.hpp"
 #include "../Gameplay/NoteManager.hpp"
+#include "../Gameplay/Note3D.hpp"
 #include "../Modifier/ModifierManager.hpp"
 
 #include "InputManager.hpp"
@@ -90,9 +91,25 @@ const char* songName)
     
     chartParser->Parse(songName);
     
-    noteManager->LoadNotes(
-    chartParser->GetNotes()
-);
+    const auto& notes =
+    chartParser->GetNotes();
+
+for(const auto& noteData : notes)
+{
+    Note3D* note = new Note3D();
+
+    note->SetLane(
+        noteData.lane
+    );
+
+    note->SetTime(
+        noteData.time
+    );
+
+    noteManager->AddNote(
+        note
+    );
+}
 }
 
 void GameplayState::Update(

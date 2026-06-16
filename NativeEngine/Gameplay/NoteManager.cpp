@@ -46,7 +46,8 @@ ModifierManager* modifiers)
     }
 }
 
-void NoteManager::Render()
+void NoteManager::Render(
+Renderer* renderer)
 {
     for(Note3D* note : notes)
     {

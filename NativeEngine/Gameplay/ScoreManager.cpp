@@ -5,6 +5,8 @@ ScoreManager::ScoreManager()
     score = 0;
 
     combo = 0;
+
+    misses = 0;
 }
 
 void ScoreManager::AddJudge(
@@ -34,6 +36,7 @@ JudgeResult result)
 
         case JudgeResult::Miss:
             combo = 0;
+            misses++;
             break;
     }
 }
@@ -46,4 +49,9 @@ int ScoreManager::GetScore() const
 int ScoreManager::GetCombo() const
 {
     return combo;
+}
+
+int ScoreManager::GetMisses() const
+{
+    return misses;
 }

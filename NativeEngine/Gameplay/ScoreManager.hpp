@@ -17,10 +17,14 @@ public:
 
     int GetCombo() const;
 
+    int GetMisses() const;
+
 private:
 
     int score;
 
     int combo;
+
+    int misses;
 
 };

@@ -43,6 +43,11 @@ bool Note3D::IsHit() const
     return hit;
 }
 
+const Vector3& Note3D::GetPosition() const
+{
+    return position;
+}
+
 void Note3D::Update(
 float songPosition,
 ModifierManager* modifiers)

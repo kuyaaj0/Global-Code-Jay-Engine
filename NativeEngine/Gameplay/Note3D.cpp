@@ -41,6 +41,16 @@ float Note3D::GetTime() const
     return noteTime;
 }
 
+float Note3D::GetWidth() const
+{
+    return width;
+}
+
+float Note3D::GetHeight() const
+{
+    return height;
+}
+
 bool Note3D::IsHit() const
 {
     return hit;

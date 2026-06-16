@@ -164,7 +164,9 @@ void GameplayState::Update(
     scripts->ExecuteAll();
 }
 
-void GameplayState::Render()
+void GameplayState::Render(
+Renderer* renderer
+)
 {
     stage->Render();
 
@@ -172,7 +174,7 @@ void GameplayState::Render()
 
     opponent->Render();
 
-    noteManager->Render();
+    noteManager->Render(renderer);
 
     hud->Render();
 }

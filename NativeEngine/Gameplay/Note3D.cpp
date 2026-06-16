@@ -8,6 +8,9 @@ Note3D::Note3D()
 
     noteTime = 0.0f;
 
+    width = 64.0f;
+    height = 64.0f;
+
     hit = false;
 
     position = Vector3();

@@ -21,6 +21,9 @@ public:
 
     float GetTime() const;
 
+    float GetWidth() const;
+    float GetHeight() const;
+
     bool IsHit() const;
 
     const Vector3& GetPosition() const;

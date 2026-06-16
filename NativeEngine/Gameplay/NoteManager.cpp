@@ -49,12 +49,18 @@ ModifierManager* modifiers)
 void NoteManager::Render(
 Renderer* renderer)
 {
+    if(renderer == nullptr)
+        return;
+
     for(Note3D* note : notes)
     {
-        if(note != nullptr)
-        {
-            note->Render();
-        }
+        if(note == nullptr)
+            continue;
+
+        if(note->IsHit())
+            continue;
+
+        // Rendering code will go here next
     }
 }
 

@@ -47,14 +47,14 @@ ModifierManager* modifiers)
     if(note->IsHit())
         continue;
 
-    const Vector3& position =
+   /* const Vector3& position =
         note->GetPosition();
 
     float width =
         note->GetWidth();
 
     float height =
-        note->GetHeight();
+        note->GetHeight();*/
 
     // Rendering code goes here next
     if(
@@ -69,8 +69,7 @@ ModifierManager* modifiers)
 }
 }
 
-void NoteManager::Render(
-Renderer* renderer)
+void NoteManager::Render(Renderer* renderer)
 {
     if(renderer == nullptr)
         return;
@@ -83,49 +82,29 @@ Renderer* renderer)
         if(note->IsHit())
             continue;
 
-        Matrix4 world =
+        if(note->IsMissed())
+            continue;
+
+        const Vector3& position = note->GetPosition();
+
+        float width = note->GetWidth();
+        float height = note->GetHeight();
+
+     Matrix4 world =
     Matrix4::Translation(
         position.x,
         position.y,
         position.z
     );
 
-        Vector4 vertices[4];
+    Vector4 vertices[4];
 
-vertices[0] = Vector4(
-    -width * 0.5f,
-    -height * 0.5f,
-    0.0f,
-    1.0f
-);
+vertices[0] = Vector4(-width * 0.5f, -height * 0.5f, 0, 1);
+vertices[1] = Vector4( width * 0.5f, -height * 0.5f, 0, 1);
+vertices[2] = Vector4( width * 0.5f,  height * 0.5f, 0, 1);
+vertices[3] = Vector4(-width * 0.5f,  height * 0.5f, 0, 1);
 
-vertices[1] = Vector4(
-     width * 0.5f,
-    -height * 0.5f,
-     0.0f,
-     1.0f
-);
-
-vertices[2] = Vector4(
-     width * 0.5f,
-     height * 0.5f,
-     0.0f,
-     1.0f
-);
-
-vertices[3] = Vector4(
-    -width * 0.5f,
-     height * 0.5f,
-     0.0f,
-     1.0f
-);
-
-        renderer->DrawNote(
-        world,
-        vertices
-        );
-
-        // Rendering code will go here next
+    renderer->DrawNote(world, vertices);
     }
 }
 

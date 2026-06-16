@@ -2,6 +2,8 @@
 
 #include "Note3D.hpp"
 
+#include "../Renderer/Renderer.hpp"
+
 #include "../Modifier/ModifierManager.hpp"
 
 #include <cmath>

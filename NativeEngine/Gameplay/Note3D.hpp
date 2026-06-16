@@ -38,6 +38,9 @@ private:
 
     float noteTime;
 
+    float width;
+    float height;
+
     bool hit;
 
     Vector3 position;

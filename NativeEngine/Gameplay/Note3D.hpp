@@ -3,6 +3,7 @@
 #include "../Math/Vector3.hpp"
 
 class ModifierManager;
+class Renderer;
 
 class Note3D
 {
@@ -33,7 +34,9 @@ public:
         ModifierManager* modifiers
     );
 
-    void Render();
+    void Render(
+    Renderer* renderer
+    );
 
 private:
 

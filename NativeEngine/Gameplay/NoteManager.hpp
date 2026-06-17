@@ -34,6 +34,10 @@ public:
         float songPosition
     );
 
+    void LoadNotes(
+    const std::vector<NoteData>& chartNotes
+);
+
     void MarkHit(
         Note3D* note
     );

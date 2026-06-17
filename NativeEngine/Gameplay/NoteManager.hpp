@@ -6,6 +6,7 @@
 
 class Note3D;
 class ModifierManager;
+class Renderer;
 
 class NoteManager
 {

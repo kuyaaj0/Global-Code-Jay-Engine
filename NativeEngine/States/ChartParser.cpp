@@ -29,6 +29,14 @@ const char* path)
         return false;
     }
 
+    if(format == "psych")
+{
+    return ChartConverter::LoadPsychChart(
+        path,
+        notes
+    );
+}
+
     for(auto& entry : chart["notes"])
     {
         NoteData note;

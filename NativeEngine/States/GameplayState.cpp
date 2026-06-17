@@ -219,6 +219,10 @@ JudgeResult result)
     hud->health =
     healthManager->GetHealth();
 
+    hud->ShowJudgment(
+    JudgeToString(result)
+);
+
     hud->Update();
 
     scripts->ExecuteAll();

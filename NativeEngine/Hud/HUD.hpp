@@ -20,6 +20,10 @@ public:
 
     float judgmentTimer;
 
+    void ShowJudgment(
+    const std::string& text
+);
+
     void Update();
 
     void Render();

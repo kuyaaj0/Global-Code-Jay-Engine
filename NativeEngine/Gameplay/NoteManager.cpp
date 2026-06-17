@@ -13,7 +13,11 @@
 
 NoteManager::NoteManager()
 {
-
+std::vector<Note3D*>&
+NoteManager::GetNotes()
+{
+    return notes;
+}
 }
 
 NoteManager::~NoteManager()

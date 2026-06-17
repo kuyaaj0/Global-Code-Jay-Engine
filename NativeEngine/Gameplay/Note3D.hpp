@@ -19,6 +19,8 @@ public:
     void SetHit(bool value);
 
     void SetHold(bool value);
+
+    void SetHolding(bool value);
     
     bool IsHold() const;
 
@@ -40,6 +42,7 @@ public:
     void SetMissed(bool value);
     bool IsMissed() const;
 
+    void SetCompleted(bool value);
     bool IsHolding() const;
     bool IsCompleted() const;
 
@@ -66,6 +69,7 @@ private:
     bool hit;
     bool missed;
 
+    bool holding;
     bool isHold;
     float sustainLength;
     bool holding;

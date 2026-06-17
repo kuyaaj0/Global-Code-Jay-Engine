@@ -25,4 +25,6 @@ public:
 private:
 
     Vector3 lanePosition[4];
+
+    float hitFlash[4];   // NEW
 };

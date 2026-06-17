@@ -73,21 +73,35 @@ bool Note3D::IsMissed() const
     return missed;
 }
 
-void SetHold(bool value)
+void Note3D::SetHold(bool value)
 {
     isHold = value;
 }
 
-void SetSustainLength(float value)
+void Note3D::SetSustainLength(float value)
 {
     sustainLength = value;
 }
 
-bool IsHold() const { return isHold; }
-float GetSustainLength() const { return sustainLength; }
+bool Note3D::IsHold() const
+{
+    return isHold;
+}
 
-bool IsHolding() const { return holding; }
-bool IsCompleted() const { return completed; }
+float Note3D::GetSustainLength() const
+{
+    return sustainLength;
+}
+
+bool Note3D::IsHolding() const
+{
+    return holding;
+}
+
+bool Note3D::IsCompleted() const
+{
+    return completed;
+}
 
 const Vector3& Note3D::GetPosition() const
 {

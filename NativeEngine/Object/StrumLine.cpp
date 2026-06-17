@@ -1,12 +1,57 @@
 #include "StrumLine.hpp"
 
 #include "Note3D.hpp"
+#include "../Renderer/Renderer.hpp"
+#include "../States/InputManager.hpp"
+#include "../Math/Matrix4.hpp"
+#include "../Math/Vector4.hpp"
 
 #include <cmath>
 
 StrumLine::StrumLine()
 {
+    for(int i = 0; i < 4; i++)
+    {
+        lanePosition[i] = Vector3();
+    }
 
+    // bottom screen positions
+    lanePosition[0].x = -180.0f;
+    lanePosition[1].x = -60.0f;
+    lanePosition[2].x = 60.0f;
+    lanePosition[3].x = 180.0f;
+
+    for(int i = 0; i < 4; i++)
+    {
+        lanePosition[i].y = -250.0f;
+    }
+}
+
+void StrumLine::Render(Renderer* renderer)
+{
+    if(renderer == nullptr)
+        return;
+
+    float size = 80.0f;
+
+    for(int i = 0; i < 4; i++)
+    {
+        Matrix4 world =
+            Matrix4::Translation(
+                lanePosition[i].x,
+                lanePosition[i].y,
+                0.0f
+            );
+
+        Vector4 quad[4];
+
+        quad[0] = Vector4(-size, -size, 0.0f, 1.0f);
+        quad[1] = Vector4( size, -size, 0.0f, 1.0f);
+        quad[2] = Vector4( size,  size, 0.0f, 1.0f);
+        quad[3] = Vector4(-size,  size, 0.0f, 1.0f);
+
+        renderer->DrawQuad(world, quad);
+    }
 }
 
 JudgeResult

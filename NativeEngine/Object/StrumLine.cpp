@@ -42,11 +42,21 @@ void StrumLine::Render(Renderer* renderer)
 
     for(int i = 0; i < 4; i++)
     {
+        float flash = hitFlash[i];
+
+        // base color intensity (fake lighting effect)
+        float scale = 1.0f + flash * 0.25f;
+
         Matrix4 world =
             Matrix4::Translation(
                 lanePosition[i].x,
                 lanePosition[i].y,
                 0.0f
+            ) *
+            Matrix4::Scale(
+                scale,
+                scale,
+                1.0f
             );
 
         Vector4 quad[4];

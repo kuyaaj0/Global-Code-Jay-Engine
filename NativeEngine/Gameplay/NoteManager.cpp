@@ -182,6 +182,13 @@ float songPosition)
 void NoteManager::LoadNotes(
 const std::vector<NoteData>& chartNotes)
 {
+    for(Note3D* note : notes)
+{
+    delete note;
+}
+
+notes.clear();
+    
     for(const NoteData& data : chartNotes)
     {
         Note3D* note = new Note3D();

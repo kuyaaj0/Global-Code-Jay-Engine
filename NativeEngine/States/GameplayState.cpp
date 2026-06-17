@@ -180,6 +180,8 @@ void GameplayState::Update(
     modifierManager
 );
 
+    strumLine->Update(inputManager);
+
     player->Update();
 
     opponent->Update();
@@ -211,6 +213,8 @@ Renderer* renderer
     opponent->Render();
 
     noteManager->Render(renderer);
+
+    strumLine->Render(renderer);
 
     hud->Render();
 }

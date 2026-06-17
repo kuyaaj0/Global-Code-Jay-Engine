@@ -44,9 +44,9 @@ float milliseconds)
         milliseconds;
 }
 
-float AudioManager::GetPosition() const
+float AudioManager::GetPlaybackPosition() const
 {
-    return currentPosition;
+    return playbackPosition;;
 }
 
 bool AudioManager::IsPlaying() const

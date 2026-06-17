@@ -1,6 +1,6 @@
 #include "ChartParser.hpp"
 #include <fstream>
-#include "json.hpp"
+#include "../external/json.hpp"
 
 using json = nlohmann::json;
 

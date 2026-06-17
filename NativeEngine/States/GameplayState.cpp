@@ -202,6 +202,38 @@ JudgeResult result)
     modifierManager
 );
 
+    for(Note3D* note : noteManager->GetNotes())
+{
+    if(note == nullptr)
+        continue;
+
+    if(note->IsHit())
+        continue;
+
+    if(note->IsMissed())
+        continue;
+
+    if(
+        conductor->GetSongPosition() >
+        note->GetTime() + 135.0f
+    )
+    {
+        note->SetMissed(true);
+
+        scoreManager->AddJudge(
+            JudgeResult::Miss
+        );
+
+        healthManager->ApplyJudge(
+            JudgeResult::Miss
+        );
+
+        hud->ShowJudgment(
+            "MISS"
+        );
+    }
+}
+
     strumLine->Update(inputManager);
 
     player->Update();

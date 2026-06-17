@@ -36,8 +36,10 @@ public:
         Note3D* note
     );
 
+    std::vector<Note3D*>& GetNotes();
+
 private:
 
-    std::vector<Note3D*>& GetNotes();
+    std::vector<Note3D*> notes;
 
 };

@@ -1,6 +1,7 @@
 #include "StrumLine.hpp"
 
-#include "Note3D.hpp"
+#include "../Gameplay/Note3D.hpp"
+#include "../Gameplay/NoteManager.hpp"
 #include "../Renderer/Renderer.hpp"
 #include "../States/InputManager.hpp"
 #include "../Math/Matrix4.hpp"
@@ -10,26 +11,20 @@
 
 StrumLine::StrumLine()
 {
-    for(int i = 0; i < 4; i++)
-    {
-        lanePosition[i] = Vector3();
-    }
-
-    // bottom screen positions
+    StrumLine::StrumLine()
+{
     lanePosition[0].x = -180.0f;
     lanePosition[1].x = -60.0f;
-    lanePosition[2].x = 60.0f;
+    lanePosition[2].x =  60.0f;
     lanePosition[3].x = 180.0f;
 
     for(int i = 0; i < 4; i++)
     {
         lanePosition[i].y = -250.0f;
-    }
+        lanePosition[i].z = 0.0f;
 
-    for(int i = 0; i < 4; i++)
-{
-    lanePosition[i] = Vector3();
-    hitFlash[i] = 0.0f;
+        hitFlash[i] = 0.0f;
+    }
 }
 }
 
@@ -72,6 +67,9 @@ void StrumLine::Render(Renderer* renderer)
 
 void StrumLine::Update(InputManager* input)
 {
+    if(input == nullptr)
+        return;
+    
     for(int i = 0; i < 4; i++)
     {
         if(input->IsLanePressed(i))

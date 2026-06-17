@@ -23,7 +23,7 @@ public:
 
     void Render(
     Renderer* renderer
-);a
+);
 
     void AddNote(
         Note3D* note

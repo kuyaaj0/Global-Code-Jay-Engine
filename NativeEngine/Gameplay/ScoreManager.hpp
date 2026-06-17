@@ -22,9 +22,13 @@ public:
 private:
 
     int score;
-
     int combo;
-
     int misses;
+
+    int marvelousCount;
+    int sickCount;
+    int goodCount;
+    int badCount;
+    int missCount;
 
 };

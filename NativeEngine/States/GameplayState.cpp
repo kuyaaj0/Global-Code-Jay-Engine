@@ -125,17 +125,53 @@ void GameplayState::Update(
     for(int lane = 0; lane < 4; lane++)
 {
     if(inputManager->IsLanePressed(lane))
+{
+    Note3D* note =
+        noteManager->FindClosestNote(lane, conductor->GetSongPosition());
+
+    if(note == nullptr)
+        continue;
+
+    JudgeResult result =
+        strumLine->Judge(
+            lane,
+            conductor->GetSongPosition(),
+            noteManager
+        );
+
+    scoreManager->AddJudge(result);
+    healthManager->ApplyJudge(result);
+
+    // START HOLD LOGIC
+    if(note->IsHold())
     {
-        JudgeResult result =
-            strumLine->Judge(
-                lane,
-                conductor->GetSongPosition(),
-                noteManager
-            );
+        note->SetHit(true);
+        note->SetHolding(true);
+    }
+}
+}
 
-        scoreManager->AddJudge(result);
+    for(auto note : noteManager->GetNotes())
+{
+    if(note->IsHold() && note->IsHolding())
+    {
+        if(inputManager->IsLaneHeld(note->GetLane()))
+        {
+            // still holding → good
+        }
+        else
+        {
+            // released early → break hold
+            note->SetMissed(true);
+        }
 
-        healthManager->ApplyJudge(result);
+        float holdEnd =
+            note->GetTime() + note->GetSustainLength();
+
+        if(conductor->GetSongPosition() >= holdEnd)
+        {
+            note->SetCompleted(true);
+        }
     }
 }
     

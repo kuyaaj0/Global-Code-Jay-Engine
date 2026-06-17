@@ -13,11 +13,7 @@
 
 NoteManager::NoteManager()
 {
-std::vector<Note3D*>&
-NoteManager::GetNotes()
-{
-    return notes;
-}
+
 }
 
 NoteManager::~NoteManager()
@@ -190,4 +186,10 @@ Note3D* note)
         return;
 
     note->SetHit(true);
+}
+
+std::vector<Note3D*>&
+NoteManager::GetNotes()
+{
+    return notes;
 }

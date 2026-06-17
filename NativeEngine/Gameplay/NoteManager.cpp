@@ -179,6 +179,34 @@ float songPosition)
     return closest;
 }
 
+void NoteManager::LoadNotes(
+const std::vector<NoteData>& chartNotes)
+{
+    for(const NoteData& data : chartNotes)
+    {
+        Note3D* note = new Note3D();
+
+        note->SetLane(
+            data.lane
+        );
+
+        note->SetTime(
+            data.time
+        );
+
+        if(data.isHold)
+        {
+            note->SetHold(true);
+
+            note->SetSustainLength(
+                data.sustainLength
+            );
+        }
+
+        AddNote(note);
+    }
+}
+
 void NoteManager::MarkHit(
 Note3D* note)
 {

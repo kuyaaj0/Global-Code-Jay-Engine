@@ -9,8 +9,6 @@
 
 #include <cmath>
 
-StrumLine::StrumLine()
-{
     StrumLine::StrumLine()
 {
     lanePosition[0].x = -180.0f;

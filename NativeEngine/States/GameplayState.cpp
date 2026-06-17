@@ -212,10 +212,16 @@ JudgeResult result)
 
     hud->score =
     scoreManager->GetScore();
-
+    
     hud->combo =
     scoreManager->GetCombo();
-
+    
+    hud->misses =
+    scoreManager->GetMisses();
+    
+    hud->accuracy =
+    scoreManager->GetAccuracy();
+    
     hud->health =
     healthManager->GetHealth();
 

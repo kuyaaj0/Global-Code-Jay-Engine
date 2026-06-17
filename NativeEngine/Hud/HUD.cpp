@@ -18,9 +18,16 @@ const std::string& text)
 
 void HUD::Render()
 {
-    // Future:
-    // Draw health bar
-    // Draw score
-    // Draw combo
-    // Draw accuracy
+    if(judgmentTimer > 0.0f)
+    {
+        // Future:
+        // Draw judgmentText centered
+
+        // Example:
+        // Renderer->DrawText(
+        //     judgmentText,
+        //     640,
+        //     300
+        // );
+    }
 }

@@ -1,4 +1,8 @@
 #include "ChartParser.hpp"
+#include <fstream>
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 ChartParser::ChartParser()
 {

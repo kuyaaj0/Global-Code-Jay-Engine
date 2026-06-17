@@ -81,33 +81,69 @@ void NoteManager::Render(Renderer* renderer)
 
         if(note->IsHit())
             continue;
-
+        
         if(note->IsMissed())
             continue;
 
         const Vector3& position = note->GetPosition();
 
-        float width = note->GetWidth();
+        float width  = note->GetWidth();
         float height = note->GetHeight();
 
-     Matrix4 world =
-    Matrix4::Translation(
-        position.x,
-        position.y,
-        position.z
-    );
+        // -----------------------------
+        // BUILD BASE QUAD (NOTE HEAD)
+        // -----------------------------
+        Matrix4 world =
+            Matrix4::Translation(
+                position.x,
+                position.y,
+                position.z
+            );
 
-    Vector4 vertices[4];
+        Vector4 vertices[4];
 
-vertices[0] = Vector4(-width * 0.5f, -height * 0.5f, 0, 1);
-vertices[1] = Vector4( width * 0.5f, -height * 0.5f, 0, 1);
-vertices[2] = Vector4( width * 0.5f,  height * 0.5f, 0, 1);
-vertices[3] = Vector4(-width * 0.5f,  height * 0.5f, 0, 1);
+        vertices[0] = Vector4(-width * 0.5f, -height * 0.5f, 0.0f, 1.0f);
+        vertices[1] = Vector4( width * 0.5f, -height * 0.5f, 0.0f, 1.0f);
+        vertices[2] = Vector4( width * 0.5f,  height * 0.5f, 0.0f, 1.0f);
+        vertices[3] = Vector4(-width * 0.5f,  height * 0.5f, 0.0f, 1.0f);
 
-    renderer->DrawNote(world, vertices);
+        // Draw HEAD (always)
+        renderer->DrawNote(world, vertices);
+
+        // -----------------------------
+        // HOLD NOTE BODY
+        // -----------------------------
+        if(note->IsHold())
+        {
+            float sustain = note->GetSustainLength();
+
+            // convert time → screen length
+            float bodyLength = sustain * 0.45f;
+
+            // body is BELOW head (extend downward)
+            Matrix4 bodyWorld =
+                Matrix4::Translation(
+                    position.x,
+                    position.y - bodyLength * 0.5f,
+                    position.z
+                ) *
+                Matrix4::Scale(
+                    1.0f,
+                    bodyLength / height,
+                    1.0f
+                );
+
+            Vector4 body[4];
+
+            body[0] = Vector4(-width * 0.5f, -height * 0.5f, 0.0f, 1.0f);
+            body[1] = Vector4( width * 0.5f, -height * 0.5f, 0.0f, 1.0f);
+            body[2] = Vector4( width * 0.5f,  height * 0.5f, 0.0f, 1.0f);
+            body[3] = Vector4(-width * 0.5f,  height * 0.5f, 0.0f, 1.0f);
+
+            renderer->DrawNote(bodyWorld, body);
+        }
     }
 }
-
 Note3D* NoteManager::FindClosestNote(
 int lane,
 float songPosition)

@@ -23,13 +23,13 @@ public:
         float milliseconds
     );
 
-    float GetPosition() const;
+    float GetPlaybackPosition() const;
 
     bool IsPlaying() const;
 
 private:
 
-    float currentPosition;
+    float playbackPosition;
 
     bool playing;
 

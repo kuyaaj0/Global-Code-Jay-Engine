@@ -142,6 +142,28 @@ void GameplayState::Update(
     scoreManager->AddJudge(result);
     healthManager->ApplyJudge(result);
 
+    const char* JudgeToString(
+JudgeResult result)
+{
+    switch(result)
+    {
+        case JudgeResult::Marvelous:
+            return "MARVELOUS";
+
+        case JudgeResult::Sick:
+            return "SICK";
+
+        case JudgeResult::Good:
+            return "GOOD";
+
+        case JudgeResult::Bad:
+            return "BAD";
+
+        default:
+            return "MISS";
+    }
+}
+
     // START HOLD LOGIC
     if(note->IsHold())
     {

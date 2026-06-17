@@ -14,25 +14,48 @@ const char* path)
 {
     notes.clear();
 
-    // Future:
-    // Read JSON chart
+    std::ifstream file(path);
 
-    NoteData note;
+    if(!file.is_open())
+    {
+        return false;
+    }
 
-    note.time = 1000.0f;
-    note.lane = 0;
+    json chart;
+    file >> chart;
 
-    notes.push_back(note);
+    if(!chart.contains("notes"))
+    {
+        return false;
+    }
 
-    note.time = 1250.0f;
-    note.lane = 2;
+    for(auto& entry : chart["notes"])
+    {
+        NoteData note;
 
-    notes.push_back(note);
+        note.time =
+            entry.value(
+                "time",
+                0.0f
+            );
 
-    note.time = 1500.0f;
-    note.lane = 1;
+        note.lane =
+            entry.value(
+                "lane",
+                0
+            );
 
-    notes.push_back(note);
+        note.sustainLength =
+            entry.value(
+                "sustainLength",
+                0.0f
+            );
+
+        note.isHold =
+            note.sustainLength > 0.0f;
+
+        notes.push_back(note);
+    }
 
     return true;
 }

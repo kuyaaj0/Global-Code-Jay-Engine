@@ -18,6 +18,16 @@ public:
 
     void SetHit(bool value);
 
+    void SetHold(bool value);
+    
+    bool IsHold() const;
+
+    void SetSustainLength(
+    float value
+);
+
+    float GetSustainLength() const;
+
     int GetLane() const;
 
     float GetTime() const;

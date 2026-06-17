@@ -40,6 +40,9 @@ public:
     void SetMissed(bool value);
     bool IsMissed() const;
 
+    bool IsHolding() const;
+    bool IsCompleted() const;
+
     const Vector3& GetPosition() const;
 
     void Update(

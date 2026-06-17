@@ -21,7 +21,9 @@ public:
         ModifierManager* modifiers
     );
 
-    void Render();
+    void Render(
+    Renderer* renderer
+);a
 
     void AddNote(
         Note3D* note

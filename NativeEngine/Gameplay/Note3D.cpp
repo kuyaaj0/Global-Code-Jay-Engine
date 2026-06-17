@@ -14,6 +14,12 @@ Note3D::Note3D()
     hit = false;
     missed = false;
 
+    isHold = false;
+    sustainLength = 0.0f;
+    
+    holding = false;
+    completed = false;
+
     position = Vector3();
 }
 
@@ -67,6 +73,22 @@ bool Note3D::IsMissed() const
     return missed;
 }
 
+void SetHold(bool value)
+{
+    isHold = value;
+}
+
+void SetSustainLength(float value)
+{
+    sustainLength = value;
+}
+
+bool IsHold() const { return isHold; }
+float GetSustainLength() const { return sustainLength; }
+
+bool IsHolding() const { return holding; }
+bool IsCompleted() const { return completed; }
+
 const Vector3& Note3D::GetPosition() const
 {
     return position;
@@ -87,6 +109,12 @@ ModifierManager* modifiers)
         distance * 0.45f;
 
     position.z = 0.0f;
+
+    if(isHold)
+{
+    // Visual idea: stretch note downward
+    // (later renderer will use sustainLength)
+}
 
     if(modifiers != nullptr)
     {

@@ -25,6 +25,12 @@ StrumLine::StrumLine()
     {
         lanePosition[i].y = -250.0f;
     }
+
+    for(int i = 0; i < 4; i++)
+{
+    lanePosition[i] = Vector3();
+    hitFlash[i] = 0.0f;
+}
 }
 
 void StrumLine::Render(Renderer* renderer)
@@ -51,6 +57,23 @@ void StrumLine::Render(Renderer* renderer)
         quad[3] = Vector4(-size,  size, 0.0f, 1.0f);
 
         renderer->DrawQuad(world, quad);
+    }
+}
+
+void StrumLine::Update(InputManager* input)
+{
+    for(int i = 0; i < 4; i++)
+    {
+        if(input->IsLanePressed(i))
+        {
+            hitFlash[i] = 1.0f; // full brightness
+        }
+
+        // decay over time
+        hitFlash[i] *= 0.85f;
+
+        if(hitFlash[i] < 0.01f)
+            hitFlash[i] = 0.0f;
     }
 }
 

@@ -116,8 +116,8 @@ void GameplayState::Update(
     float deltaTime
 )
 {
-    conductor->Update(
-    deltaTime
+    conductor->SetSongPosition(
+    audio->GetPlaybackPosition()
 );
 
     inputManager->Update();

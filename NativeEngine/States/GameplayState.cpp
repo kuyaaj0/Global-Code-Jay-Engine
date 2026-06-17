@@ -59,6 +59,8 @@ bool GameplayState::Initialize()
 
     conductor = new Conductor();
 
+    touchManager = new TouchManager();
+
     noteManager = new NoteManager();
 
     modifierManager = new ModifierManager();
@@ -118,6 +120,10 @@ void GameplayState::Update(
 {
     conductor->SetSongPosition(
     audio->GetPlaybackPosition()
+);
+
+    touchManager->Update(
+    inputManager
 );
 
     inputManager->Update();
@@ -306,6 +312,8 @@ void GameplayState::Shutdown()
     delete inputManager;
 
     delete noteManager;
+
+    delete touchManager;
 
     delete conductor;
 

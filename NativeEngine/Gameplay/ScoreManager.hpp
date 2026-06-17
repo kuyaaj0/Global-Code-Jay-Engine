@@ -19,6 +19,8 @@ public:
 
     int GetMisses() const;
 
+    float GetAccuracy() const;
+
 private:
 
     int score;

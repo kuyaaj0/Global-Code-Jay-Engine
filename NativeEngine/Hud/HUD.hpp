@@ -1,8 +1,9 @@
 #pragma once
 
+#include <string>
+
 class HUD
 {
-
 public:
 
     float health;
@@ -15,8 +16,11 @@ public:
 
     float accuracy;
 
+    std::string judgmentText;
+
+    float judgmentTimer;
+
     void Update();
 
     void Render();
-
 };

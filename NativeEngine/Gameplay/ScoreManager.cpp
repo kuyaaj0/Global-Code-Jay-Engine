@@ -64,3 +64,24 @@ int ScoreManager::GetMisses() const
 {
     return misses && missCount;
 }
+
+float ScoreManager::GetAccuracy() const
+{
+    float total =
+        marvelousCount +
+        sickCount +
+        goodCount +
+        badCount +
+        missCount;
+
+    if(total <= 0)
+        return 100.0f;
+
+    float points =
+        marvelousCount * 100.0f +
+        sickCount * 95.0f +
+        goodCount * 80.0f +
+        badCount * 50.0f;
+
+    return points / (total * 100.0f) * 100.0f;
+}

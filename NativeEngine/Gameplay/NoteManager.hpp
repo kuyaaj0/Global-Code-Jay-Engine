@@ -35,6 +35,10 @@ public:
         float songPosition
     );
 
+    Note3D* FindActiveHold(
+    int lane
+);
+
     void LoadNotes(
     const std::vector<NoteData>& chartNotes
 );

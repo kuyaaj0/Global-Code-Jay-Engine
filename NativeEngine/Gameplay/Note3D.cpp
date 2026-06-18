@@ -83,6 +83,11 @@ void Note3D::SetSustainLength(float value)
     sustainLength = value;
 }
 
+void Note3D::SetHolding(bool value)
+{
+    holding = value;
+}
+
 bool Note3D::IsHold() const
 {
     return isHold;
@@ -96,6 +101,11 @@ float Note3D::GetSustainLength() const
 bool Note3D::IsHolding() const
 {
     return holding;
+}
+
+void Note3D::SetCompleted(bool value)
+{
+    completed = value;
 }
 
 bool Note3D::IsCompleted() const

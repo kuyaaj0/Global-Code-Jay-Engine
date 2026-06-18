@@ -6,7 +6,7 @@ using json = nlohmann::json;
 
 ChartParser::ChartParser()
 {
-
+    format = "native";
 }
 
 bool ChartParser::Parse(
@@ -66,6 +66,17 @@ const char* path)
     }
 
     return true;
+}
+
+void ChartParser::SetFormat(
+const std::string& value)
+{
+    format = value;
+}
+
+std::string ChartParser::GetFormat() const
+{
+    return format;
 }
 
 const std::vector<NoteData>&

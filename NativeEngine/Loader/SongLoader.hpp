@@ -2,6 +2,8 @@
 
 #include <string>
 
+class SongMetadata;
+
 class SongLoader
 {
 
@@ -14,6 +16,14 @@ public:
     );
 
     std::string GetSongPath() const;
+
+    std::string GetSongFolder() const;
+
+    std::string GetChartPath() const;
+
+    std::string GetMetadataPath() const;
+
+    std::string GetEventsPath() const;
 
 private:
 

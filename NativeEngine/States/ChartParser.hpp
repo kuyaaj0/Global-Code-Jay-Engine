@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <string>
 
 #include "../Gameplay/NoteData.hpp"
 
@@ -15,11 +16,19 @@ public:
         const char* path
     );
 
+    void SetFormat(
+        const std::string& value
+    );
+
+    std::string GetFormat() const;
+
     const std::vector<NoteData>&
     GetNotes() const;
 
 private:
 
     std::vector<NoteData> notes;
+
+    std::string format;
 
 };

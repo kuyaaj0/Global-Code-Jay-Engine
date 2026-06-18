@@ -179,6 +179,30 @@ float songPosition)
     return closest;
 }
 
+Note3D* NoteManager::FindActiveHold(
+int lane
+)
+{
+    for(Note3D* note : notes)
+    {
+        if(note == nullptr)
+            continue;
+
+        if(!note->IsHold())
+            continue;
+
+        if(note->GetLane() != lane)
+            continue;
+
+        if(note->IsCompleted())
+            continue;
+
+        return note;
+    }
+
+    return nullptr;
+}
+
 void NoteManager::LoadNotes(
 const std::vector<NoteData>& chartNotes)
 {

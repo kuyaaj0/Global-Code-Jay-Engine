@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "EventData.hpp"
+#include "EventSystem.hpp"
 
 class EventParser
 {

@@ -7,7 +7,7 @@ class SongMetadata
 
 public:
 
-    std::string name;
+    std::string song;
 
     float bpm;
 

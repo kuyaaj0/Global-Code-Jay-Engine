@@ -69,7 +69,6 @@ private:
     bool hit;
     bool missed;
 
-    bool holding;
     bool isHold;
     float sustainLength;
     bool holding;

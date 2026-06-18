@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-struct GameEvent
+struct EventData
 {
 
     float time;
@@ -23,12 +23,12 @@ class EventSystem
 
 public:
 
-    std::vector<GameEvent> events;
+    std::vector<EventData> events;
 
     EventSystem();
 
     void AddEvent(
-        const GameEvent& event
+        const EventData& event
     );
 
     void Update(

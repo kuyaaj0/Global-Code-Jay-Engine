@@ -1,5 +1,9 @@
 #pragma once
 
+class SongLoader;
+class ChartParser;
+class NoteManager;
+
 class ChartEditorState
 {
 
@@ -16,5 +20,13 @@ public:
     void Render();
 
     void Shutdown();
+
+private:
+
+    SongLoader* songLoader;
+
+    ChartParser* chartParser;
+
+    NoteManager* noteManager;
 
 };

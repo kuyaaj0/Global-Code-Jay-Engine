@@ -51,7 +51,9 @@ float deltaTime)
     sustainTrack->Update();
 }
 
-void ChartEditorState::Render()
+void ChartEditorState::Render(
+    Renderer* renderer
+);
 {
     // Future:
     // Draw grid

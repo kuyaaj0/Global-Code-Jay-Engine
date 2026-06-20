@@ -13,6 +13,14 @@ ChartEditorState::ChartEditorState()
 
 bool ChartEditorState::Initialize()
 {
+    grid = new ChartGrid();
+
+    selection = new ChartSelection();
+
+    clipboard = new ChartClipboard();
+
+    sustainTrack = new SustainTrack();
+    
     songLoader = new SongLoader();
 
     chartParser = new ChartParser();
@@ -39,7 +47,8 @@ bool ChartEditorState::Initialize()
 void ChartEditorState::Update(
 float deltaTime)
 {
-
+    grid->Update();
+    sustainTrack->Update();
 }
 
 void ChartEditorState::Render()
@@ -48,10 +57,20 @@ void ChartEditorState::Render()
     // Draw grid
     // Draw receptors
     // Draw notes
+    grid->Render(renderer);
+    sustainTrack->Render(renderer);
 }
 
 void ChartEditorState::Shutdown()
 {
+    delete sustainTrack;
+
+    delete clipboard;
+
+    delete selection;
+
+    delete grid;
+    
     delete noteManager;
 
     delete chartParser;

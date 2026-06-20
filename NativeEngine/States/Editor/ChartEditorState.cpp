@@ -1,11 +1,19 @@
 #include "ChartEditorState.hpp"
 
+#include "ChartEditorParts/ChartGrid.hpp"
+#include "ChartEditorParts/ChartSelection.hpp"
+#include "ChartEditorParts/ChartClipboard.hpp"
+#include "ChartEditorParts/SustainTrack.hpp"
 #include "../../Loader/SongLoader.hpp"
 #include "../../States/ChartParser.hpp"
 #include "../../Gameplay/NoteManager.hpp"
 
 ChartEditorState::ChartEditorState()
 {
+    grid = nullptr;
+    selection = nullptr;
+    clipboard = nullptr;
+    sustainTrack = nullptr;
     songLoader = nullptr;
     chartParser = nullptr;
     noteManager = nullptr;

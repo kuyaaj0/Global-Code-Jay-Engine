@@ -1,5 +1,9 @@
 #pragma once
 
+class ChartGrid;
+class ChartSelection;
+class ChartClipboard;
+class SustainTrack;
 class SongLoader;
 class ChartParser;
 class NoteManager;
@@ -22,6 +26,14 @@ public:
     void Shutdown();
 
 private:
+
+    ChartGrid* grid;
+
+    ChartSelection* selection;
+
+    ChartClipboard* clipboard;
+
+    SustainTrack* sustainTrack;
 
     SongLoader* songLoader;
 

@@ -7,6 +7,7 @@ class SustainTrack;
 class SongLoader;
 class ChartParser;
 class NoteManager;
+class Renderer;
 
 class ChartEditorState
 {
@@ -40,5 +41,7 @@ private:
     ChartParser* chartParser;
 
     NoteManager* noteManager;
+
+    Renderer* renderer;
 
 };

@@ -71,7 +71,6 @@ private:
 
     bool isHold;
     float sustainLength;
-    bool holding;
     bool completed;
 
     Vector3 position;

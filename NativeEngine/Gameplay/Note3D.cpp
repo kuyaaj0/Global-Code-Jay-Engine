@@ -17,7 +17,6 @@ Note3D::Note3D()
     isHold = false;
     sustainLength = 0.0f;
     
-    holding = false;
     completed = false;
 
     position = Vector3();
@@ -83,10 +82,10 @@ void Note3D::SetSustainLength(float value)
     sustainLength = value;
 }
 
-void Note3D::SetHolding(bool value)
+/*void Note3D::SetHolding(bool value)
 {
     holding = value;
-}
+}*/
 
 bool Note3D::IsHold() const
 {
@@ -98,10 +97,10 @@ float Note3D::GetSustainLength() const
     return sustainLength;
 }
 
-bool Note3D::IsHolding() const
+/*bool Note3D::IsHolding() const
 {
     return holding;
-}
+}*/
 
 void Note3D::SetCompleted(bool value)
 {

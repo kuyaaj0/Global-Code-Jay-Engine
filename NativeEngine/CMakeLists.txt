@@ -20,9 +20,25 @@ set(ENGINE_SOURCES
     Gameplay/Note3D.cpp
     Gameplay/NoteManager.cpp
     Gameplay/SongPosition.cpp
-    Gameplay/StrumLine3D.cpp
-    Modifiers/Modifier.cpp
-    Modifiers/ModifierManager.cpp
+    Object/StrumLine.cpp
+    Gameplay/ScoreManager.cpp
+    Gameplay/HealthManager.cpp
+    
+    Loader/SongLoader.cpp
+    
+    States/ChartParser.cpp
+    States/InputManager.cpp
+    States/GameplayState.cpp
+    
+    Renderer/Renderer.cpp
+    Renderer/Camera3D.cpp
+    Renderer/Matrix4Renderer.cpp
+    
+    Math/Vector2.cpp
+    Math/Vector3.cpp
+    Math/Vector4.cpp
+    Math/Matrix4.cpp
+    Math/Quaternion.cpp
    # OriginalFunkin/FunkinGameplay.cpp
    # PsychEngine/PsychGameplay.cpp
 )

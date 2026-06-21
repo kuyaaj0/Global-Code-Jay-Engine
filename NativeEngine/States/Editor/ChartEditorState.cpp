@@ -55,6 +55,9 @@ bool ChartEditorState::Initialize()
 void ChartEditorState::Update(
 float deltaTime)
 {
+    if (render == nullptr)
+        return;
+            
     grid->Update();
     sustainTrack->Update();
 }

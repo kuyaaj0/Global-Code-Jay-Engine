@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "json.hpp"
+#include "external/json.hpp"
 
 //#include "OriginalFunkin/FunkinSettings.hpp"
 //#include "PsychEngine/ClientPrefs.hpp"

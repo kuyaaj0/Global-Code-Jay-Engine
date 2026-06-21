@@ -23,4 +23,6 @@ private:
 
     float beatSpacing;
 
+    int visibleBeats;
+
 };

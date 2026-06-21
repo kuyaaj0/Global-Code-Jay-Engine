@@ -22,7 +22,8 @@ public:
         float deltaTime
     );
 
-    void Render();
+    void Render(
+    Renderer* renderer);
 
     void Shutdown();
 

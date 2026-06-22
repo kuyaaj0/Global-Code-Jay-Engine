@@ -1,6 +1,6 @@
 #include "Note3D.hpp"
 
-#include "../Modifier/ModifierManager.hpp"
+#include "../Modifiers/ModifierManager.hpp"
 
 Note3D::Note3D()
 {

@@ -6,7 +6,7 @@
 #include "../Backend/Conductor.hpp"
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
-#include "../Modifier/ModifierManager.hpp"
+#include "../Modifiers/ModifierManager.hpp"
 
 #include "InputManager.hpp"
 #include "../Object/StrumLine.hpp"

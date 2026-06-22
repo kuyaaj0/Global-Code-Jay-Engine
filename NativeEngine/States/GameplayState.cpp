@@ -71,7 +71,8 @@ bool GameplayState::Initialize()
     conductor = new Conductor();
 
     touchManager = new TouchManager();
-
+    touchManager->Initialize();
+    
     audio = new AudioManager();
 
     noteManager = new NoteManager();

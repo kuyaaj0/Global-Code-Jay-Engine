@@ -7,7 +7,7 @@
 
 #include "../Renderer/Renderer.hpp"
 
-#include "../Modifier/ModifierManager.hpp"
+#include "../Modifiers/ModifierManager.hpp"
 
 #include <cmath>
 

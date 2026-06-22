@@ -27,7 +27,7 @@ void launchSelectedEngine(const std::string& configPath) {
         return;
     }
 
-    int chosenEngine = config.value("engine", 0);
+    int chosenEngine = config.value("engine", 2);
     bool downscroll = config.value("downscroll", false);
     bool middlescroll = config.value("middlescroll", false);
     bool luaModcharts = config.value("lua_modcharts", false);

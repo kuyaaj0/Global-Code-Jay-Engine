@@ -1,7 +1,7 @@
 #include "EngineConfig.hpp"
 
 // Engine
-int EngineConfig::engine = 0;
+int EngineConfig::engine = 2;
 
 // Gameplay
 bool EngineConfig::downscroll = false;

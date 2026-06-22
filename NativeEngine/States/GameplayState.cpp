@@ -63,7 +63,7 @@ bool GameplayState::Initialize()
 
     touchManager = new TouchManager();
 
-    AudioManager = new AudioManager();
+    audio = new AudioManager();
 
     noteManager = new NoteManager();
 
@@ -316,8 +316,8 @@ void GameplayState::Shutdown()
     delete inputManager;
 
     delete noteManager;
-
-    delete audioManager;
+    
+    delete audio;
 
     delete touchManager;
 

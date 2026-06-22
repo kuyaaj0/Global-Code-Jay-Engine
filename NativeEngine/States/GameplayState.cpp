@@ -144,6 +144,8 @@ void GameplayState::Update(
     audio->GetPlaybackPosition()
 );
 
+    JudgeResult lastJudge =
+    JudgeResult::Miss;
     touchManager->Update(
     inputManager
 );

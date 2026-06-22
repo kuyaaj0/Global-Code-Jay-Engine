@@ -9,6 +9,7 @@
 #include "../Gameplay/JudgeResult.hpp"
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
+#include "../Gameplay/NoteData.hpp"
 #include "../Modifiers/ModifierManager.hpp"
 
 #include "InputManager.hpp"

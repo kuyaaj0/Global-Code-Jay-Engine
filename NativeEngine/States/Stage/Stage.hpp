@@ -2,7 +2,7 @@
 
 #include "../../Transform/Transform.hpp"
 
-class Renderer
+class Renderer;
 
 class Stage
 {

@@ -72,16 +72,17 @@ int safeFrames = config.value("safe_frames", 10);
 
     //Matrix4Renderer::initialize();
 }
-    
+
+    //on the vanilla part is referencing to the original or official one
     if (chosenEngine == 0) {
 
-        std::cout << "[Status] Original FNF Selected\n";
+        std::cout << "[Status] Friday Night Funkin Vanilla Selected\n";
 
-        //FunkinO::Game::funkinSetting::downscroll = downscroll;
-       // FunkinO::Game::funkinSetting::middlescroll = middlescroll;
+        //Funkin::Game::funkinSetting::downscroll = downscroll;
+       // Funkin::Game::funkinSetting::middlescroll = middlescroll;
 
         // TODO: REAL ENGINE START
-        // FunkinO::Game::startGameplay();
+        // Funkin::Game::startGameplay();
 
     } 
     else if (chosenEngine == 1) {
@@ -95,6 +96,11 @@ int safeFrames = config.value("safe_frames", 10);
         // Psych::Backend::initLuaModcharts();
 
     } 
+    else if (choosenEngine == 2) {
+        std::cout << "[status] Jay Engine Selected\n";
+        // Settings on my engine is still coming soon
+    }
+    
     else {
         std::cout << "[Warning] Unknown engine, defaulting to Original FNF\n";
         // FunkinO::Game::startGameplay();

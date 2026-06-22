@@ -46,3 +46,8 @@ void Character::Update(float dt)
 {
 
 }
+
+void Character::Render()
+{
+    // Future character rendering
+}

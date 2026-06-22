@@ -1,5 +1,7 @@
 #include "Stage.hpp"
 
+#include "../Renderer/Renderer.hpp"
+
 Stage::Stage()
 {
     cameraZoom = 1.0f;
@@ -20,7 +22,7 @@ void Stage::Update(float dt)
 
 }
 
-void Stage::Render()
+void Stage::Render(Renderer* renderer)
 {
     // TODO:
     // Render stage objects

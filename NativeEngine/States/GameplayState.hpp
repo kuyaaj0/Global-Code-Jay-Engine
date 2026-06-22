@@ -5,6 +5,7 @@ class SongLoader;
 class ChartParser;
 class Conductor;
 class TouchManager;
+class AudioManager;
 class NoteManager;
 class ModifierManager;
 class InputManager;
@@ -49,6 +50,8 @@ private:
     Conductor* conductor;
 
     TouchManager* touchManager;
+
+    AudioManager* audio;
 
     NoteManager* noteManager;
 

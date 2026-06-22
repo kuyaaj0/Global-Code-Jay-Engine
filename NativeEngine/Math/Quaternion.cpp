@@ -86,7 +86,7 @@ float roll)
     return q;
 }
 
-Matrix4 Quaternion::ToMatrix()
+Matrix4 Quaternion::ToMatrix() const
 {
     Matrix4 mat;
     mat.Identity();

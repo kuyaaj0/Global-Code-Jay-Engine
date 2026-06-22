@@ -70,6 +70,7 @@ private:
     bool missed;
 
     bool isHold;
+    bool holding;
     float sustainLength;
     bool completed;
 

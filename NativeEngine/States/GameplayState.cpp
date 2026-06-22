@@ -18,7 +18,7 @@
 
 #include "../Hud/HUD.hpp"
 
-#include "../Scripting/ScriptManager.hpp"
+#include "../Scripts/ScriptManager.hpp"
 
 GameplayState::GameplayState()
 {

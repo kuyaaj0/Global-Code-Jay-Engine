@@ -2,6 +2,7 @@
 
 #include "../Gameplay/Note3D.hpp"
 #include "../Gameplay/NoteManager.hpp"
+#include "../Gameplay/JudgeResult.hpp"
 #include "../Renderer/Renderer.hpp"
 #include "../States/InputManager.hpp"
 #include "../Math/Matrix4.hpp"

@@ -4,7 +4,7 @@
 #include "ChartParser.hpp"
 
 #include "../Backend/Conductor.hpp"
-#include "..Backend/TouchManager.hpp"
+#include "../Backend/TouchManager.hpp"
 #include "../Audio/AudioManager.hpp"
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
@@ -152,28 +152,6 @@ void GameplayState::Update(
     scoreManager->AddJudge(result);
     healthManager->ApplyJudge(result);
 
-    const char* JudgeToString(
-JudgeResult result)
-{
-    switch(result)
-    {
-        case JudgeResult::Marvelous:
-            return "MARVELOUS";
-
-        case JudgeResult::Sick:
-            return "SICK";
-
-        case JudgeResult::Good:
-            return "GOOD";
-
-        case JudgeResult::Bad:
-            return "BAD";
-
-        default:
-            return "MISS";
-    }
-}
-
     // START HOLD LOGIC
     if(note->IsHold())
     {
@@ -246,11 +224,11 @@ JudgeResult result)
 
     strumLine->Update(inputManager);
 
-    player->Update(dt);
+    player->Update(deltaTime);
 
-    opponent->Update(dt);
+    opponent->Update(deltaTime);
 
-    stage->Update(deltatime);
+    stage->Update(deltaTime);
 
     hud->score =
     scoreManager->GetScore();
@@ -274,6 +252,28 @@ JudgeResult result)
     hud->Update();
 
     scripts->ExecuteAll();
+}
+
+const char* JudgeToString(
+JudgeResult result)
+{
+    switch(result)
+    {
+        case JudgeResult::Marvelous:
+            return "MARVELOUS";
+
+        case JudgeResult::Sick:
+            return "SICK";
+
+        case JudgeResult::Good:
+            return "GOOD";
+
+        case JudgeResult::Bad:
+            return "BAD";
+
+        default:
+            return "MISS";
+    }
 }
 
 void GameplayState::Render(
@@ -316,6 +316,8 @@ void GameplayState::Shutdown()
     delete inputManager;
 
     delete noteManager;
+
+    delete audioManager;
 
     delete touchManager;
 

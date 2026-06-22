@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JudgeResult.hpp"
+#include "../Gameplay/JudgeResult.hpp"
 #include "../Math/Vector3.hpp"
 
 class NoteManager;

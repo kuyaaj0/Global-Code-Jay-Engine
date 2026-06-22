@@ -5,6 +5,7 @@
 
 #include "../Backend/Conductor.hpp"
 #include "..Backend/TouchManager.hpp"
+#include "../Audio/AudioManager.hpp"
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
 #include "../Modifiers/ModifierManager.hpp"
@@ -61,6 +62,8 @@ bool GameplayState::Initialize()
     conductor = new Conductor();
 
     touchManager = new TouchManager();
+
+    AudioManager = new AudioManager();
 
     noteManager = new NoteManager();
 
@@ -243,11 +246,11 @@ JudgeResult result)
 
     strumLine->Update(inputManager);
 
-    player->Update();
+    player->Update(dt);
 
-    opponent->Update();
+    opponent->Update(dt);
 
-    stage->Update();
+    stage->Update(deltatime);
 
     hud->score =
     scoreManager->GetScore();

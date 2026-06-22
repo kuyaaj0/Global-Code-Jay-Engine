@@ -25,7 +25,6 @@
         hitFlash[i] = 0.0f;
     }
 }
-}
 
 void StrumLine::Render(Renderer* renderer)
 {

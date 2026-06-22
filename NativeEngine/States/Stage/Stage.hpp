@@ -2,6 +2,8 @@
 
 #include "../../Transform/Transform.hpp"
 
+class Renderer
+
 class Stage
 {
 
@@ -19,6 +21,6 @@ public:
 
     void Update(float dt);
 
-    void Render();
+    void Render(Renderer* renderer);
 
 };

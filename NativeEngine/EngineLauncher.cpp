@@ -96,7 +96,7 @@ int safeFrames = config.value("safe_frames", 10);
         // Psych::Backend::initLuaModcharts();
 
     } 
-    else if (choosenEngine == 2) {
+    else if (chosenEngine == 2) {
         std::cout << "[status] Jay Engine Selected\n";
         // Settings on my engine is still coming soon
     }

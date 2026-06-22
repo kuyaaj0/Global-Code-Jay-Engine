@@ -6,6 +6,7 @@
 #include "../Backend/Conductor.hpp"
 #include "../Backend/TouchManager.hpp"
 #include "../Audio/AudioManager.hpp"
+#include "../Gameplay/JudgeResult.hpp"
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
 #include "../Modifiers/ModifierManager.hpp"
@@ -22,6 +23,10 @@
 
 #include "../Scripts/ScriptManager.hpp"
 
+const char* JudgeToString(
+    JudgeResult result
+);
+
 GameplayState::GameplayState()
 {
     songLoader = nullptr;
@@ -29,6 +34,10 @@ GameplayState::GameplayState()
     chartParser = nullptr;
 
     conductor = nullptr;
+
+    touchManager = nullptr;
+    
+    audio = nullptr;
 
     noteManager = nullptr;
 
@@ -112,6 +121,14 @@ for(const auto& noteData : notes)
         noteData.time
     );
 
+    note->SetHold(
+    noteData.isHold
+);
+    
+    note->SetSustainLength(
+    noteData.sustainLength
+);
+
     noteManager->AddNote(
         note
     );
@@ -142,15 +159,15 @@ void GameplayState::Update(
     if(note == nullptr)
         continue;
 
-    JudgeResult result =
-        strumLine->Judge(
-            lane,
-            conductor->GetSongPosition(),
-            noteManager
-        );
+    lastJudge =
+    strumLine->Judge(
+        lane,
+        conductor->GetSongPosition(),
+        noteManager
+    );
 
-    scoreManager->AddJudge(result);
-    healthManager->ApplyJudge(result);
+scoreManager->AddJudge(lastJudge);
+healthManager->ApplyJudge(lastJudge);
 
     // START HOLD LOGIC
     if(note->IsHold())
@@ -246,7 +263,7 @@ void GameplayState::Update(
     healthManager->GetHealth();
 
     hud->ShowJudgment(
-    JudgeToString(result)
+    JudgeToString(lastJudge)
 );
 
     hud->Update();

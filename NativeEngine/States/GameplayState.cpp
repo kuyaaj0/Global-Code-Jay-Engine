@@ -14,7 +14,7 @@
 #include "../Gameplay/HealthManager.hpp"
 
 #include "../Object/Character.hpp"
-#include "../Stage/Stage.hpp"
+#include "Stage/Stage.hpp"
 
 #include "../Hud/HUD.hpp"
 

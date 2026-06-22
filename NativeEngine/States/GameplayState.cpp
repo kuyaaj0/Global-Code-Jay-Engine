@@ -301,7 +301,7 @@ void GameplayState::Render(
 Renderer* renderer
 )
 {
-    stage->Render();
+    stage->Render(renderer);
 
     player->Render();
 

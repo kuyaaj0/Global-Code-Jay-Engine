@@ -149,6 +149,7 @@
         android:textColor="#666666"
         android:textSize="10sp"/>
 
+        </ScrollView>
 </LinearLayout>
 
-</ScrollView>
+

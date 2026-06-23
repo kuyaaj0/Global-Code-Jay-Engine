@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    android:layout_width="220dp"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,6 +9,11 @@
         android:orientation="vertical"
         android:background="#1A1C22"
         android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="220dp"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <!-- everything currently inside layout_sidebar.xml -->
 

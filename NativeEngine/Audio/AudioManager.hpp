@@ -31,6 +31,8 @@ private:
 
     float playbackPosition;
 
+    float currentPosition;
+
     bool playing;
 
 };

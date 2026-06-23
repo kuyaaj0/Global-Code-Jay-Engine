@@ -45,7 +45,7 @@ void ModifierManager::SetFlip(float value)
 Vector3 ModifierManager::Apply(
 int lane,
 float distance,
-const Vector3 position)
+Vector3 position)
 {
     if(reverse > 0.0f)
     {

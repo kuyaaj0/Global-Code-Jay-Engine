@@ -25,6 +25,8 @@ public:
 
     float GetPlaybackPosition() const;
 
+    float GetCurrentPosition() const;
+
     bool IsPlaying() const;
 
 private:

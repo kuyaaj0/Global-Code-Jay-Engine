@@ -9,8 +9,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # List all active engine files that need to be compiled
 set(ENGINE_SOURCES
-    main.cpp
-    EngineLauncher.cpp
+    Backend/Conductor.cpp
+    Backend/TouchManager.cpp
+    
+    Audio/AudioManager.cpp
+    
+    Object/Character.cpp
+    States/Stage/Stage.cpp
+    Hud/HUD.cpp
+    
+    Scripts/ScriptManager.cpp
+    States/Converter/ChartConverter.cpp
     Config/EngineConfig.cpp
     Renderer/Matrix4Renderer.cpp
     Math/Vector3.cpp

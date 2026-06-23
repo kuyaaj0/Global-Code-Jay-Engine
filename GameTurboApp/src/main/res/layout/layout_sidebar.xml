@@ -13,11 +13,7 @@
         android:background="#1A1C22"
         android:padding="16dp">
 
-        <!-- everything currently inside layout_sidebar.xml -->
-
-    </LinearLayout>
-
-</ScrollView>
+        <!-- everything currently inside layout_sidebar.xml --
 
     <!-- Logo -->
 
@@ -154,3 +150,5 @@
         android:textSize="10sp"/>
 
 </LinearLayout>
+
+</ScrollView>

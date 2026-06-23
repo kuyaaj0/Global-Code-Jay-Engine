@@ -68,8 +68,8 @@ public class MainActivity extends Activity {
             btnPsych.setBackgroundColor(Color.parseColor("#2C2F38"));
             btnPsych.setTextColor(Color.parseColor("#AAAAAA"));
 
-            txtEngineTitle.setText("Original FNF Configuration");
-            txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths.");
+            txtEngineTitle.setText("FNF Vanilla Configuration");
+            txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths. this part is for official one and lua will be on notes only");
 
             chkModcharts.setVisibility(View.GONE);
         });
@@ -85,7 +85,7 @@ public class MainActivity extends Activity {
             btnOriginal.setTextColor(Color.parseColor("#AAAAAA"));
 
             txtEngineTitle.setText("Psych Engine Configuration");
-            txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing.");
+            txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
 
             chkModcharts.setVisibility(View.VISIBLE);
         });

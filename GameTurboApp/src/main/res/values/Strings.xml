@@ -1,3 +1,4 @@
 <!-- res/values/strings.xml -->
 
+<string name="app_name">Global Code Jay Engine</string>
 <string name="engine_version">Alpha v0.15</string>

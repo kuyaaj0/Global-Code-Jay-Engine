@@ -34,6 +34,8 @@ set(ENGINE_SOURCES
     Gameplay/HealthManager.cpp
     
     Loader/SongLoader.cpp
+
+    Modifiers/ModifierManager.cpp
     
     States/ChartParser.cpp
     States/InputManager.cpp

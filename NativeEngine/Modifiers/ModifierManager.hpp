@@ -19,7 +19,7 @@ public:
     Vector3 Apply(
         int lane,
         float distance,
-        const Vector3 position
+        Vector3 position
     );
 
 private:

@@ -48,12 +48,12 @@
     <!-- Engine Information -->
 
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#181B20"
-    android:padding="16dp"
-    android:layout_marginTop="18dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#181B20"
+        android:padding="16dp"
+        android:layout_marginTop="18dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,6 +62,13 @@
         android:textColor="#00E5FF"
         android:textStyle="bold"
         android:textSize="13sp"/>
+
+    <ImageView
+        android:id="@+id/imgEngineLogo"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_fnf"/>
 
     <TextView
         android:id="@+id/txtSelectedEngine"

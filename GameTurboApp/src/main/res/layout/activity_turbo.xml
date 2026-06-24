@@ -53,6 +53,9 @@
                 <include
                     layout="@layout/layout_launch"/>
 
+                <include
+                    layout="@layout/layout_about"/>
+
             </LinearLayout>
 
         </ScrollView>

@@ -86,12 +86,12 @@
         android:textColor="#FFFFFF"
         android:backgroundTint="#00E5FF"/>
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#30343D"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp"/>->
 
     <!-- Navigation -->
 

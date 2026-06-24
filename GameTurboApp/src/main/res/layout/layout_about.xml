@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:id="@+id/cardAbout"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:background="@drawable/card_background"
+  android:padding="20dp"
+  android:layout_marginBottom="16dp">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="ABOUT"
+    android:textStyle="bold"
+    android:textColor="#00E5FF"
+    android:textSize="14sp"/>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dp"
+    android:background="#30343D"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="16dp"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Global Code Jay Engine"
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"
+    android:textSize="22sp"/>
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Universal launcher for Friday Night Funkin engines."
+    android:textColor="#A5ADB8"
+    android:textSize="13sp"
+    android:layout_marginTop="8dp"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#181B20"
+    android:padding="16dp"
+    android:layout_marginTop="18dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Developer"
+        android:textColor="#00E5FF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kuya AJ"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Project: Global Code Jay Engine"
+        android:textColor="#CCCCCC"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
+
+</LinearLayout>

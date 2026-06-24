@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
 
         final Button btnOriginal = findViewById(R.id.btnOriginal);
         final Button btnPsych = findViewById(R.id.btnPsych);
+        final Button btnJay = findViewById(R.id.btnJay);
         final Button btnSafeFrames = findViewById(R.id.btnSafeFrames);
         final Button btnLaunch = findViewById(R.id.btnLaunch);
 
@@ -86,6 +87,22 @@ public class MainActivity extends Activity {
 
             txtEngineTitle.setText("Psych Engine Configuration");
             txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
+
+            chkModcharts.setVisibility(View.VISIBLE);
+        });
+
+        // LEFT: Jay Engine
+        btnJay.setOnClickListener(v -> {
+            activeEngineTarget = 2;
+
+            btnPsych.setBackgroundColor(Color.parseColor("#00FFCC"));
+            btnPsych.setTextColor(Color.parseColor("#111215"));
+
+            btnOriginal.setBackgroundColor(Color.parseColor("#2C2F38"));
+            btnOriginal.setTextColor(Color.parseColor("#AAAAAA"));
+
+            txtEngineTitle.setText("Jay Engine Configuration");
+            txtEngineDesc.setText("Experimental Engine, that has the modchart, and custom parts");
 
             chkModcharts.setVisibility(View.VISIBLE);
         });

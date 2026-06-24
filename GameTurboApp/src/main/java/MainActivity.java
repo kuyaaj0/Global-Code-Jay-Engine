@@ -42,6 +42,12 @@ public class MainActivity extends Activity {
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);
+        final TextView txtSelectedEngine = findViewById(R.id.txtSelectedEngine);final TextView txtEngineVersion = findViewById(R.id.txtEngineVersion);
+        final TextView txtEnginePlatform = findViewById(R.id.txtEnginePlatform);
+        final TextView txtEngineCompatibility = findViewById(R.id.txtEngineCompatibility);
+
+        final TextView txtEngineFeatures = findViewById(R.id.txtEngineFeatures);
+        final TextView txtEngineNotes = findViewById(R.id.txtEngineNotes);
 
         final EditText edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
         final CheckBox chkDownscroll = findViewById(R.id.chkDownscroll);
@@ -72,6 +78,22 @@ public class MainActivity extends Activity {
             txtEngineTitle.setText("FNF Vanilla Configuration");
             txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths. this part is for official one and lua will be on notes only");
 
+            txtSelectedEngine.setText("Selected Engine: FNF Vanilla");
+            txtEngineVersion.setText("Version: v0.8.5");
+            txtEnginePlatform.setText("Platform: Android");
+            txtEngineCompatibility.setText("Compatibility: Stable");
+            
+            txtEngineFeatures.setText(
+                "• Vanilla Gameplay\n" +
+                "• Standard Note System\n" +
+                "• Basic Lua Support"
+            );
+
+            txtEngineNotes.setText(
+                "Official Friday Night Funkin build. " +
+                "Focused on original gameplay experience."
+            );
+
             chkModcharts.setVisibility(View.GONE);
         });
 
@@ -88,6 +110,24 @@ public class MainActivity extends Activity {
             txtEngineTitle.setText("Psych Engine Configuration");
             txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
 
+            txtSelectedEngine.setText("Selected Engine: Psych Engine");
+            txtEngineVersion.setText("Version: v0.7.3");
+            txtEnginePlatform.setText("Platform: Android");
+            txtEngineCompatibility.setText("Compatibility: High");
+
+            txtEngineFeatures.setText(
+                "• Lua Modcharts\n" +
+                "• Events System\n" +
+                "• Custom Stages\n" +
+                "• HScript Support"
+            );
+
+            txtEngineNotes.setText(
+                "Most popular FNF modding engine. " +
+                "Supports advanced Lua scripting."
+            );
+            
+
             chkModcharts.setVisibility(View.VISIBLE);
         });
 
@@ -103,6 +143,23 @@ public class MainActivity extends Activity {
 
             txtEngineTitle.setText("Jay Engine Configuration");
             txtEngineDesc.setText("Experimental Engine, that has the modchart, and custom parts");
+
+            txtSelectedEngine.setText("Selected Engine: Jay Engine");
+            txtEngineVersion.setText("Version: Alpha");
+            txtEnginePlatform.setText("Platform: Android");
+            txtEngineCompatibility.setText("Compatibility: Experimental");
+
+            txtEngineFeatures.setText(
+                "• Matrix4 Pipeline\n" +
+                "• 3D Modcharts\n" +
+                "• Turbo Launcher\n" +
+                "• Custom Rendering"
+            );
+
+            txtEngineNotes.setText(
+                "Experimental engine focused on mobile optimization, " +
+                "advanced rendering and future Matrix4 systems."
+            );
 
             chkModcharts.setVisibility(View.VISIBLE);
         });

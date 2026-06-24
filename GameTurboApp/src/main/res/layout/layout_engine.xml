@@ -48,30 +48,58 @@
     <!-- Engine Information -->
 
     <LinearLayout
-        android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#181B20"
+    android:padding="16dp"
+    android:layout_marginTop="18dp">
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#181B20"
-        android:padding="16dp"
-        android:layout_marginTop="18dp">
+        android:text="ENGINE DETAILS"
+        android:textColor="#00E5FF"
+        android:textStyle="bold"
+        android:textSize="13sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Selected Engine"
-            android:textColor="#00E5FF"
-            android:textStyle="bold"
-            android:textSize="13sp"/>
+    <TextView
+        android:id="@+id/txtSelectedEngine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selected Engine: FNF Vanilla"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Use the left sidebar to switch between Original FNF and Psych Engine."
-            android:textColor="#DDDDDD"
-            android:textSize="12sp"
-            android:layout_marginTop="6dp"/>
+    <TextView
+        android:id="@+id/txtEngineVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version: v0.8.5"
+        android:textColor="#DDDDDD"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txtEnginePlatform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Platform: Android"
+        android:textColor="#DDDDDD"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/txtEngineCompatibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compatibility: Stable"
+        android:textColor="#DDDDDD"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
 
     <!-- Future Features -->
 

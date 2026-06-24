@@ -101,37 +101,33 @@
         android:textSize="12sp"
         android:layout_marginBottom="12dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnNavGameplay"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:text="⚙ Gameplay"
-        android:textColor="#DDDDDD"
-        android:textSize="14sp"
-        android:padding="6dp"/>
+        android:textAllCaps="false"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnNavPerformance"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:text="🚀 Performance"
-        android:textColor="#DDDDDD"
-        android:textSize="14sp"
-        android:padding="6dp"/>
+        android:textAllCaps="false"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnNavModcharts"   
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:text="🧩 Modcharts"
-        android:textColor="#DDDDDD"
-        android:textSize="14sp"
-        android:padding="6dp"/>
+        android:textAllCaps="false"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/btnNavAbout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:text="ℹ About"
-        android:textColor="#DDDDDD"
-        android:textSize="14sp"
-        android:padding="6dp"/>
+        android:textAllCaps="false"/>
 
     <!--<View
         android:layout_width="match_parent"

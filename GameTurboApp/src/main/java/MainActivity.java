@@ -46,7 +46,17 @@ public class MainActivity extends Activity {
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);
-        final TextView txtSelectedEngine = findViewById(R.id.txtSelectedEngine);final TextView txtEngineVersion = findViewById(R.id.txtEngineVersion);
+
+        final View launchOverlay = findViewById(R.id.launchOverlay);
+        final View launchCard = findViewById(R.id.launchCard);
+        final TextView txtLaunchLine1 = findViewById(R.id.txtLaunchLine1);
+        final TextView txtLaunchLine2 = findViewById(R.id.txtLaunchLine2);
+        final TextView txtLaunchLine3 = findViewById(R.id.txtLaunchLine3);
+        final TextView txtLaunchLine4 = findViewById(R.id.txtLaunchLine4);
+        final TextView txtLaunchLine5 = findViewById(R.id.txtLaunchLine5);
+        
+        final TextView txtSelectedEngine = findViewById(R.id.txtSelectedEngine);
+        final TextView txtEngineVersion = findViewById(R.id.txtEngineVersion);
         final TextView txtEnginePlatform = findViewById(R.id.txtEnginePlatform);
         final TextView txtEngineCompatibility = findViewById(R.id.txtEngineCompatibility);
 
@@ -93,11 +103,14 @@ public class MainActivity extends Activity {
         btnOriginal.setOnClickListener(v -> {
             activeEngineTarget = 0;
 
-            btnOriginal.setBackgroundColor(Color.parseColor("#00FFCC"));
+            btnOriginal.setBackgroundColor(Color.parseColor("#FFD600"));
             btnOriginal.setTextColor(Color.parseColor("#111215"));
 
             btnPsych.setBackgroundColor(Color.parseColor("#2C2F38"));
             btnPsych.setTextColor(Color.parseColor("#AAAAAA"));
+
+            btnJay.setBackgroundColor(Color.parseColor("#2C2F38"));
+            btnJay.setTextColor(Color.parseColor("#AAAAAA"));
 
             txtEngineTitle.setText("FNF Vanilla Configuration");
             txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths. this part is for official one and lua will be on notes only");
@@ -126,12 +139,15 @@ public class MainActivity extends Activity {
         btnPsych.setOnClickListener(v -> {
             activeEngineTarget = 1;
 
-            btnPsych.setBackgroundColor(Color.parseColor("#00FFCC"));
+            btnPsych.setBackgroundColor(Color.parseColor("#A020F0"));
             btnPsych.setTextColor(Color.parseColor("#111215"));
-
+            
             btnOriginal.setBackgroundColor(Color.parseColor("#2C2F38"));
             btnOriginal.setTextColor(Color.parseColor("#AAAAAA"));
 
+            btnJay.setBackgroundColor(Color.parseColor("#2C2F38"));
+            btnJay.setTextColor(Color.parseColor("#AAAAAA"));
+            
             txtEngineTitle.setText("Psych Engine Configuration");
             txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
 
@@ -161,11 +177,14 @@ public class MainActivity extends Activity {
         btnJay.setOnClickListener(v -> {
             activeEngineTarget = 2;
 
-            btnPsych.setBackgroundColor(Color.parseColor("#00FFCC"));
-            btnPsych.setTextColor(Color.parseColor("#111215"));
+            btnJay.setBackgroundColor(Color.parseColor("#00E5FF"));
+            btnJay.setTextColor(Color.parseColor("#111215"));
 
             btnOriginal.setBackgroundColor(Color.parseColor("#2C2F38"));
             btnOriginal.setTextColor(Color.parseColor("#AAAAAA"));
+
+            btnPsych.setBackgroundColor(Color.parseColor("#2C2F38"));
+            btnPsych.setTextColor(Color.parseColor("#AAAAAA"));
 
             txtEngineTitle.setText("Jay Engine Configuration");
             txtEngineDesc.setText("Experimental Engine, that has the modchart, and custom parts");

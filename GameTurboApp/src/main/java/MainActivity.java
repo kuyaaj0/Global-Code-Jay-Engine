@@ -53,6 +53,10 @@ public class MainActivity extends Activity {
         final TextView txtEngineFeatures = findViewById(R.id.txtEngineFeatures);
         final TextView txtEngineNotes = findViewById(R.id.txtEngineNotes);
 
+        final TextView txtSummaryEngine = findViewById(R.id.txtSummaryEngine);
+        final TextView txtSummaryGameplay = findViewById(R.id.txtSummaryGameplay);
+        final TextView txtSummaryPerformance = findViewById(R.id.txtSummaryPerformance);
+
         final EditText edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
         final CheckBox chkDownscroll = findViewById(R.id.chkDownscroll);
         final CheckBox chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
@@ -99,6 +103,7 @@ public class MainActivity extends Activity {
             txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths. this part is for official one and lua will be on notes only");
 
             txtSelectedEngine.setText("Selected Engine: FNF Vanilla");
+            txtSummaryEngine.setText("Engine: FNF Vanilla");
             txtEngineVersion.setText("Version: v0.8.5");
             txtEnginePlatform.setText("Platform: Android");
             txtEngineCompatibility.setText("Compatibility: Stable");
@@ -131,6 +136,7 @@ public class MainActivity extends Activity {
             txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
 
             txtSelectedEngine.setText("Selected Engine: Psych Engine");
+            txtSummaryEngine.setText("Engine: Psych Engine");
             txtEngineVersion.setText("Version: v0.7.3");
             txtEnginePlatform.setText("Platform: Android");
             txtEngineCompatibility.setText("Compatibility: High");
@@ -165,6 +171,7 @@ public class MainActivity extends Activity {
             txtEngineDesc.setText("Experimental Engine, that has the modchart, and custom parts");
 
             txtSelectedEngine.setText("Selected Engine: Jay Engine");
+            txtSummaryEngine.setText("Engine: Jay Engine");
             txtEngineVersion.setText("Version: Alpha");
             txtEnginePlatform.setText("Platform: Android");
             txtEngineCompatibility.setText("Compatibility: Experimental");

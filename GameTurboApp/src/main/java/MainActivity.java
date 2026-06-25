@@ -29,6 +29,21 @@ public class MainActivity extends Activity {
     }
 }
 
+    private View launchOverlay;
+    private View launchCard;
+
+    private void showLaunchSequence()
+{
+    launchOverlay.setVisibility(View.VISIBLE);
+
+    launchCard.setAlpha(1f);
+
+    launchOverlay.postDelayed(() -> {
+        syncAndLaunchEngine();
+    }, 3000);
+}
+}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +62,8 @@ public class MainActivity extends Activity {
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);
 
-        final View launchOverlay = findViewById(R.id.launchOverlay);
-        final View launchCard = findViewById(R.id.launchCard);
+        launchOverlay = findViewById(R.id.launchOverlay);
+        launchCard = findViewById(R.id.launchCard);
         final TextView txtLaunchLine1 = findViewById(R.id.txtLaunchLine1);
         final TextView txtLaunchLine2 = findViewById(R.id.txtLaunchLine2);
         final TextView txtLaunchLine3 = findViewById(R.id.txtLaunchLine3);
@@ -262,7 +277,8 @@ public class MainActivity extends Activity {
 
             // 🔥 CRITICAL FIX: CALL NATIVE ENGINE
             try {
-                syncAndLaunchEngine();
+                //syncAndLaunchEngine();
+                showLaunchSequence();
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -108,21 +108,21 @@ public class MainActivity extends Activity {
         final CheckBox chkNotITG = findViewById(R.id.chkNotITG);
         final CheckBox chkDepthSorting = findViewById(R.id.chkDepthSorting);
 
-        btnGameplay.setOnClickListener(v -> {
-    txtEngineTitle.setText("Gameplay Settings");
-        });
-        
-        btnPerformance.setOnClickListener(v -> {
-    txtEngineTitle.setText("Performance Settings");
-        });
+        btnGameplay.setOnClickListener(v ->
+    mainScrollView.smoothScrollTo(0, sectionGameplay.getTop())
+);
 
-        btnModcharts.setOnClickListener(v -> {
-    txtEngineTitle.setText("Modchart Settings");
-        });
+btnPerformance.setOnClickListener(v ->
+    mainScrollView.smoothScrollTo(0, sectionPerformance.getTop())
+);
 
-        btnAbout.setOnClickListener(v -> {
-    txtEngineTitle.setText("About Jay Engine");
-        });
+btnModcharts.setOnClickListener(v ->
+    mainScrollView.smoothScrollTo(0, sectionModcharts.getTop())
+);
+
+btnAbout.setOnClickListener(v ->
+    mainScrollView.smoothScrollTo(0, sectionAbout.getTop())
+);
         
         // LEFT: Original FNF
         btnOriginal.setOnClickListener(v -> {

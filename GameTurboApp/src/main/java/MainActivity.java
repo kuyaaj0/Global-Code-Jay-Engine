@@ -53,10 +53,10 @@ public class MainActivity extends Activity {
         final Button btnJay = findViewById(R.id.btnJay);
         final Button btnSafeFrames = findViewById(R.id.btnSafeFrames);
         final Button btnLaunch = findViewById(R.id.btnLaunch);
-        final Button btnGameplay = findViewById(R.id.btnGameplay);
-        final Button btnPerformance = findViewById(R.id.btnPerformance);
-        final Button btnModcharts = findViewById(R.id.btnModcharts);
-        final Button btnAbout = findViewById(R.id.btnAbout);
+        final Button btnGameplay = findViewById(R.id.btnNavGameplay);
+        final Button btnPerformance = findViewById(R.id.btnNavPerformance);
+        final Button btnModcharts = findViewById(R.id.btnNavModcharts);
+        final Button btnAbout = findViewById(R.id.btnNavAbout);
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);

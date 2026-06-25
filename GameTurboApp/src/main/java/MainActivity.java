@@ -3,6 +3,7 @@ package com.game.gameturbo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;

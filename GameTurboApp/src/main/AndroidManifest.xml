@@ -5,8 +5,8 @@
     <application
         android:allowBackup="true"
         android:label="Global Code Jay Engine"
-        android:icon="@mipmap/GCJE"
-        android:roundIcon="@mipmap/GCJE_round"
+        android:icon="@mipmap/Gcje"
+        android:roundIcon="@mipmap/Gcje_round"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         
         <activity

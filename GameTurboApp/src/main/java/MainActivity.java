@@ -267,6 +267,7 @@ btnAbout.setOnClickListener(v ->
                 + ",\"downscroll\":" + chkDownscroll.isChecked()
                 + ",\"middlescroll\":" + chkMiddlescroll.isChecked()
                 + ",\"lua_modcharts\":" + chkModcharts.isChecked()
+                + ",\"play_opponent\":" + chkPlayOpponent.isChecked()
                 + ",\"scroll_speed\":" + String.format("%.2f", targetSpeed)
                 + ",\"safe_frames\":" + customSafeFrames
                 

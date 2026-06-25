@@ -3,6 +3,7 @@ package com.game.gameturbo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -58,6 +59,13 @@ public class MainActivity extends Activity {
         final Button btnPerformance = findViewById(R.id.btnNavPerformance);
         final Button btnModcharts = findViewById(R.id.btnNavModcharts);
         final Button btnAbout = findViewById(R.id.btnNavAbout);
+
+        final ScrollView mainScrollView = findViewById(R.id.mainScrollView);
+        
+        final View sectionGameplay = findViewById(R.id.sectionGameplay);
+        final View sectionPerformance = findViewById(R.id.sectionPerformance);
+        final View sectionModcharts = findViewById(R.id.sectionModcharts);
+        final View sectionAbout = findViewById(R.id.sectionAbout);
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);

@@ -80,6 +80,47 @@
 
     </LinearLayout>
 
+    <LinearLayout
+    android:id="@+id/configSummaryCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#181B20"
+    android:padding="16dp"
+    android:layout_marginTop="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Configuration Summary"
+        android:textColor="#00E5FF"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/txtSummaryEngine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Engine: FNF Vanilla"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="8dp"/>
+
+    <TextView
+        android:id="@+id/txtSummaryGameplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Downscroll: OFF"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/txtSummaryPerformance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Performance: OFF"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
+
     <!-- Launch Button -->
 
     <Button

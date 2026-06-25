@@ -42,7 +42,6 @@ public class MainActivity extends Activity {
         syncAndLaunchEngine();
     }, 3000);
 }
-}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

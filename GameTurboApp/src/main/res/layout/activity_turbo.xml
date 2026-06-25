@@ -44,12 +44,15 @@
                     android:padding="20dp">
 
                     <include layout="@layout/layout_engine"/>
-                    <include layout="@layout/layout_gameplay"/>
-                    <include layout="@layout/layout_performance"/>
-                    <include layout="@layout/layout_modcharts"/>
+                    <include android:id="@+id/sectionGameplay"
+                        layout="@layout/layout_gameplay"/>
+                    <include android:id="@+id/sectionPerformance"
+                        layout="@layout/layout_performance"/>
+                    <include android:id="@+id/sectionModcharts"
+                        layout="@layout/layout_modcharts"/>
                     <include layout="@layout/layout_launch"/>
-                    <include layout="@layout/layout_about"/>
-
+                    <include android:id="@+id/sectionAbout"
+                        layout="@layout/layout_about"/>
                 </LinearLayout>
 
             </ScrollView>

@@ -68,6 +68,8 @@ public class MainActivity extends Activity {
         final TextView txtLaunchLine3 = findViewById(R.id.txtLaunchLine3);
         final TextView txtLaunchLine4 = findViewById(R.id.txtLaunchLine4);
         final TextView txtLaunchLine5 = findViewById(R.id.txtLaunchLine5);
+
+        final ImageView imgEngineLogo = findViewById(R.id.imgEngineLogo);
         
         final TextView txtSelectedEngine = findViewById(R.id.txtSelectedEngine);
         final TextView txtEngineVersion = findViewById(R.id.txtEngineVersion);
@@ -129,6 +131,8 @@ public class MainActivity extends Activity {
             txtEngineTitle.setText("FNF Vanilla Configuration");
             txtEngineDesc.setText("Standard unmodded ruleset. Optimized for low-end hardware paths. this part is for official one and lua will be on notes only");
 
+            imgEngineLogo.setImageResource(R.drawable.ic_fnf);
+            
             txtSelectedEngine.setText("Selected Engine: FNF Vanilla");
             txtSummaryEngine.setText("Engine: FNF Vanilla");
             txtEngineVersion.setText("Version: v0.8.5");
@@ -164,6 +168,8 @@ public class MainActivity extends Activity {
             
             txtEngineTitle.setText("Psych Engine Configuration");
             txtEngineDesc.setText("Modded fork ruleset. Enables Lua modchart processing. optimization will come handy soon");
+
+            imgEngineLogo.setImageResource(R.drawable.ic_psych);
 
             txtSelectedEngine.setText("Selected Engine: Psych Engine");
             txtSummaryEngine.setText("Engine: Psych Engine");
@@ -203,6 +209,8 @@ public class MainActivity extends Activity {
             txtEngineTitle.setText("Jay Engine Configuration");
             txtEngineDesc.setText("Experimental Engine, that has the modchart, and custom parts");
 
+            imgEngineLogo.setImageResource(R.drawable.ic_jay);
+            
             txtSelectedEngine.setText("Selected Engine: Jay Engine");
             txtSummaryEngine.setText("Engine: Jay Engine");
             txtEngineVersion.setText("Version: Alpha");

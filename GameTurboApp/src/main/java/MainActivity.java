@@ -39,6 +39,10 @@ public class MainActivity extends Activity {
         final Button btnJay = findViewById(R.id.btnJay);
         final Button btnSafeFrames = findViewById(R.id.btnSafeFrames);
         final Button btnLaunch = findViewById(R.id.btnLaunch);
+        final Button btnGameplay = findViewById(R.id.btnGameplay);
+        final Button btnPerformance = findViewById(R.id.btnPerformance);
+        final Button btnModcharts = findViewById(R.id.btnModcharts);
+        final Button btnAbout = findViewById(R.id.btnAbout);
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);
@@ -65,6 +69,22 @@ public class MainActivity extends Activity {
         final CheckBox chkNotITG = findViewById(R.id.chkNotITG);
         final CheckBox chkDepthSorting = findViewById(R.id.chkDepthSorting);
 
+        btnGameplay.setOnClickListener(v -> {
+    txtEngineTitle.setText("Gameplay Settings");
+        });
+        
+        btnPerformance.setOnClickListener(v -> {
+    txtEngineTitle.setText("Performance Settings");
+        });
+
+        btnModcharts.setOnClickListener(v -> {
+    txtEngineTitle.setText("Modchart Settings");
+        });
+
+        btnAbout.setOnClickListener(v -> {
+    txtEngineTitle.setText("About Jay Engine");
+        });
+        
         // LEFT: Original FNF
         btnOriginal.setOnClickListener(v -> {
             activeEngineTarget = 0;

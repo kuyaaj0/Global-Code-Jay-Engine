@@ -104,6 +104,7 @@ public class MainActivity extends Activity {
         final EditText edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
         final CheckBox chkDownscroll = findViewById(R.id.chkDownscroll);
         final CheckBox chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
+        final CheckBox chkPlayOpponent = findViewById(R.id.chkPlayOpponent);
         final CheckBox chkModcharts = findViewById(R.id.chkModcharts);
 
         final CheckBox chkPerformanceMode = findViewById(R.id.chkPerformanceMode);

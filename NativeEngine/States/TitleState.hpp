@@ -25,4 +25,10 @@ private:
 
     bool logoFinished;
 
+    bool waitingForInput;
+
+    bool blinkVisible;
+
+    float blinkTimer;
+
 };

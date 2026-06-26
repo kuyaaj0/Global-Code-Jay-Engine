@@ -1,4 +1,5 @@
 #include "TitleState.hpp"
+#include "../Renderer/Renderer.hpp"
 
 #include <iostream>
 

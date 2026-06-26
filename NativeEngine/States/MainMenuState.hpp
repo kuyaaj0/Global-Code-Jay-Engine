@@ -6,7 +6,6 @@ class Renderer;
 
 class MainMenuState : public State
 {
-
 public:
 
     MainMenuState();
@@ -21,6 +20,16 @@ public:
 
 private:
 
-    int currentSelection;
+    int selectedOption;
 
+    float inputCooldown;
+
+    const char* menuItems[5] =
+    {
+        "Story Mode",
+        "Freeplay",
+        "Options",
+        "Credits",
+        "Exit"
+    };
 };

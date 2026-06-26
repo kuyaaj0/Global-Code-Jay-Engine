@@ -3,6 +3,8 @@ package com.game.gameturbo;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.os.Handler;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ScrollView;
 import android.widget.ImageView;
 import android.widget.Button;
@@ -33,16 +35,101 @@ public class MainActivity extends Activity {
 
     private View launchOverlay;
     private View launchCard;
+    private TextView txtLaunchStatus;
+    private TextView txtLaunchLog;
+
+    private CheckBox chkDownscroll;
+    private CheckBox chkMiddlescroll;
+    private CheckBox chkPlayOpponent;
+    private CheckBox chkPerformanceMode;
+    private CheckBox chkLowEndMode;
+    private CheckBox chkMatrix4;
+
+private EditText edtScrollSpeed;
 
     private void showLaunchSequence()
 {
     launchOverlay.setVisibility(View.VISIBLE);
 
-    launchCard.setAlpha(1f);
+    launchCard.setAlpha(0f);
+    launchCard.setScaleX(0.82f);
+    launchCard.setScaleY(0.82f);
 
-    launchOverlay.postDelayed(() -> {
-        //syncAndLaunchEngine();
-    }, 3000);
+    launchCard.setRotationY(22f);
+
+    launchCard.setTranslationX(220f);
+
+    launchCard.animate()
+            .alpha(1f)
+            .scaleX(1f)
+            .scaleY(1f)
+            .rotationY(0f)
+            .translationX(0f)
+            .setDuration(450)
+            .setInterpolator(new AccelerateDecelerateInterpolator())
+            .start();
+
+    new Handler().postDelayed(this::showConfigurationSummary,500);
+}
+
+    private void showConfigurationSummary()
+{
+    txtLaunchStatus.setText("Preparing Launch...");
+
+    String engineName;
+
+    switch (activeEngineTarget)
+    {
+        case 1:
+            engineName = "Psych Engine";
+            break;
+
+        case 2:
+            engineName = "Jay Engine";
+            break;
+
+        default:
+            engineName = "FNF Vanilla";
+            break;
+    }
+
+    String[] lines =
+    {
+        "✓ Engine : " + engineName,
+        "✓ Downscroll : " + (chkDownscroll.isChecked() ? "ON" : "OFF"),
+        "✓ Middlescroll : " + (chkMiddlescroll.isChecked() ? "ON" : "OFF"),
+        "✓ Play Opponent : " + (chkPlayOpponent.isChecked() ? "ON" : "OFF"),
+        "✓ Scroll Speed : " + edtScrollSpeed.getText().toString(),
+        "✓ Safe Frames : " + customSafeFrames,
+        "✓ Performance Mode : " + (chkPerformanceMode.isChecked() ? "ON" : "OFF"),
+        "✓ Low End Mode : " + (chkLowEndMode.isChecked() ? "ON" : "OFF"),
+        "✓ Matrix4 Pipeline : " + (chkMatrix4.isChecked() ? "ON" : "OFF"),
+        "✓ Saving turbo_config.json...",
+        "✓ Initializing Engine..."
+    };
+
+    txtLaunchLog.setText("");
+
+    Handler handler = new Handler();
+
+    StringBuilder builder = new StringBuilder();
+
+    for (int i = 0; i < lines.length; i++)
+    {
+        final int index = i;
+
+        handler.postDelayed(() ->
+        {
+            builder.append(lines[index]).append("\n");
+            txtLaunchLog.setText(builder.toString());
+
+        }, i * 180);
+    }
+
+    handler.postDelayed(() ->
+    {
+        finishLaunchAnimation();
+    }, lines.length * 180 + 600);
 }
 
     private void scrollToSection(ScrollView scrollView, View target)
@@ -81,11 +168,8 @@ public class MainActivity extends Activity {
 
         launchOverlay = findViewById(R.id.launchOverlay);
         launchCard = findViewById(R.id.launchCard);
-        final TextView txtLaunchLine1 = findViewById(R.id.txtLaunchLine1);
-        final TextView txtLaunchLine2 = findViewById(R.id.txtLaunchLine2);
-        final TextView txtLaunchLine3 = findViewById(R.id.txtLaunchLine3);
-        final TextView txtLaunchLine4 = findViewById(R.id.txtLaunchLine4);
-        final TextView txtLaunchLine5 = findViewById(R.id.txtLaunchLine5);
+        txtLaunchStatus = findViewById(R.id.txtLaunchStatus);
+        txtLaunchLog = findViewById(R.id.txtLaunchLog);
 
         final ImageView imgEngineLogo = findViewById(R.id.imgEngineLogo);
         
@@ -101,15 +185,15 @@ public class MainActivity extends Activity {
         final TextView txtSummaryGameplay = findViewById(R.id.txtSummaryGameplay);
         final TextView txtSummaryPerformance = findViewById(R.id.txtSummaryPerformance);
 
-        final EditText edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
-        final CheckBox chkDownscroll = findViewById(R.id.chkDownscroll);
-        final CheckBox chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
-        final CheckBox chkPlayOpponent = findViewById(R.id.chkPlayOpponent);
-        final CheckBox chkModcharts = findViewById(R.id.chkModcharts);
+        chkDownscroll = findViewById(R.id.chkDownscroll);
+        chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
+        chkPlayOpponent = findViewById(R.id.chkPlayOpponent);
 
-        final CheckBox chkPerformanceMode = findViewById(R.id.chkPerformanceMode);
-        final CheckBox chkLowEndMode = findViewById(R.id.chkLowEndMode);
-        final CheckBox chkMatrix4 = findViewById(R.id.chkMatrix4);
+        edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
+        
+        chkPerformanceMode = findViewById(R.id.chkPerformanceMode);
+        chkLowEndMode = findViewById(R.id.chkLowEndMode);
+        chkMatrix4 = findViewById(R.id.chkMatrix4);
         
         final CheckBox chkEnable3D = findViewById(R.id.chkEnable3D);
         final CheckBox chkPerspective = findViewById(R.id.chkPerspective);

@@ -17,7 +17,7 @@ Engine::Engine()
     audio = nullptr;
     assets = nullptr;
     scripts = nullptr;
-    gameplay = nullptr;
+    stateManager = nullptr;
 
     running = false;
 }

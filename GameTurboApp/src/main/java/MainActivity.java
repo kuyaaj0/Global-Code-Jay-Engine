@@ -157,6 +157,7 @@ private EditText edtScrollSpeed;
         finishLaunchAnimation();
     }, lines.length * 180 + 600);
 }
+}
 
     private void scrollToSection(ScrollView scrollView, View target)
 {

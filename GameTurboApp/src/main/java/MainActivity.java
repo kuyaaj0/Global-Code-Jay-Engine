@@ -45,6 +45,13 @@ public class MainActivity extends Activity {
     }, 3000);
 }
 
+    private void scrollToSection(ScrollView scrollView, View target)
+{
+    scrollView.post(() ->
+        scrollView.smoothScrollTo(0, target.getTop())
+    );
+}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +67,14 @@ public class MainActivity extends Activity {
         final Button btnModcharts = findViewById(R.id.btnNavModcharts);
         final Button btnAbout = findViewById(R.id.btnNavAbout);
 
-        final ScrollView mainScrollView = findViewById(R.id.mainScrollView);
+        ScrollView mainScrollView = findViewById(R.id.mainScrollView);
         
-        final View sectionGameplay = findViewById(R.id.sectionGameplay);
-        final View sectionPerformance = findViewById(R.id.sectionPerformance);
-        final View sectionModcharts = findViewById(R.id.sectionModcharts);
-        final View sectionAbout = findViewById(R.id.sectionAbout);
+        View sectionEngine = findViewById(R.id.sectionEngine);
+        View sectionGameplay = findViewById(R.id.sectionGameplay);
+        View sectionPerformance = findViewById(R.id.sectionPerformance);
+        View sectionModcharts = findViewById(R.id.sectionModcharts);
+        View sectionLaunch = findViewById(R.id.sectionLaunch);
+        View sectionAbout = findViewById(R.id.sectionAbout);
 
         final TextView txtEngineTitle = findViewById(R.id.txtEngineTitle);
         final TextView txtEngineDesc = findViewById(R.id.txtEngineDesc);
@@ -108,21 +117,21 @@ public class MainActivity extends Activity {
         final CheckBox chkNotITG = findViewById(R.id.chkNotITG);
         final CheckBox chkDepthSorting = findViewById(R.id.chkDepthSorting);
 
-        btnGameplay.setOnClickListener(v ->
-    mainScrollView.smoothScrollTo(0, sectionGameplay.getTop())
-);
+        btnGameplay.setOnClickListener(v -> {
+    scrollToSection(mainScrollView, sectionGameplay);
+});
 
-btnPerformance.setOnClickListener(v ->
-    mainScrollView.smoothScrollTo(0, sectionPerformance.getTop())
-);
+btnPerformance.setOnClickListener(v -> {
+    scrollToSection(mainScrollView, sectionPerformance);
+});
+        
+btnModcharts.setOnClickListener(v -> {
+    scrollToSection(mainScrollView, sectionModcharts);
+});
 
-btnModcharts.setOnClickListener(v ->
-    mainScrollView.smoothScrollTo(0, sectionModcharts.getTop())
-);
-
-btnAbout.setOnClickListener(v ->
-    mainScrollView.smoothScrollTo(0, sectionAbout.getTop())
-);
+btnAbout.setOnClickListener(v -> {
+    scrollToSection(mainScrollView, sectionAbout);
+});
         
         // LEFT: Original FNF
         btnOriginal.setOnClickListener(v -> {

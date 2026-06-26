@@ -1,6 +1,6 @@
 #include "Stage.hpp"
 
-#include "../Renderer/Renderer.hpp"
+#include "../../Renderer/Renderer.hpp"
 
 Stage::Stage()
 {

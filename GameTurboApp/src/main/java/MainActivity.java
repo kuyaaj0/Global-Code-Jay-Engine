@@ -44,11 +44,12 @@ public class MainActivity extends Activity {
     private CheckBox chkDownscroll;
     private CheckBox chkMiddlescroll;
     private CheckBox chkPlayOpponent;
+    private CheckBox chkModcharts;
     private CheckBox chkPerformanceMode;
     private CheckBox chkLowEndMode;
     private CheckBox chkMatrix4;
 
-private EditText edtScrollSpeed;
+    private EditText edtScrollSpeed;
 
     private void showLaunchSequence()
 {
@@ -160,6 +161,23 @@ private EditText edtScrollSpeed;
 }
 }
 
+    private void finishLaunchAnimation()
+{
+    launchCard.animate()
+            .translationX(-600f)
+            .rotationY(-35f)
+            .alpha(0f)
+            .setDuration(700)
+            .withEndAction(() ->
+            {
+                launchOverlay.setVisibility(View.GONE);
+
+                // Launch engine here
+                // syncAndLaunchEngine();
+            })
+            .start();
+}
+
     private void scrollToSection(ScrollView scrollView, View target)
 {
     scrollView.post(() ->
@@ -217,6 +235,7 @@ private EditText edtScrollSpeed;
         chkDownscroll = findViewById(R.id.chkDownscroll);
         chkMiddlescroll = findViewById(R.id.chkMiddlescroll);
         chkPlayOpponent = findViewById(R.id.chkPlayOpponent);
+        chkModcharts = findViewById(R.id.chkModcharts);
 
         edtScrollSpeed = findViewById(R.id.edtScrollSpeed);
         

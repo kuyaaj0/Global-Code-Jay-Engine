@@ -1,4 +1,5 @@
 #include "StateManager.hpp"
+#include "../Renderer/Renderer.hpp"
 
 StateManager::StateManager()
 {

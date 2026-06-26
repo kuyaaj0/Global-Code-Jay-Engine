@@ -6,7 +6,7 @@ class InputManager;
 class AudioManager;
 class AssetManager;
 class ScriptManager;
-class GameplayState;
+class StateManager;
 
 class Engine
 {
@@ -35,7 +35,7 @@ private:
 
     ScriptManager* scripts;
 
-    GameplayState* gameplay;
+    StateManager* stateManager;
 
     bool running;
 

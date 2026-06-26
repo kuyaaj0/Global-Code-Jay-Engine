@@ -25,6 +25,8 @@ void StateManager::ChangeState(State* nextState)
 
     currentState = nextState;
 
+    currentState->SetStateManager(this);
+
     if(currentState != nullptr)
     {
         currentState->Initialize();

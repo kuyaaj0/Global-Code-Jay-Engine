@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.os.Handler;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.ImageView;
 import android.widget.Button;
@@ -17,9 +18,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-private android.widget.ProgressBar progressLaunch;
-
 public class MainActivity extends Activity {
+
+    private android.widget.ProgressBar progressLaunch;
 
     private int activeEngineTarget = 0;
     private int customSafeFrames = 10;

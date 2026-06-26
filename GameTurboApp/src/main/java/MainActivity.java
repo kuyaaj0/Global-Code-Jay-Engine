@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
     launchCard.setAlpha(1f);
 
     launchOverlay.postDelayed(() -> {
-        syncAndLaunchEngine();
+        //syncAndLaunchEngine();
     }, 3000);
 }
 

@@ -35,7 +35,9 @@ bool Engine::Initialize()
 
     scripts = new ScriptManager();
 
-    gameplay = new GameplayState();
+    stateManager = new StateManager();
+
+    stateManager->ChangeState(new TitleState());
 
     running = true;
 
@@ -45,23 +47,24 @@ bool Engine::Initialize()
 void Engine::Run()
 {
     while(running)
-    {
-        input->Update();
+{
+    float deltaTime = timer.GetDeltaTime();
 
-        gameplay->Update();
+    input->Update();
 
-        scripts->ExecuteAll();
+    stateManager->Update(deltaTime);
 
-        renderer->Render();
+    scripts->ExecuteAll();
 
-        // Future:
-        // window->Present();
-    }
+    stateManager->Render(renderer);
+
+    window->Present();
+}
 }
 
 void Engine::Shutdown()
 {
-    delete gameplay;
+    delete stateManager;
     delete scripts;
     delete assets;
     delete audio;

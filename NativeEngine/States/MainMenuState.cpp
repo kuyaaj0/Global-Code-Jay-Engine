@@ -1,37 +1,55 @@
 #include "MainMenuState.hpp"
+
 #include "../Renderer/Renderer.hpp"
 
 #include <iostream>
 
 MainMenuState::MainMenuState()
 {
-    currentSelection = 0;
+    selectedOption = 0;
+
+    inputCooldown = 0.0f;
 }
 
 bool MainMenuState::Initialize()
 {
-    std::cout << std::endl;
+    std::cout << "[MainMenu] Initialize." << std::endl;
 
-    std::cout << "========== MAIN MENU ==========" << std::endl;
+    std::cout << "------------------------" << std::endl;
 
-    std::cout << "[0] Story Mode" << std::endl;
-    std::cout << "[1] Freeplay" << std::endl;
-    std::cout << "[2] Options" << std::endl;
-    std::cout << "[3] Credits" << std::endl;
+    for(int i = 0; i < 5; i++)
+    {
+        if(i == selectedOption)
+            std::cout << "> ";
+        else
+            std::cout << "  ";
 
-    std::cout << "===============================" << std::endl;
+        std::cout << menuItems[i] << std::endl;
+    }
 
     return true;
 }
 
 void MainMenuState::Update(float deltaTime)
 {
-    // Keyboard / Touch input comes later.
+    inputCooldown += deltaTime;
+
+    // Touch input
+    // Keyboard
+    // Controller
+
+    // will be connected later
 }
 
 void MainMenuState::Render(Renderer* renderer)
 {
-    // Future renderer.
+    // Draw background
+
+    // Draw logo
+
+    // Draw menu
+
+    // Draw selector
 }
 
 void MainMenuState::Shutdown()

@@ -18,50 +18,22 @@
         android:background="#20242C">
 
         <TextView
-            android:id="@+id/txtLaunchTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Preparing Launch..."
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+    android:id="@+id/txtLaunchStatus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Preparing Launch..."
+    android:textColor="#FFFFFF"
+    android:textStyle="bold"
+    android:textSize="18sp"/>
 
         <TextView
-            android:id="@+id/txtLaunchLine1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#FFFFFF"
-            android:layout_marginTop="12dp"/>
-
-        <TextView
-            android:id="@+id/txtLaunchLine2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#FFFFFF"/>
-
-        <TextView
-            android:id="@+id/txtLaunchLine3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#FFFFFF"/>
-
-        <TextView
-            android:id="@+id/txtLaunchLine4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#FFFFFF"/>
-
-        <TextView
-            android:id="@+id/txtLaunchLine5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textColor="#FFFFFF"/>
-
+    android:id="@+id/txtLaunchLog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="18dp"
+    android:textColor="#00E5FF"
+    android:textSize="14sp"
+    android:text=""/>
     </LinearLayout>
 
 </FrameLayout>

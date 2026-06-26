@@ -6,7 +6,14 @@
 TitleState::TitleState()
 {
     timer = 0.0f;
+
     logoFinished = false;
+
+    waitingForInput = false;
+
+    blinkVisible = true;
+
+    blinkTimer = 0.0f;
 }
 
 bool TitleState::Initialize()
@@ -24,15 +31,31 @@ void TitleState::Update(float deltaTime)
 {
     timer += deltaTime;
 
-    if(timer >= 3.0f && !logoFinished)
+if(timer >= 3.0f && !logoFinished)
+{
+    logoFinished = true;
+
+    waitingForInput = true;
+
+    std::cout << "[TitleState] Intro Finished." << std::endl;
+}
+
+if(waitingForInput)
+{
+    blinkTimer += deltaTime;
+
+    if(blinkTimer >= 0.5f)
     {
-        logoFinished = true;
-
-        std::cout << "[TitleState] Intro Finished." << std::endl;
-
-        // Later:
-        // ChangeState(new MainMenuState());
+        blinkVisible = !blinkVisible;
+        blinkTimer = 0.0f;
     }
+
+    // Later:
+    // if(InputManager::Pressed())
+    // {
+    //     ChangeState(new MainMenuState());
+    // }
+}
 }
 
 void TitleState::Render(Renderer* renderer)

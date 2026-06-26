@@ -17,6 +17,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+private android.widget.ProgressBar progressLaunch;
+
 public class MainActivity extends Activity {
 
     private int activeEngineTarget = 0;
@@ -119,12 +121,36 @@ private EditText edtScrollSpeed;
         final int index = i;
 
         handler.postDelayed(() ->
-        {
-            builder.append(lines[index]).append("\n");
-            txtLaunchLog.setText(builder.toString());
+{
+    builder.append(lines[index]).append("\n");
+    txtLaunchLog.setText(builder.toString());
 
-        }, i * 180);
+    // Update progress bar
+    int progress = ((index + 1) * 100) / lines.length;
+    progressLaunch.setProgress(progress);
+
+    // Update launch status
+    if (index == 2)
+    {
+        txtLaunchStatus.setText("Loading Configuration...");
     }
+
+    if (index == 5)
+    {
+        txtLaunchStatus.setText("Initializing Renderer...");
+    }
+
+    if (index == 8)
+    {
+        txtLaunchStatus.setText("Building Engine...");
+    }
+
+    if (index == lines.length - 1)
+    {
+        txtLaunchStatus.setText("Starting Engine...");
+    }
+
+}, i * 180);
 
     handler.postDelayed(() ->
     {
@@ -170,6 +196,7 @@ private EditText edtScrollSpeed;
         launchCard = findViewById(R.id.launchCard);
         txtLaunchStatus = findViewById(R.id.txtLaunchStatus);
         txtLaunchLog = findViewById(R.id.txtLaunchLog);
+        progressLaunch = findViewById(R.id.progressLaunch);
 
         final ImageView imgEngineLogo = findViewById(R.id.imgEngineLogo);
         

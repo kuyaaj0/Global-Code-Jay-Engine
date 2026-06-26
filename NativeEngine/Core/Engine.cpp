@@ -6,7 +6,8 @@
 #include "../Audio/AudioManager.hpp"
 #include "../Manager/AssetManager.hpp"
 #include "../Scripting/ScriptManager.hpp"
-#include "../States/GameplayState.hpp"
+#include "../States/StateManager.hpp"
+#include "../States/TitleState.hpp"
 
 Engine::Engine()
 {

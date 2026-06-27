@@ -17,7 +17,9 @@ public:
 
     Stage();
 
-    void Load();
+    void Load(
+    const StageData& data
+);
 
     void Update(float dt);
 

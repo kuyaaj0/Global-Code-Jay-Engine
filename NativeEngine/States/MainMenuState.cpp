@@ -1,6 +1,7 @@
 #include "MainMenuState.hpp"
 
 #include "../Renderer/Renderer.hpp"
+#include "StoryMenuState.hpp"
 
 #include <iostream>
 
@@ -96,24 +97,36 @@ void MainMenuState::SelectOption()
     switch(selectedOption)
     {
         case 0:
-            std::cout << "[MainMenu] Story Mode Selected." << std::endl;
+        {
+            stateManager->ChangeState(
+                new StoryMenuState()
+            );
             break;
+        }
 
         case 1:
+        {
             std::cout << "[MainMenu] Freeplay Selected." << std::endl;
             break;
+        }
 
         case 2:
+        {
             std::cout << "[MainMenu] Options Selected." << std::endl;
             break;
+        }
 
         case 3:
+        {
             std::cout << "[MainMenu] Credits Selected." << std::endl;
             break;
+        }
 
         case 4:
+        {
             std::cout << "[MainMenu] Exit Selected." << std::endl;
             break;
+        }
     }
 }
 

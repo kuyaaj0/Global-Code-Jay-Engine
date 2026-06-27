@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Transform/Transform.hpp"
+#include "../Gameplay/CharacterData.hpp"
 
 class Character
 {
@@ -30,6 +31,10 @@ public:
     void SingRight();
 
     void Miss();
+
+    void Load(const CharacterData& data);
+
+    const CharacterData& GetData() const;
 
     void Update(float dt);
 

@@ -11,6 +11,25 @@ Character::Character()
     flipY = false;
 }
 
+void Character::Load(const CharacterData& data)
+{
+    characterData = data;
+
+    flipX = data.flipX;
+    flipY = data.flipY;
+
+    // Later:
+    // Load sprite atlas
+    // Load XML
+    // Load animations
+    // Load offsets
+}
+
+const CharacterData& Character::GetData() const
+{
+    return characterData;
+}
+
 void Character::Idle()
 {
     // TODO:

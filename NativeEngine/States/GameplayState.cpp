@@ -95,11 +95,12 @@ bool GameplayState::Initialize()
 
     CharacterLoader loader;
 
-    CharacterData boyfriend =
-    loader.LoadCharacter("Boyfriend");
+    boyfriend = loader.LoadCharacter("Boyfriend");
 
-    CharacterData dad =
-    loader.LoadCharacter("Dad");
+    dad = loader.LoadCharacter("Dad");
+
+    player->Load(boyfriend);
+    opponent->Load(dad);
 
     stage = new Stage();
 
@@ -113,10 +114,6 @@ bool GameplayState::Initialize()
 void GameplayState::LoadSong(
 const char* songName)
 {
-    player->Load(boyfriend);
-
-    opponent->Load(dad);
-    
     songLoader->Load(songName);
     
     chartParser->Parse(songName);

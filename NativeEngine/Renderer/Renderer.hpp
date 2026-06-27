@@ -5,6 +5,9 @@
 #include "../Math/Matrix4.hpp"
 #include "../Math/Vector4.hpp"
 
+class Texture;
+class Sprite;
+
 class Renderer
 {
 
@@ -36,6 +39,11 @@ public:
         const Matrix4& world,
         const Vector4 vertices[4]
     );
+
+    void DrawSprite(
+    Texture* texture,
+    const Matrix4& world
+);
 
 private:
 

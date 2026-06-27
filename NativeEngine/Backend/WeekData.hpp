@@ -2,12 +2,15 @@
 
 #include <string>
 #include <vector>
+#include "SongData.hpp"
+
+
 
 struct WeekData
 {
     std::string title;
 
-    std::vector<std::string> songs;
+    std::vector<SongData> songs;
 
     bool isJayStory;
 };

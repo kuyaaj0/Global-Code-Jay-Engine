@@ -137,6 +137,20 @@ for(const auto& noteData : notes)
 }
 }
 
+bool GameplayState::LoadWeek(int weekID)
+{
+    // Load vanilla songs
+
+    return true;
+}
+
+bool GameplayState::LoadChapter(int chapterID)
+{
+    // Load Jay Engine campaign
+
+    return true;
+}
+
 void GameplayState::Update(
     float deltaTime
 )

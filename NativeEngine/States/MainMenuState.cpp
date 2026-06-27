@@ -52,6 +52,25 @@ void MainMenuState::Render(Renderer* renderer)
     // Draw selector
 }
 
+void MainMenuState::DrawMenu()
+{
+    std::cout << "\n";
+
+    std::cout << "===== MAIN MENU =====\n";
+
+    for(int i = 0; i < MENU_COUNT; i++)
+    {
+        if(i == selectedOption)
+            std::cout << "> ";
+        else
+            std::cout << "  ";
+
+        std::cout << menuItems[i] << std::endl;
+    }
+
+    std::cout << std::endl;
+}
+
 void MainMenuState::Shutdown()
 {
     std::cout << "[MainMenu] Shutdown." << std::endl;

@@ -140,6 +140,7 @@ void StoryMenuState::SelectWeek()
                   << std::endl;
     }
 
-    // Later:
-    // stateManager->ChangeState(new GameplayState());
+    stateManager->ChangeState(
+    new GameplayState()
+);
 }

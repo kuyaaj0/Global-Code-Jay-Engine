@@ -9,12 +9,16 @@ Stage::Stage()
     visible = true;
 }
 
-void Stage::Load()
+void Stage::Load(const StageData& data)
 {
-    // TODO:
-    // Load background
+    stageData = data;
+
+    cameraZoom = data.defaultCameraZoom;
+
+    // Future:
+    // Load background texture
+    // Load foreground texture
     // Load props
-    // Load foreground
 }
 
 void Stage::Update(float dt)

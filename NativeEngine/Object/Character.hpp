@@ -20,6 +20,10 @@ public:
 
     Character();
 
+    void Load(const CharacterData& data);
+
+    const CharacterData& GetData() const;
+
     void Idle();
 
     void SingLeft();
@@ -31,10 +35,6 @@ public:
     void SingRight();
 
     void Miss();
-
-    void Load(const CharacterData& data);
-
-    const CharacterData& GetData() const;
 
     void Update(float dt);
 

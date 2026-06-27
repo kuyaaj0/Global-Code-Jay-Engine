@@ -2,6 +2,7 @@
 
 #include "../Renderer/Renderer.hpp"
 #include "GameplayState.hpp"
+#include "MainMenuState.hpp"
 
 #include <iostream>
 
@@ -143,4 +144,11 @@ void StoryMenuState::SelectWeek()
     stateManager->ChangeState(
     new GameplayState()
 );
+}
+
+void StoryMenuState::GoBack()
+{
+    stateManager->ChangeState(
+        new MainMenuState()
+    );
 }

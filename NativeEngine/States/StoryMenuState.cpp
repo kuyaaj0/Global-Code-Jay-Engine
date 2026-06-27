@@ -1,6 +1,7 @@
 #include "StoryMenuState.hpp"
 
 #include "../Renderer/Renderer.hpp"
+#include "GameplayState.hpp"
 
 #include <iostream>
 

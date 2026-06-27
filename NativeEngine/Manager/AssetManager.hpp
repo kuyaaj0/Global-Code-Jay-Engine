@@ -31,6 +31,29 @@ public:
 
     void Clear();
 
+    std::string FindTexture(
+    const std::string& name
+);
+    std::string FindSound(
+    const std::string& name
+);
+
+    std::string FindFont(
+    const std::string& name
+);
+
+    std::string FindCharacter(
+    const std::string& characterName
+);
+
+    std::string FindStage(
+    const std::string& stageName
+);
+
+    std::string FindSong(
+    const std::string& songName
+);
+
 private:
 
     std::unordered_map<std::string,std::string> textures;
@@ -38,5 +61,11 @@ private:
     std::unordered_map<std::string,std::string> sounds;
 
     std::unordered_map<std::string,std::string> fonts;
+
+    std::string modsPath;
+
+    std::string assetsPath;
+
+    std::string defaultsPath;
 
 };

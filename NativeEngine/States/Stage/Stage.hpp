@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../Transform/Transform.hpp"
+#include "../../Gameplay/StageData.hpp"
 
 class Renderer;
 
@@ -24,5 +25,9 @@ public:
     void Update(float dt);
 
     void Render(Renderer* renderer);
+
+private:
+
+    StageData stageData;
 
 };

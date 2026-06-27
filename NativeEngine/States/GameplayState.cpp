@@ -1,6 +1,7 @@
 #include "GameplayState.hpp"
 
 #include "../Loader/SongLoader.hpp"
+#include "../Loader/CharacterLoader.hpp"
 #include "ChartParser.hpp"
 
 #include "../Backend/Conductor.hpp"
@@ -92,6 +93,14 @@ bool GameplayState::Initialize()
 
     opponent = new Character();
 
+    CharacterLoader loader;
+
+    CharacterData boyfriend =
+    loader.LoadCharacter("Boyfriend");
+
+    CharacterData dad =
+    loader.LoadCharacter("Dad");
+
     stage = new Stage();
 
     hud = new HUD();
@@ -104,6 +113,10 @@ bool GameplayState::Initialize()
 void GameplayState::LoadSong(
 const char* songName)
 {
+    player->Load(boyfriend);
+
+    opponent->Load(dad);
+    
     songLoader->Load(songName);
     
     chartParser->Parse(songName);

@@ -2,7 +2,11 @@
 
 AssetManager::AssetManager()
 {
+    modsPath = "Mods/";
 
+    assetsPath = "Assets/";
+
+    defaultsPath = "Engine/Defaults/";
 }
 
 bool AssetManager::LoadTexture(

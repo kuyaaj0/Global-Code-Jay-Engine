@@ -104,6 +104,13 @@ bool GameplayState::Initialize()
 
     stage = new Stage();
 
+    StageLoader loader;
+
+    StageData stageData =
+    loader.LoadStage("Stage");
+
+    stage->Load(stageData);
+
     hud = new HUD();
 
     scripts = new ScriptManager();

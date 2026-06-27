@@ -24,6 +24,8 @@ private:
 
     float inputCooldown;
 
+    void DrawMenu();
+
     const char* menuItems[5] =
     {
         "Story Mode",

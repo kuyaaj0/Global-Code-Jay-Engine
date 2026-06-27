@@ -30,6 +30,8 @@ private:
 
     void SelectWeek();
 
+    void GoBack();
+
     bool useJayStory;
 
     int selectedWeek;

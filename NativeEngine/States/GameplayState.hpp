@@ -31,6 +31,10 @@ public:
         const char* songName
     );
 
+    bool LoadWeek(int weekID);
+
+    bool LoadChapter(int chapterID);
+
     void Update(
     float deltaTime
 );

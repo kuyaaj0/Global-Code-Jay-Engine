@@ -26,6 +26,12 @@ private:
 
     void DrawMenu();
 
+    void MoveUp();
+
+    void MoveDown();
+
+    void SelectOption();
+
     const char* menuItems[5] =
     {
         "Story Mode",

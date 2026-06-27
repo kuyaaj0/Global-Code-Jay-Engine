@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Gameplay/CharacterData.hpp"
 
 class SongLoader;
 class ChartParser;
@@ -46,6 +47,10 @@ public:
     void Shutdown();
 
 private:
+
+    CharacterData boyfriend;
+
+    CharacterData dad;
 
     SongLoader* songLoader;
 

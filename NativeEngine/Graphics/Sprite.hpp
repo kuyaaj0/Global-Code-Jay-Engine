@@ -19,6 +19,6 @@ public:
 
     Texture* texture;
 
-    void Draw();
+    void Draw(Renderer* renderer);
 
 };

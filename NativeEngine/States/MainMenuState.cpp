@@ -10,13 +10,56 @@ MainMenuState::MainMenuState()
     selectedOption = 0;
 
     inputCooldown = 0.0f;
+
+    acceptingInput = false;
 }
 
 bool MainMenuState::Initialize()
 {
-    std::cout << "[MainMenu] Initialize." << std::endl;
+    std::cout << "[MainMenu] Initialized." << std::endl;
 
-    std::cout << "------------------------" << std::endl;
+    selectedOption = 0;
+
+    inputCooldown = 0.0f;
+
+    acceptingInput = true;
+
+    return true;
+}
+
+void MainMenuState::Update(float deltaTime)
+{
+    if(!acceptingInput)
+        return;
+
+    inputCooldown += deltaTime;
+
+    // Later:
+    // InputManager
+    //
+    // if(UpPressed)
+    //     MoveUp();
+    //
+    // if(DownPressed)
+    //     MoveDown();
+    //
+    // if(ConfirmPressed)
+    //     SelectOption();
+}
+
+void MainMenuState::Render(Renderer* renderer)
+{
+    DrawMenu();
+}
+
+void MainMenuState::Shutdown()
+{
+    std::cout << "[MainMenu] Shutdown." << std::endl;
+}
+
+void MainMenuState::DrawMenu()
+{
+    std::cout << "\n========== MAIN MENU ==========\n";
 
     for(int i = 0; i < 5; i++)
     {
@@ -28,68 +71,19 @@ bool MainMenuState::Initialize()
         std::cout << menuItems[i] << std::endl;
     }
 
-    return true;
-}
-
-void MainMenuState::Update(float deltaTime)
-{
-    inputCooldown += deltaTime;
-
-    // Touch input
-    // Keyboard
-    // Controller
-
-    // will be connected later
-}
-
-void MainMenuState::Render(Renderer* renderer)
-{
-    // Draw background
-
-    // Draw logo
-
-    // Draw menu
-
-    // Draw selector
-}
-
-void MainMenuState::DrawMenu()
-{
-    std::cout << "\n";
-
-    std::cout << "===== MAIN MENU =====\n";
-
-    for(int i = 0; i < MENU_COUNT; i++)
-    {
-        if(i == selectedOption)
-            std::cout << "> ";
-        else
-            std::cout << "  ";
-
-        std::cout << menuItems[i] << std::endl;
-    }
-
-    std::cout << std::endl;
+    std::cout << "===============================\n";
 }
 
 void MainMenuState::MoveUp()
 {
-    selectedOption--;
-
-    if(selectedOption < 0)
-        selectedOption = MENU_COUNT - 1;
-
-    DrawMenu();
+    if(selectedOption > 0)
+        selectedOption--;
 }
 
 void MainMenuState::MoveDown()
 {
-    selectedOption++;
-
-    if(selectedOption >= MENU_COUNT)
-        selectedOption = 0;
-
-    DrawMenu();
+    if(selectedOption < 4)
+        selectedOption++;
 }
 
 void MainMenuState::SelectOption()
@@ -97,37 +91,33 @@ void MainMenuState::SelectOption()
     switch(selectedOption)
     {
         case 0:
-        {
+            std::cout << "Story Mode Selected" << std::endl;
+
             stateManager->ChangeState(
                 new StoryMenuState()
             );
             break;
-        }
 
         case 1:
-        {
-            std::cout << "[MainMenu] Freeplay Selected." << std::endl;
+            std::cout << "Freeplay Selected" << std::endl;
             break;
-        }
 
         case 2:
-        {
-            std::cout << "[MainMenu] Options Selected." << std::endl;
+            std::cout << "Options Selected" << std::endl;
             break;
-        }
 
         case 3:
-        {
-            std::cout << "[MainMenu] Credits Selected." << std::endl;
+            std::cout << "Credits Selected" << std::endl;
             break;
-        }
 
         case 4:
-        {
-            std::cout << "[MainMenu] Exit Selected." << std::endl;
+            std::cout << "Exit Selected" << std::endl;
+
+            // Later:
+            // Engine::Shutdown();
             break;
-        }
     }
+}
 }
 
 void MainMenuState::Shutdown()

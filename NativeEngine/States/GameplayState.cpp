@@ -102,14 +102,14 @@ bool GameplayState::Initialize()
     player->Load(boyfriend);
     opponent->Load(dad);
 
+    StageLoader stageLoader;
+
+    StageData stageInfo =
+    stageLoader.LoadStage("Stage");
+
     stage = new Stage();
 
-    StageLoader loader;
-
-    StageData stageData =
-    loader.LoadStage("Stage");
-
-    stage->Load(stageData);
+    stage->Load(stageInfo);
 
     hud = new HUD();
 

@@ -24,6 +24,8 @@ private:
 
     float inputCooldown;
 
+    bool acceptingInput;
+
     void DrawMenu();
 
     void MoveUp();

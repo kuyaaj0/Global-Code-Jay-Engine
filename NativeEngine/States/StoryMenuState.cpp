@@ -211,8 +211,10 @@ void StoryMenuState::SelectWeek()
     // GameplayState will receive WeekData later
 
     stateManager->ChangeState(
-        new GameplayState()
-    );
+    new GameplayState(
+        week
+    )
+);
 }
 
 void StoryMenuState::GoBack()

@@ -3,13 +3,14 @@
 #include "State.hpp"
 
 class Renderer;
+class InputManager;
 
 class StateManager
 {
 
 public:
 
-    StateManager();
+    StateManager(InputManager* input);
 
     ~StateManager();
 
@@ -22,5 +23,7 @@ public:
 private:
 
     State* currentState;
+
+    InputManager* inputManager;
 
 };

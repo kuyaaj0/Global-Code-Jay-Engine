@@ -7,7 +7,7 @@ using json = nlohmann::json;
 
 ChartParser::ChartParser()
 {
-    format = "native";
+    format = ChartFormat::Native;
 }
 
 bool ChartParser::Parse(
@@ -30,7 +30,7 @@ const char* path)
         return false;
     }
 
-    if(format == "psych")
+    if(format == ChartFormat::Psych)
 {
     return ChartConverter::LoadPsychChart(
         path,
@@ -70,12 +70,12 @@ const char* path)
 }
 
 void ChartParser::SetFormat(
-const std::string& value)
+ChartFormat value)
 {
     format = value;
 }
 
-std::string ChartParser::GetFormat() const
+ChartFormat ChartParser::GetFormat() const
 {
     return format;
 }

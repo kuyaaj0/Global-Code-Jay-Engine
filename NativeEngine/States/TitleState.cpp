@@ -54,11 +54,9 @@ if(waitingForInput)
         blinkTimer = 0.0f;
     }
 
-    if(waitingForInput)
-{
-    inputManager->Update();
-
-    if(inputManager->IsConfirmPressed())
+    // Later this will come from keyboard/touch/controller
+    if(inputManager != nullptr &&
+       inputManager->IsConfirmPressed())
     {
         stateManager->ChangeState(
             new MainMenuState()
@@ -66,11 +64,14 @@ if(waitingForInput)
     }
 }
 }
-}
 
 void TitleState::Render(Renderer* renderer)
 {
-    // Renderer will be connected later.
+    if(waitingForInput && blinkVisible)
+    {
+        // Future:
+        // Draw "PRESS ENTER"
+    }
 }
 
 void TitleState::Shutdown()

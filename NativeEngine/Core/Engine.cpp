@@ -36,9 +36,11 @@ bool Engine::Initialize()
 
     scripts = new ScriptManager();
 
-    stateManager = new StateManager();
+    stateManager = new StateManager(input);
 
-    stateManager->ChangeState(new TitleState());
+    TitleState* title = new TitleState();
+
+    stateManager->ChangeState(title);
 
     running = true;
 

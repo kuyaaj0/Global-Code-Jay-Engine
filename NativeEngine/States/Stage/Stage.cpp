@@ -15,10 +15,14 @@ void Stage::Load(const StageData& data)
 
     cameraZoom = data.defaultCameraZoom;
 
-    // Future:
-    // Load background texture
-    // Load foreground texture
-    // Load props
+    background.texture = new Texture();
+    background.texture->Load(data.background);
+
+    foreground.texture = new Texture();
+    foreground.texture->Load(data.foreground);
+
+    props.texture = new Texture();
+    props.texture->Load(data.props);
 }
 
 void Stage::Update(float dt)
@@ -28,6 +32,9 @@ void Stage::Update(float dt)
 
 void Stage::Render(Renderer* renderer)
 {
-    // TODO:
-    // Render stage objects
+    background.Draw(renderer);
+
+    foreground.Draw(renderer);
+
+    props.Draw(renderer);
 }

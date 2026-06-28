@@ -15,7 +15,7 @@ TitleState::TitleState()
 
     blinkTimer = 0.0f;
     
-    inputManager = nullptr;
+    //inputManager = nullptr;
 }
 
 bool TitleState::Initialize()

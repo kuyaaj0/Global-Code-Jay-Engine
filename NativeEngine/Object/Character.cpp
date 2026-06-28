@@ -66,7 +66,9 @@ void Character::Update(float dt)
 
 }
 
-void Character::Render()
+void Character::Render(
+Renderer* renderer
+)
 {
-    // Future character rendering
+    sprite.Draw(renderer);
 }

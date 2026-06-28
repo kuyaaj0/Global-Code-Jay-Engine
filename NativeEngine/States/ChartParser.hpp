@@ -1,9 +1,17 @@
 #pragma once
 
 #include <vector>
-#include <string>
 
 #include "../Gameplay/NoteData.hpp"
+
+enum class ChartFormat
+{
+    Native,
+    Psych,
+    Kade,
+    Forever,
+    Codename
+};
 
 class ChartParser
 {
@@ -17,10 +25,10 @@ public:
     );
 
     void SetFormat(
-        const std::string& value
+        ChartFormat value
     );
 
-    std::string GetFormat() const;
+    ChartFormat GetFormat() const;
 
     const std::vector<NoteData>&
     GetNotes() const;
@@ -29,6 +37,6 @@ private:
 
     std::vector<NoteData> notes;
 
-    std::string format;
-
+    ChartFormat format =
+        ChartFormat::Native;
 };

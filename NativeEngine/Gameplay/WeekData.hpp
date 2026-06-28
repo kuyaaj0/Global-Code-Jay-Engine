@@ -1,14 +1,29 @@
+#pragma once
+
+#include <string>
+#include <vector>
+
 struct WeekData
 {
+    // Display name
     std::string weekName;
 
-    std::string songs[3];
+    // Songs inside this week
+    std::vector<std::string> songs;
 
+    // Characters
     std::string boyfriend;
 
     std::string girlfriend;
 
     std::string opponent;
 
+    // Stage
     std::string stage;
+
+    // Difficulty
+    int difficulty = 1;
+
+    // Story type
+    bool isJayStory = true;
 };

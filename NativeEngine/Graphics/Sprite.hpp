@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Math/Vector3.hpp"
+#include "../Renderer/Renderer.hpp"
 
 class Texture;
 

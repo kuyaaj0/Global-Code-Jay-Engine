@@ -34,17 +34,35 @@ void MainMenuState::Update(float deltaTime)
 
     inputCooldown += deltaTime;
 
-    // Later:
-    // InputManager
-    //
-    // if(UpPressed)
-    //     MoveUp();
-    //
-    // if(DownPressed)
-    //     MoveDown();
-    //
-    // if(ConfirmPressed)
-    //     SelectOption();
+    if(inputCooldown < 0.15f)
+        return;
+
+    if(inputManager->IsUpPressed())
+    {
+        MoveUp();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsDownPressed())
+    {
+        MoveDown();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsConfirmPressed())
+    {
+        SelectOption();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsBackPressed())
+    {
+        stateManager->ChangeState(
+            new TitleState()
+        );
+
+        inputCooldown = 0.0f;
+    }
 }
 
 void MainMenuState::Render(Renderer* renderer)
@@ -76,14 +94,24 @@ void MainMenuState::DrawMenu()
 
 void MainMenuState::MoveUp()
 {
-    if(selectedOption > 0)
-        selectedOption--;
+    const int menuCount =
+        sizeof(menuItems) / sizeof(menuItems[0]);
+
+    selectedOption--;
+
+    if(selectedOption < 0)
+        selectedOption = menuCount - 1;
 }
 
 void MainMenuState::MoveDown()
 {
-    if(selectedOption < 4)
-        selectedOption++;
+    const int menuCount =
+        sizeof(menuItems) / sizeof(menuItems[0]);
+
+    selectedOption++;
+
+    if(selectedOption >= menuCount)
+        selectedOption = 0;
 }
 
 void MainMenuState::SelectOption()
@@ -91,33 +119,38 @@ void MainMenuState::SelectOption()
     switch(selectedOption)
     {
         case 0:
-            std::cout << "Story Mode Selected" << std::endl;
-
+            // Story Mode
             stateManager->ChangeState(
                 new StoryMenuState()
             );
             break;
 
         case 1:
-            std::cout << "Freeplay Selected" << std::endl;
+            // Freeplay
+            stateManager->ChangeState(
+                new FreeplayState()
+            );
             break;
 
         case 2:
-            std::cout << "Options Selected" << std::endl;
+            // Options
+            stateManager->ChangeState(
+                new OptionsState()
+            );
             break;
 
         case 3:
-            std::cout << "Credits Selected" << std::endl;
+            // Credits
+            stateManager->ChangeState(
+                new CreditsState()
+            );
             break;
 
         case 4:
-            std::cout << "Exit Selected" << std::endl;
-
-            // Later:
-            // Engine::Shutdown();
+            // Exit
+            // We'll close the engine later.
             break;
     }
-}
 }
 
 void MainMenuState::Shutdown()

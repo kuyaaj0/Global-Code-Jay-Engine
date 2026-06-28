@@ -32,7 +32,7 @@ private:
 
     void GoBack();
 
-    bool useJayStory;
+    bool showingJayStory;
 
     int selectedWeek;
 

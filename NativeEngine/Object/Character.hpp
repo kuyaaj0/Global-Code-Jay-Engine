@@ -2,6 +2,7 @@
 
 #include "../Transform/Transform.hpp"
 #include "../Gameplay/CharacterData.hpp"
+#include "../Graphics/Sprite.hpp"
 
 class Character
 {
@@ -38,6 +39,6 @@ public:
 
     void Update(float dt);
 
-    void Render();
+    void Render(Renderer* renderer);
 
 };

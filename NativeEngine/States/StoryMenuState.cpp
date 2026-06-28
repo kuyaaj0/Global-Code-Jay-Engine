@@ -167,17 +167,48 @@ void StoryMenuState::ToggleStorySource()
 
 void StoryMenuState::SelectWeek()
 {
-    const char** currentStory =
-        showingJayStory ? jayStory : fnfWeeks;
+    std::string weekID;
+
+    if(showingJayStory)
+    {
+        switch(selectedWeek)
+        {
+            case 0: weekID = "chapter1"; break;
+            case 1: weekID = "chapter2"; break;
+            case 2: weekID = "chapter3"; break;
+
+            default:
+                weekID = "chapter1";
+                break;
+        }
+    }
+    else
+    {
+        switch(selectedWeek)
+        {
+            case 0: weekID = "week1"; break;
+            case 1: weekID = "week2"; break;
+            case 2: weekID = "week3"; break;
+            case 3: weekID = "week4"; break;
+            case 4: weekID = "week5"; break;
+            case 5: weekID = "week6"; break;
+            case 6: weekID = "week7"; break;
+
+            default:
+                weekID = "week1";
+                break;
+        }
+    }
+
+    WeekData week =
+        weekLoader.LoadWeek(weekID);
 
     std::cout
-        << "[StoryMenu] Loading "
-        << currentStory[selectedWeek]
+        << "[StoryMenu] Loaded "
+        << week.weekName
         << std::endl;
 
-    // Future:
-    // WeekLoader will load the selected week's JSON
-    // before entering GameplayState.
+    // GameplayState will receive WeekData later
 
     stateManager->ChangeState(
         new GameplayState()

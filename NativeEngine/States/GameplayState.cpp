@@ -29,8 +29,11 @@ const char* JudgeToString(
     JudgeResult result
 );
 
-GameplayState::GameplayState()
+GameplayState::GameplayState(
+const WeekData& week)
 {
+    currentWeek = week;
+    
     songLoader = nullptr;
 
     chartParser = nullptr;

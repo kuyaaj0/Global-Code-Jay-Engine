@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "SongData.hpp"
 
 class SongMetadata;
 
@@ -15,11 +16,19 @@ public:
         const std::string& song
     );
 
+    SongData GetSongData() const;
+
     std::string GetSongPath() const;
 
     std::string GetSongFolder() const;
 
-    std::string GetChartPath() const;
+    std::string GetChartPath(
+    const std::string& difficulty
+);
+
+    std::string GetInstrumentalPath() const;
+
+    std::string GetVoicesPath() const;
 
     std::string GetMetadataPath() const;
 

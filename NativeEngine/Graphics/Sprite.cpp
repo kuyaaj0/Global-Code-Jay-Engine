@@ -1,4 +1,5 @@
 #include "Sprite.hpp"
+#include "Texture.hpp"
 
 Sprite::Sprite()
 {
@@ -19,23 +20,20 @@ void Sprite::Draw(Renderer* renderer)
     if(texture == nullptr)
         return;
 
-    Matrix4 world;
-
-    world.Identity();
-
-    world.Translate(
-        position.x,
-        position.y,
-        position.z
-    );
-
-    world.Scale(
-        scale.x,
-        scale.y,
-        scale.z
-    );
-
-    // Rotation will be added later
+    Matrix4 world =
+        Matrix4::Translation(
+            position.x,
+            position.y,
+            position.z
+        )
+        *
+        Matrix4::RotationZ(rotation)
+        *
+        Matrix4::Scale(
+            scale.x,
+            scale.y,
+            scale.z
+        );
 
     Vector4 quad[4] =
     {

@@ -334,9 +334,9 @@ Renderer* renderer
 {
     stage->Render(renderer);
 
-    player->Render();
+    player->Render(renderer);
 
-    opponent->Render();
+    opponent->Render(renderer);
 
     noteManager->Render(renderer);
 

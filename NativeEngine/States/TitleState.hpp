@@ -4,6 +4,7 @@
 
 #include "../Graphics/Sprite.hpp"
 #include "../Graphics/Texture.hpp"
+#include "InputManager.hpp"
 
 class Renderer;
 
@@ -23,6 +24,8 @@ public:
     void Shutdown() override;
 
 private:
+
+    InputManager* inputManager;
 
     Sprite logo;
 

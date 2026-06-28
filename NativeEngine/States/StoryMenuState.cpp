@@ -8,7 +8,7 @@
 
 StoryMenuState::StoryMenuState()
 {
-    useJayStory = true;
+    showingJayStory = true;
 
     selectedWeek = 0;
 
@@ -28,7 +28,48 @@ void StoryMenuState::Update(float deltaTime)
 {
     inputCooldown += deltaTime;
 
-    // InputManager will be connected later.
+    if(inputCooldown < 0.15f)
+        return;
+
+    if(inputManager->IsUpPressed())
+    {
+        MoveUp();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsDownPressed())
+    {
+        MoveDown();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsConfirmPressed())
+    {
+        SelectWeek();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsBackPressed())
+    {
+        GoBack();
+        inputCooldown = 0.0f;
+    }
+
+    // Future:
+    // Left / Right switches between Jay Story and Original FNF
+    /*
+    if(inputManager->IsLeftPressed())
+    {
+        ToggleStorySource();
+        inputCooldown = 0.0f;
+    }
+
+    if(inputManager->IsRightPressed())
+    {
+        ToggleStorySource();
+        inputCooldown = 0.0f;
+    }
+    */
 }
 
 void StoryMenuState::Render(Renderer* renderer)
@@ -51,44 +92,42 @@ void StoryMenuState::DrawMenu()
 
     std::cout << "\nStory Source\n";
 
-    if(useJayStory)
+    if(showingJayStory)
         std::cout << "▶ Jay Engine\n";
     else
         std::cout << "  Jay Engine\n";
 
-    if(!useJayStory)
+    if(!showingJayStory)
         std::cout << "▶ Original FNF\n";
     else
         std::cout << "  Original FNF\n";
 
     std::cout << "\n------------------------------\n";
 
-    if(useJayStory)
-    {
-        for(int i = 0; i < JAY_CHAPTER_COUNT; i++)
-        {
-            if(i == selectedWeek)
-                std::cout << "> ";
-            else
-                std::cout << "  ";
+    const char** currentStory =
+        showingJayStory ? jayStory : fnfWeeks;
 
-            std::cout << jayStory[i] << std::endl;
-        }
-    }
-    else
-    {
-        for(int i = 0; i < FNF_WEEK_COUNT; i++)
-        {
-            if(i == selectedWeek)
-                std::cout << "> ";
-            else
-                std::cout << "  ";
+    int storyCount =
+        GetCurrentWeekCount();
 
-            std::cout << fnfWeeks[i] << std::endl;
-        }
+    for(int i = 0; i < storyCount; i++)
+    {
+        if(i == selectedWeek)
+            std::cout << "> ";
+        else
+            std::cout << "  ";
+
+        std::cout << currentStory[i] << std::endl;
     }
 
     std::cout << std::endl;
+}
+
+int StoryMenuState::GetCurrentWeekCount() const
+{
+    return showingJayStory
+        ? JAY_CHAPTER_COUNT
+        : FNF_WEEK_COUNT;
 }
 
 void StoryMenuState::MoveUp()
@@ -96,7 +135,7 @@ void StoryMenuState::MoveUp()
     selectedWeek--;
 
     int maxItems =
-        useJayStory ? JAY_CHAPTER_COUNT : FNF_WEEK_COUNT;
+        GetCurrentWeekCount();
 
     if(selectedWeek < 0)
         selectedWeek = maxItems - 1;
@@ -106,10 +145,10 @@ void StoryMenuState::MoveUp()
 
 void StoryMenuState::MoveDown()
 {
-    int maxItems =
-        useJayStory ? JAY_CHAPTER_COUNT : FNF_WEEK_COUNT;
-
     selectedWeek++;
+
+    int maxItems =
+        GetCurrentWeekCount();
 
     if(selectedWeek >= maxItems)
         selectedWeek = 0;
@@ -119,7 +158,7 @@ void StoryMenuState::MoveDown()
 
 void StoryMenuState::ToggleStorySource()
 {
-    useJayStory = !useJayStory;
+    showingJayStory = !showingJayStory;
 
     selectedWeek = 0;
 
@@ -128,22 +167,21 @@ void StoryMenuState::ToggleStorySource()
 
 void StoryMenuState::SelectWeek()
 {
-    if(useJayStory)
-    {
-        std::cout << "[StoryMenu] Loading "
-                  << jayStory[selectedWeek]
-                  << std::endl;
-    }
-    else
-    {
-        std::cout << "[StoryMenu] Loading "
-                  << fnfWeeks[selectedWeek]
-                  << std::endl;
-    }
+    const char** currentStory =
+        showingJayStory ? jayStory : fnfWeeks;
+
+    std::cout
+        << "[StoryMenu] Loading "
+        << currentStory[selectedWeek]
+        << std::endl;
+
+    // Future:
+    // WeekLoader will load the selected week's JSON
+    // before entering GameplayState.
 
     stateManager->ChangeState(
-    new GameplayState()
-);
+        new GameplayState()
+    );
 }
 
 void StoryMenuState::GoBack()

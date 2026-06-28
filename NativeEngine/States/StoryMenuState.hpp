@@ -1,6 +1,7 @@
 #pragma once
 
 #include "State.hpp"
+#include "../Loader/WeekLoader.hpp"
 
 class Renderer;
 
@@ -19,6 +20,8 @@ public:
     void Shutdown() override;
 
 private:
+
+    WeekLoader weekLoader;
 
     void DrawMenu();
 

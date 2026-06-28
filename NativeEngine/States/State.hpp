@@ -2,6 +2,7 @@
 
 class Renderer;
 class StateManager;
+class InputManager;
 
 class State
 {
@@ -13,6 +14,10 @@ public:
 
     virtual void Update(float deltaTime) = 0;
 
+    virtual void Render(Renderer* renderer) = 0;
+
+    virtual void Shutdown() = 0;
+
     void SetStateManager(StateManager* manager)
     {
         stateManager = manager;
@@ -23,13 +28,9 @@ public:
         inputManager = input;
     }
 
-    virtual void Render(Renderer* renderer) = 0;
-
-    virtual void Shutdown() = 0;
-
 protected:
 
-    StateManager* stateManager;
+    StateManager* stateManager = nullptr;
 
-    InputManager* inputManager;
+    InputManager* inputManager = nullptr;
 };

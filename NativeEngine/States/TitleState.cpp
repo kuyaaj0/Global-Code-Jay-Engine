@@ -76,5 +76,5 @@ void TitleState::Render(Renderer* renderer)
 void TitleState::Shutdown()
 {
     std::cout << "[TitleState] Shutdown." << std::endl;
-    delete inputManager;
+    //delete inputManager;
 }

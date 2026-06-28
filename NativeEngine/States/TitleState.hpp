@@ -2,6 +2,9 @@
 
 #include "State.hpp"
 
+#include "../Graphics/Sprite.hpp"
+#include "../Graphics/Texture.hpp"
+
 class Renderer;
 
 class TitleState : public State
@@ -20,6 +23,14 @@ public:
     void Shutdown() override;
 
 private:
+
+    Sprite logo;
+
+    Texture logoTexture;
+
+    Sprite pressEnter;
+
+    Texture pressTexture;
 
     float timer;
 

@@ -14,6 +14,8 @@ TitleState::TitleState()
     blinkVisible = true;
 
     blinkTimer = 0.0f;
+    
+    inputManager = nullptr;
 }
 
 bool TitleState::Initialize()
@@ -23,6 +25,8 @@ bool TitleState::Initialize()
     std::cout << "==================================" << std::endl;
 
     std::cout << "[TitleState] Initializing..." << std::endl;
+
+    //inputManager = new InputManager();
 
     return true;
 }
@@ -50,11 +54,17 @@ if(waitingForInput)
         blinkTimer = 0.0f;
     }
 
-    // Later:
-    // if(InputManager::Pressed())
-    // {
-    //     ChangeState(new MainMenuState());
-    // }
+    if(waitingForInput)
+{
+    inputManager->Update();
+
+    if(inputManager->IsConfirmPressed())
+    {
+        stateManager->ChangeState(
+            new MainMenuState()
+        );
+    }
+}
 }
 }
 
@@ -66,4 +76,5 @@ void TitleState::Render(Renderer* renderer)
 void TitleState::Shutdown()
 {
     std::cout << "[TitleState] Shutdown." << std::endl;
+    delete inputManager;
 }

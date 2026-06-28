@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Gameplay/CharacterData.hpp"
+#include "../Loader/WeekData.hpp"
 
 class SongLoader;
 class ChartParser;
@@ -24,7 +25,9 @@ class GameplayState
 
 public:
 
-    GameplayState();
+    GameplayState(
+        const WeekData& week
+    );
 
     bool Initialize();
 
@@ -47,6 +50,8 @@ public:
     void Shutdown();
 
 private:
+
+    WeekData currentWeek;
 
     CharacterData boyfriend;
 

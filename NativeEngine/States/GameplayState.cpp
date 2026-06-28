@@ -98,9 +98,15 @@ bool GameplayState::Initialize()
 
     CharacterLoader loader;
 
-    boyfriend = loader.LoadCharacter("Boyfriend");
+    CharacterData boyfriend =
+loader.LoadCharacter(
+    currentWeek.boyfriend
+);
 
-    dad = loader.LoadCharacter("Dad");
+    CharacterData dad =
+loader.LoadCharacter(
+    currentWeek.opponent
+);
 
     player->Load(boyfriend);
     opponent->Load(dad);

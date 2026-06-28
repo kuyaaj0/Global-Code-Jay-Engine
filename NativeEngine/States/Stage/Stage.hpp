@@ -2,6 +2,7 @@
 
 #include "../../Transform/Transform.hpp"
 #include "../../Gameplay/StageData.hpp"
+#include "../../Graphics/Sprite.hpp"
 
 class Renderer;
 

@@ -1,9 +1,12 @@
 #include "StateManager.hpp"
 #include "../Renderer/Renderer.hpp"
+#include "InputManager.hpp"
 
-StateManager::StateManager()
+StateManager::StateManager(InputManager* input)
 {
     currentState = nullptr;
+
+    inputManager = input;
 }
 
 StateManager::~StateManager()
@@ -27,10 +30,9 @@ void StateManager::ChangeState(State* nextState)
 
     currentState->SetStateManager(this);
 
-    if(currentState != nullptr)
-    {
-        currentState->Initialize();
-    }
+    currentState->SetInputManager(inputManager);
+
+    currentState->Initialize();
 }
 
 void StateManager::Update(float deltaTime)

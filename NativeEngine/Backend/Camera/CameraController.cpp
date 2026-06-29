@@ -1,7 +1,7 @@
 #include "CameraController.hpp"
 
-#include "../Renderer/Camera3D.hpp"
-#include "Utils/CamUtil.hpp"
+#include "../../Renderer/Camera3D.hpp"
+#include "../Utils/CamUtil.hpp"
 
 CameraController::CameraController()
 {

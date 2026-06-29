@@ -67,6 +67,7 @@ float deltaTime)
     camera->SetFOV(
     camera->fov
 );
+    camera->UpdateView();
 
     // Temporary shake decay
     if(shakeIntensity > 0.0f)

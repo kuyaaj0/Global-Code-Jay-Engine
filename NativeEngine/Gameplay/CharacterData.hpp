@@ -50,6 +50,4 @@ struct CharacterData
     private:
 
         CharacterData* characterData;
-
-        bool characterData;
 };

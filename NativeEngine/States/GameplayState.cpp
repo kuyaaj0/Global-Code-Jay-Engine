@@ -6,6 +6,8 @@
 
 #include "../Backend/Conductor.hpp"
 #include "../Backend/TouchManager.hpp"
+#include "../Backend/Camera/CameraController.hpp"
+#include "../Renderer/Camera3D.hpp"
 #include "../Audio/AudioManager.hpp"
 #include "../Gameplay/JudgeResult.hpp"
 #include "../Gameplay/NoteManager.hpp"
@@ -87,6 +89,12 @@ bool GameplayState::Initialize()
     inputManager = new InputManager();
     
     strumLine = new StrumLine();
+
+    camera = new Camera3D();
+
+    cameraController = new CameraController();
+
+    cameraController->SetCamera(camera);
     
     scoreManager = new ScoreManager();
     
@@ -253,6 +261,7 @@ healthManager->ApplyJudge(lastJudge);
         }
     }
 }
+    cameraController->Update(deltaTime);
     
     noteManager->Update(
     conductor->GetSongPosition(),

@@ -114,7 +114,9 @@ loader.LoadCharacter(
     StageLoader stageLoader;
 
     StageData stageInfo =
-    stageLoader.LoadStage("Stage");
+stageLoader.LoadStage(
+    currentWeek.stage
+);
 
     stage = new Stage();
 
@@ -131,8 +133,14 @@ void GameplayState::LoadSong(
 const char* songName)
 {
     songLoader->Load(songName);
-    
-    chartParser->Parse(songName);
+
+    ChartLoader loader;
+
+    loader.LoadChart(
+    songName,
+    currentDifficulty,
+    *chartParser
+);
     
     const auto& notes =
     chartParser->GetNotes();

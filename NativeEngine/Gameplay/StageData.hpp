@@ -34,4 +34,10 @@ struct StageData
 
         pixelStage = false;
     }
+
+   private:
+
+        StageData* stageData;
+
+        bool stageData;
 };

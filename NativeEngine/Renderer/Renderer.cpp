@@ -1,4 +1,6 @@
 #include "Renderer.hpp"
+#include "../Graphics/Texture.hpp"
+#include "../Graphics/Sprite.hpp"
 
 Renderer::Renderer()
 {

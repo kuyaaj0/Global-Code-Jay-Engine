@@ -38,6 +38,4 @@ struct StageData
    private:
 
         StageData* stageData;
-
-        bool stageData;
 };

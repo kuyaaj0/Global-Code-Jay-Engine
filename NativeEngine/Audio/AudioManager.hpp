@@ -13,6 +13,14 @@ public:
         const std::string& path
     );
 
+    bool PlayInstrumental(
+    const std::string& path
+);
+
+    bool PlayVoices(
+    const std::string& path
+);
+
     void Play();
 
     void Pause();

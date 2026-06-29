@@ -46,4 +46,10 @@ struct CharacterData
         flipX = false;
         flipY = false;
     }
+
+    private:
+
+        CharacterData* characterData;
+
+        bool characterData;
 };

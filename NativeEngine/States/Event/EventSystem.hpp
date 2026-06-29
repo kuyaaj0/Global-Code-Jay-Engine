@@ -5,8 +5,7 @@
 
 struct EventData
 {
-
-    float time;
+    float time = 0.0f;
 
     std::string name;
 
@@ -14,8 +13,7 @@ struct EventData
 
     std::string value2;
 
-    bool executed;
-
+    bool executed = false;
 };
 
 class EventSystem

@@ -36,3 +36,11 @@ public:
     void Clear();
 
 };
+
+private:
+
+    void ExecuteEvent(
+    const EventData& event
+);
+
+    std::vector<EventData> events;

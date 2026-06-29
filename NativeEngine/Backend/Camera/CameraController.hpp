@@ -37,7 +37,7 @@ private:
 
     Vector3 targetPosition;
 
-    float targetZoom;
+    float targetFOV;
 
     float shakeIntensity;
 

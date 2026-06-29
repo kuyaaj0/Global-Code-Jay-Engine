@@ -6,7 +6,7 @@ EventSystem::EventSystem()
 }
 
 void EventSystem::AddEvent(
-const GameEvent& event)
+const EventData& event)
 {
     events.push_back(event);
 }

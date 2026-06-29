@@ -49,27 +49,24 @@ float deltaTime)
         return;
 
     // Smooth camera follow
-    camera->position =
-        CamUtil::LerpPosition(
-            camera->position,
-            targetPosition,
-            deltaTime * 6.0f
-        );
+    camera->transform.position =
+    CamUtil::LerpPosition(
+        camera->transform.position,
+        targetPosition,
+        deltaTime * 6.0f
+    );
 
     // Smooth zoom
-    camera->zoom =
-        CamUtil::Lerp(
-            camera->zoom,
-            targetZoom,
-            deltaTime * 6.0f
-        );
+    camera->fov =
+    CamUtil::Lerp(
+        camera->fov,
+        targetFOV,
+        deltaTime * 6.0f
+    );
 
-    camera->zoom =
-        CamUtil::ClampZoom(
-            camera->zoom,
-            0.5f,
-            3.0f
-        );
+    camera->SetFOV(
+    camera->fov
+);
 
     // Temporary shake decay
     if(shakeIntensity > 0.0f)

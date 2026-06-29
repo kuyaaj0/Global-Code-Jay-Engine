@@ -51,6 +51,10 @@ public:
 
 private:
 
+    CameraController* cameraController;
+    
+    Camera3D* camera;
+
     WeekData currentWeek;
 
     CharacterData boyfriend;

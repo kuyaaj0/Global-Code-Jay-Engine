@@ -23,6 +23,8 @@ float songPosition)
         {
             event.executed = true;
 
+            ExecuteEvent(event);
+
             // Future:
             // Call Lua
             // Camera Events

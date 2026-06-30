@@ -53,6 +53,10 @@ const WeekData& week)
     inputManager = nullptr;
     
     strumLine = nullptr;
+
+    camera = nullptr;
+
+    cameraController = nullptr;
     
     scoreManager = nullptr;
     
@@ -373,6 +377,10 @@ Renderer* renderer
 
 void GameplayState::Shutdown()
 {
+    delete cameraController;
+
+    delete camera;
+    
     delete scripts;
 
     delete hud;

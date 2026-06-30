@@ -22,7 +22,6 @@ struct CharacterData
 
     // Gameplay
     bool playerCharacter;
-    Vector3 cameraOffset;
     bool flipX;
     bool flipY;
 

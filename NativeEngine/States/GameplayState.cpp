@@ -108,6 +108,16 @@ bool GameplayState::Initialize()
 
     opponent = new Character();
 
+    camera = new Camera3D();
+
+    cameraController = new CameraController();
+
+    cameraController->SetCamera(camera);
+
+    cameraController->FollowCharacter(
+    player
+);
+
     CharacterLoader loader;
 
     CharacterData boyfriend =

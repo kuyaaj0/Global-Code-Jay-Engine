@@ -9,6 +9,12 @@ class Character
 
 public:
 
+    Vector3 GetPosition() const;
+
+    void SetPosition(
+        const Vector3& position
+    );
+
     Transform transform;
 
     float alpha;

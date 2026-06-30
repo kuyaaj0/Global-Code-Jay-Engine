@@ -21,6 +21,8 @@ public:
 
     bool visible;
 
+    Vector3 cameraOffset;
+
     bool flipX;
 
     bool flipY;

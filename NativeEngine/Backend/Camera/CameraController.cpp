@@ -89,3 +89,11 @@ float deltaTime)
             shakeIntensity = 0.0f;
     }
 }
+
+if(targetCharacter != nullptr)
+{
+    targetPosition =
+        targetCharacter
+        ->transform
+        .GetPosition();
+}

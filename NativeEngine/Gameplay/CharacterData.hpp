@@ -22,8 +22,11 @@ struct CharacterData
 
     // Gameplay
     bool playerCharacter;
+    Vector3 cameraOffset;
     bool flipX;
     bool flipY;
+
+    Vector3 GetCameraFocus() const;
 
     // Default Constructor
     CharacterData()

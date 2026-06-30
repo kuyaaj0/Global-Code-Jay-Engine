@@ -17,6 +17,13 @@ public:
     // Scale
     Vector3 scale;
 
+ // Getters
+    Vector3 GetPosition() const;
+
+    Quaternion GetRotation() const;
+
+    Vector3 GetScale() const;
+
     // Cached matrices
     Matrix4 localMatrix;
     Matrix4 worldMatrix;

@@ -3,10 +3,12 @@
 #include "../../Renderer/Camera3D.hpp"
 #include "../Utils/CamUtil.hpp"
 #include "../../Transform/Transform.hpp"
+#include "../../Object/Character.hpp"
 
 CameraController::CameraController()
 {
     camera = nullptr;
+    targetCharacter = nullptr;
 
     targetPosition = Vector3(
         0.0f,
@@ -17,6 +19,12 @@ CameraController::CameraController()
     targetZoom = 1.0f;
 
     shakeIntensity = 0.0f;
+}
+
+void CameraController::FollowCharacter(
+Character* character)
+{
+    targetCharacter = character;
 }
 
 void CameraController::SetCamera(

@@ -36,6 +36,13 @@ void Character::Load(const CharacterData& data)
     // Load offsets
 }
 
+Vector3 Character::GetCameraFocus() const
+{
+    return
+        transform.GetPosition()
+        + data.cameraOffset;
+}
+
 const CharacterData& Character::GetData() const
 {
     return characterData;

@@ -2,6 +2,7 @@
 
 #include "../../Renderer/Camera3D.hpp"
 #include "../Utils/CamUtil.hpp"
+#include "../../Transform/Transform.hpp"
 
 CameraController::CameraController()
 {
@@ -49,20 +50,22 @@ float deltaTime)
         return;
 
     // Smooth camera follow
-    camera->transform.position =
+    camera->transform.SetPosition(
     CamUtil::LerpPosition(
-        camera->transform.position,
+        camera->transform.GetPosition(),
         targetPosition,
         deltaTime * 6.0f
-    );
+    )
+);
 
     // Smooth zoom
-    camera->fov =
+    camera->SetFOV(
     CamUtil::Lerp(
         camera->fov,
         targetFOV,
         deltaTime * 6.0f
-    );
+    )
+);
 
     camera->SetFOV(
     camera->fov

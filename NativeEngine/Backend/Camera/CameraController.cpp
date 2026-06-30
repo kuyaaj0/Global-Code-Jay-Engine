@@ -60,7 +60,7 @@ float deltaTime)
     // Smooth camera follow
     camera->transform.SetPosition(
     CamUtil::LerpPosition(
-        camera->transform.GetPosition(),
+        targetCharacter->GetCameraFocus();,
         targetPosition,
         deltaTime * 6.0f
     )

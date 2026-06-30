@@ -2,6 +2,7 @@
 
 #include "../../Math/Vector3.hpp"
 
+class Character;
 class Camera3D;
 
 class CameraController
@@ -10,6 +11,10 @@ class CameraController
 public:
 
     CameraController();
+
+    void FollowCharacter(
+    Character* character
+);
 
     void SetCamera(
         Camera3D* cam
@@ -32,6 +37,8 @@ public:
     );
 
 private:
+
+    Character* targetCharacter;
 
     Camera3D* camera;
 

@@ -5,6 +5,21 @@ Transform::Transform()
     Reset();
 }
 
+Vector3 Transform::GetPosition() const
+{
+    return position;
+}
+
+Quaternion Transform::GetRotation() const
+{
+    return rotation;
+}
+
+Vector3 Transform::GetScale() const
+{
+    return scale;
+}
+
 void Transform::Reset()
 {
     position = Vector3(0.0f, 0.0f, 0.0f);

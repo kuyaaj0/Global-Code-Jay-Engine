@@ -11,6 +11,17 @@ Character::Character()
     flipY = false;
 }
 
+Vector3 Character::GetPosition() const
+{
+    return transform.position;
+}
+
+void Character::SetPosition(
+const Vector3& position)
+{
+    transform.position = position;
+}
+
 void Character::Load(const CharacterData& data)
 {
     characterData = data;

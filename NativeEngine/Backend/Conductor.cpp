@@ -27,10 +27,49 @@ float position)
     songPosition = position;
 }
 
+bool Conductor::IsBeatHit() const
+{
+    return beatHit;
+}
+
+bool Conductor::IsStepHit() const
+{
+    return stepHit;
+}
+
+int Conductor::GetCurrentBeat() const
+{
+    return currentBeat;
+}
+
+int Conductor::GetCurrentStep() const
+{
+    return currentStep;
+}
+
 void Conductor::Update(
 float deltaTime)
 {
     songPosition += deltaTime;
+
+beatHit = false;
+stepHit = false;
+
+int beat = (int)GetBeat();
+
+if(beat > currentBeat)
+{
+    currentBeat = beat;
+    beatHit = true;
+}
+
+int step = (int)GetStep();
+
+if(step > currentStep)
+{
+    currentStep = step;
+    stepHit = true;
+}
 }
 
 float Conductor::GetSongPosition() const

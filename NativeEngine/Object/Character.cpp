@@ -40,7 +40,7 @@ Vector3 Character::GetCameraFocus() const
 {
     return
         transform.GetPosition()
-        + data.cameraOffset;
+        + characterData.cameraOffset;
 }
 
 const CharacterData& Character::GetData() const

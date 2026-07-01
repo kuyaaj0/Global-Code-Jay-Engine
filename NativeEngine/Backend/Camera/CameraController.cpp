@@ -2,7 +2,7 @@
 
 #include "../../Renderer/Camera3D.hpp"
 #include "../Utils/CamUtil.hpp"
-#include "../../Transform/Transform.hpp"
+//#include "../../Transform/Transform.hpp"
 #include "../../Object/Character.hpp"
 
 CameraController::CameraController()
@@ -57,30 +57,30 @@ float deltaTime)
     if(camera == nullptr)
         return;
 
-    // Smooth camera follow
+    if(targetCharacter != nullptr)
+    {
+        targetPosition =
+            targetCharacter->GetCameraFocus();
+    }
+
     camera->transform.SetPosition(
-    CamUtil::LerpPosition(
-        targetCharacter->GetCameraFocus();,
-        targetPosition,
-        deltaTime * 6.0f
-    )
-);
-
-    // Smooth zoom
-    camera->SetFOV(
-    CamUtil::Lerp(
-        camera->fov,
-        targetFOV,
-        deltaTime * 6.0f
-    )
-);
+        CamUtil::LerpPosition(
+            camera->transform.GetPosition(),
+            targetPosition,
+            deltaTime * 6.0f
+        )
+    );
 
     camera->SetFOV(
-    camera->fov
-);
+        CamUtil::Lerp(
+            camera->fov,
+            targetFOV,
+            deltaTime * 6.0f
+        )
+    );
+
     camera->UpdateView();
 
-    // Temporary shake decay
     if(shakeIntensity > 0.0f)
     {
         shakeIntensity -= deltaTime * 4.0f;
@@ -88,12 +88,4 @@ float deltaTime)
         if(shakeIntensity < 0.0f)
             shakeIntensity = 0.0f;
     }
-}
-
-if(targetCharacter != nullptr)
-{
-    targetPosition =
-        targetCharacter
-        ->transform
-        .GetPosition();
 }

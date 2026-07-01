@@ -15,6 +15,14 @@ public:
         float position
     );
 
+    bool IsBeatHit() const;
+
+    bool IsStepHit() const;
+
+    int GetCurrentBeat() const;
+
+    int GetCurrentStep() const;
+
     void Update(
         float deltaTime
     );

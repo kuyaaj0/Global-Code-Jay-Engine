@@ -13,7 +13,7 @@ Character::Character()
 
 Vector3 Character::GetPosition() const
 {
-    return transform.position;
+    return transform.GetPosition();
 }
 
 void Character::SetPosition(

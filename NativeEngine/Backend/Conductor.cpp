@@ -5,6 +5,14 @@ Conductor::Conductor()
     bpm = 120.0f;
 
     songPosition = 0.0f;
+
+    currentBeat = 0;
+
+    currentStep = 0;
+
+    beatHit = false;
+
+    stepHit = false;
 }
 
 void Conductor::SetBPM(

@@ -31,4 +31,12 @@ private:
 
     float songPosition;
 
+    int currentBeat;
+
+    int currentStep;
+
+    bool beatHit;
+
+    bool stepHit;
+
 };

@@ -19,7 +19,7 @@ Vector3 Character::GetPosition() const
 void Character::SetPosition(
 const Vector3& position)
 {
-    transform.position = position;
+    transform.SetPosition(position);
 }
 
 void Character::Load(const CharacterData& data)

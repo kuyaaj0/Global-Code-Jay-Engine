@@ -6,8 +6,11 @@
 
 class Character
 {
-
 public:
+
+    Character();
+
+    void Load(const CharacterData& data);
 
     Vector3 GetPosition() const;
 
@@ -15,21 +18,7 @@ public:
         const Vector3& position
     );
 
-    Transform transform;
-
-    float alpha;
-
-    bool visible;
-
-    Vector3 cameraOffset;
-
-    bool flipX;
-
-    bool flipY;
-
-    Character();
-
-    void Load(const CharacterData& data);
+    Vector3 GetCameraFocus() const;
 
     const CharacterData& GetData() const;
 
@@ -49,4 +38,21 @@ public:
 
     void Render(Renderer* renderer);
 
+public:
+
+    Transform transform;
+
+    float alpha;
+
+    bool visible;
+
+    bool flipX;
+
+    bool flipY;
+
+private:
+
+    CharacterData characterData;
+
+    Sprite sprite;
 };

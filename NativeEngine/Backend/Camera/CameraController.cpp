@@ -16,7 +16,7 @@ CameraController::CameraController()
         0.0f
     );
 
-    targetZoom = 1.0f;
+    targetFOV = 70.0f;
 
     shakeIntensity = 0.0f;
 }
@@ -36,13 +36,13 @@ Camera3D* cam)
 void CameraController::SetTarget(
 const Vector3& position)
 {
-    targetPosition = position;
+    focusPosition = position;
 }
 
-void CameraController::SetZoom(
-float zoom)
+void CameraController::SetFOV(
+float fov)
 {
-    targetZoom = zoom;
+    targetFOV = fov;
 }
 
 void CameraController::AddShake(
@@ -59,7 +59,7 @@ float deltaTime)
 
     if(targetCharacter != nullptr)
     {
-        targetPosition =
+        focusPosition =
             targetCharacter->GetCameraFocus();
     }
 

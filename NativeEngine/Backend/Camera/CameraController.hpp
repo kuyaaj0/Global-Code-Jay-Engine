@@ -24,9 +24,9 @@ public:
         const Vector3& position
     );
 
-    void SetZoom(
-        float zoom
-    );
+    void SetFOV(
+    float fov
+);
 
     void AddShake(
         float intensity

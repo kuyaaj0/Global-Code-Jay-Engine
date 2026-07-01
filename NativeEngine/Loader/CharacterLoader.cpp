@@ -1,5 +1,7 @@
 #include "CharacterLoader.hpp"
 
+#include "../Object/CharacterParser.hpp"
+
 #include <filesystem>
 
 namespace fs = std::filesystem;
@@ -73,4 +75,11 @@ const std::string& characterName)
         folder + "/icon.png";
 
     return data;
+
+    CharacterParser parser;
+
+    parser.Parse(
+    folder,
+    data
+);
 }

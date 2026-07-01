@@ -320,6 +320,16 @@ healthManager->ApplyJudge(lastJudge);
 
     opponent->Update(deltaTime);
 
+    if(inputManager->IsLanePressed(0) ||
+   inputManager->IsLanePressed(1) ||
+   inputManager->IsLanePressed(2) ||
+   inputManager->IsLanePressed(3))
+{
+    cameraController->FollowCharacter(
+        player
+    );
+}
+
     stage->Update(deltaTime);
 
     hud->score =

@@ -17,6 +17,10 @@ public:
         Animation* animation
     );
 
+    int GetCurrentFrame() const;
+
+    void SetLoop(bool value);
+
     void Stop();
 
     void Update(

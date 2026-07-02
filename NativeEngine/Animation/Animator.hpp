@@ -11,6 +11,8 @@ public:
 
     Animator();
 
+    Animation* GetCurrentAnimation() const;
+
     void Play(
         Animation* animation
     );

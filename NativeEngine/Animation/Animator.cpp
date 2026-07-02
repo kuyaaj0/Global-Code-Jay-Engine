@@ -10,6 +10,11 @@ Animator::Animator()
     playing = false;
 }
 
+Animation* Animator::GetCurrentAnimation() const
+{
+    return currentAnimation;
+}
+
 void Animator::Play(
 Animation* animation)
 {

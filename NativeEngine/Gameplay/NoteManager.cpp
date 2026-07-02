@@ -285,6 +285,24 @@ Note3D* note)
     note->SetHit(true);
 }
 
+std::vector<Note3D*> NoteManager::GetOpponentNotes()
+{
+    std::vector<Note3D*> result;
+
+    for(Note3D* note : notes)
+    {
+        if(note == nullptr)
+            continue;
+
+        if(note->IsPlayerNote())
+            continue;
+
+        result.push_back(note);
+    }
+
+    return result;
+}
+
 std::vector<Note3D*>&
 NoteManager::GetNotes()
 {

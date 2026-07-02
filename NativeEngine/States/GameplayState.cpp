@@ -243,12 +243,13 @@ void GameplayState::Update(
     if(lastJudge != JudgeResult::Miss)
 {
     player->Sing(lane);
-}
+
 
     cameraController->FollowCharacter(
     player
 );
-
+}
+    
 scoreManager->AddJudge(lastJudge);
 healthManager->ApplyJudge(lastJudge);
 

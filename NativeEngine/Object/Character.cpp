@@ -56,8 +56,7 @@ const CharacterData& Character::GetData() const
 
 void Character::Idle()
 {
-    // TODO:
-    // Play idle animation
+    animator.Play(idleAnimation);
 }
 
 bool Character::IsSinging() const
@@ -133,6 +132,8 @@ void Character::Update(float dt)
 
         Idle();
     }
+}
+    animator.Update(dt);
 }
 }
 

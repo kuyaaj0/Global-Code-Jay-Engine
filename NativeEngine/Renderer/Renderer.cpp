@@ -52,7 +52,13 @@ const Vector4& vertex)
 
 void Renderer::DrawQuad(
 const Matrix4& world,
-const Vector4 vertices[4])
+const Vector4 vertices[4],
+Texture* texture,
+float frameX,
+float frameY,
+float frameWidth,
+float frameHeight
+)
 {
     for(int i=0;i<4;i++)
     {

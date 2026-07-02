@@ -28,6 +28,10 @@ public:
     float fov
 );
 
+    void BeatZoom(
+    float amount
+);
+
     void AddShake(
         float intensity
     );

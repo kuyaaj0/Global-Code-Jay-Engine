@@ -93,6 +93,29 @@ void Character::SingRight()
     SetSinging(true);
 }
 
+void Character::Sing(
+int lane)
+{
+    switch(lane)
+    {
+        case 0:
+            SingLeft();
+            break;
+
+        case 1:
+            SingDown();
+            break;
+
+        case 2:
+            SingUp();
+            break;
+
+        case 3:
+            SingRight();
+            break;
+    }
+}
+
 void Character::Miss()
 {
     SetSinging(true);

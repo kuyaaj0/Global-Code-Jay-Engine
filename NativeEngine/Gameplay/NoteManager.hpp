@@ -61,5 +61,7 @@ public:
 
 private:
 
+    std::vector<Note3D*> GetOpponentNotes();
+
     std::vector<Note3D*> notes;
 };

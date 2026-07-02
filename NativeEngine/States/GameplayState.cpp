@@ -328,6 +328,28 @@ healthManager->ApplyJudge(lastJudge);
     }
 }
 
+    for(Note3D* note : noteManager->GetOpponentNotes())
+{
+    if(note == nullptr)
+        continue;
+
+    if(note->IsHit())
+        continue;
+
+    if(conductor->GetSongPosition() >= note->GetTime())
+    {
+        note->SetHit(true);
+
+        opponent->Sing(
+            note->GetLane()
+        );
+
+        cameraController->FollowCharacter(
+            opponent
+        );
+    }
+}
+
     strumLine->Update(inputManager);
 
     player->Update(deltaTime);

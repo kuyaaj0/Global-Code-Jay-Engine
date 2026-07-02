@@ -214,6 +214,12 @@ void GameplayState::Update(
     conductor->SetSongPosition(
     audio->GetPlaybackPosition()
 );
+    if(conductor->IsBeatHit())
+{
+    cameraController->BeatZoom(
+        2.0f
+    );
+}
 
     JudgeResult lastJudge =
     JudgeResult::Miss;

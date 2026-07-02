@@ -31,6 +31,10 @@ private:
 
     float timer;
 
+    int currentFrame;
+
+    bool loop;
+
     bool playing;
 
 };

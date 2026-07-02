@@ -44,6 +44,8 @@ private:
 
     Vector3 targetPosition;
 
+    float defaultFOV;
+
     float targetFOV;
 
     float shakeIntensity;

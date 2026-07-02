@@ -12,6 +12,7 @@ Note3D::Note3D()
     height = 64.0f;
 
     hit = false;
+    mustHit = true;
     missed = false;
 
     isHold = false;
@@ -61,6 +62,16 @@ float Note3D::GetHeight() const
 bool Note3D::IsHit() const
 {
     return hit;
+}
+
+void Note3D::SetMustHit(bool value)
+{
+    mustHit = value;
+}
+
+bool Note3D::MustHit() const
+{
+    return mustHit;
 }
 
 void Note3D::SetMissed(bool value)

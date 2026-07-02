@@ -21,6 +21,19 @@ public:
 
     int GetHeight() const;
 
+    void SetFrameSize(
+    int width,
+    int height
+);
+
+    int GetFrameWidth() const;
+
+    int GetFrameHeight() const;
+
+    int GetColumns() const;
+
+    int GetRows() const;
+
 private:
 
     unsigned int id;
@@ -30,5 +43,8 @@ private:
     int width;
 
     int height;
+
+    int frameWidth;
+    int frameHeight;
 
 };

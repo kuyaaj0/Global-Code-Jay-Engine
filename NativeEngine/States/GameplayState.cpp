@@ -171,6 +171,10 @@ for(const auto& noteData : notes)
         noteData.time
     );
 
+    note->SetMustHit(
+    noteData.mustHit
+);
+
     note->SetHold(
     noteData.isHold
 );

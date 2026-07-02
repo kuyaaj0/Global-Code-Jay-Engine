@@ -7,6 +7,10 @@ Animator::Animator()
 
     timer = 0.0f;
 
+    currentFrame = 0;
+
+    loop = true;
+
     playing = false;
 }
 
@@ -21,6 +25,8 @@ Animation* animation)
     currentAnimation = animation;
 
     timer = 0.0f;
+
+    currentFrame = 0;
 
     playing = true;
 }

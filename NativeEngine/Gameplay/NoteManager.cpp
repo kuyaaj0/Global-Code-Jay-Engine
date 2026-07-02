@@ -179,6 +179,44 @@ float songPosition)
     return closest;
 }
 
+Note3D* NoteManager::FindClosestPlayerNote(
+int lane,
+float songPosition)
+{
+    Note3D* closest = nullptr;
+
+    float closestDistance = 9999999.0f;
+
+    for(Note3D* note : notes)
+    {
+        if(note == nullptr)
+            continue;
+
+        if(note->IsHit())
+            continue;
+
+        if(note->GetLane() != lane)
+            continue;
+
+        if(!note->GetData().mustHit)
+            continue;
+
+        float distance =
+            std::fabs(
+                note->GetTime() -
+                songPosition
+            );
+
+        if(distance < closestDistance)
+        {
+            closestDistance = distance;
+            closest = note;
+        }
+    }
+
+    return closest;
+}
+
 Note3D* NoteManager::FindActiveHold(
 int lane
 )

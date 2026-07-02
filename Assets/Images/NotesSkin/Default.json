@@ -1,0 +1,29 @@
+{
+    "texture": "NOTE_assets.png",
+    "atlas": "NOTE_assets.xml",
+
+    "left": "purple0000",
+    "down": "blue0000",
+    "up": "green0000",
+    "right": "red0000",
+
+    "leftPress": "left press",
+    "downPress": "down press",
+    "upPress": "up press",
+    "rightPress": "right press",
+
+    "leftConfirm": "left confirm",
+    "downConfirm": "down confirm",
+    "upConfirm": "up confirm",
+    "rightConfirm": "right confirm",
+
+    "holdLeft": "purple hold piece",
+    "holdDown": "blue hold piece",
+    "holdUp": "green hold piece",
+    "holdRight": "red hold piece",
+
+    "holdEndLeft": "pruple end hold",
+    "holdEndDown": "blue hold end",
+    "holdEndUp": "green hold end",
+    "holdEndRight": "red hold end"
+}

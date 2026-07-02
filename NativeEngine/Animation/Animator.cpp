@@ -31,6 +31,16 @@ Animation* animation)
     playing = true;
 }
 
+int Animator::GetCurrentFrame() const
+{
+    return currentFrame;
+}
+
+void Animator::SetLoop(bool value)
+{
+    loop = value;
+}
+
 void Animator::Stop()
 {
     playing = false;
@@ -42,7 +52,33 @@ float dt)
     if(!playing || currentAnimation == nullptr)
         return;
 
-    timer += dt;
+    const auto& frames =
+    currentAnimation->GetFrames();
+
+if(frames.empty())
+    return;
+
+timer += dt;
+
+if(timer >= frames[currentFrame].duration)
+{
+    timer = 0.0f;
+
+    currentFrame++;
+
+    if(currentFrame >= frames.size())
+    {
+        if(loop)
+            currentFrame = 0;
+        else
+        {
+            currentFrame =
+                frames.size() - 1;
+
+            playing = false;
+        }
+    }
+}
 
     // Future:
     // Advance animation frames

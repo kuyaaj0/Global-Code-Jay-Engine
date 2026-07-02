@@ -31,9 +31,14 @@ public:
     );
 
     void DrawQuad(
-        const Matrix4& world,
-        const Vector4 vertices[4]
-    );
+    const Matrix4& world,
+    const Vector4 vertices[4],
+    Texture* texture,
+    float frameX,
+    float frameY,
+    float frameWidth,
+    float frameHeight
+);
 
     void DrawNote(
         const Matrix4& world,

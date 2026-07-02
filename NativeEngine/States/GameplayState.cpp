@@ -94,10 +94,6 @@ bool GameplayState::Initialize()
     
     strumLine = new StrumLine();
 
-    camera = new Camera3D();
-
-    cameraController = new CameraController();
-
     cameraController->SetCamera(camera);
     
     scoreManager = new ScoreManager();
@@ -113,10 +109,6 @@ bool GameplayState::Initialize()
     cameraController = new CameraController();
 
     cameraController->SetCamera(camera);
-
-    cameraController->FollowCharacter(
-    player
-);
 
     CharacterLoader loader;
 
@@ -214,6 +206,8 @@ void GameplayState::Update(
     conductor->SetSongPosition(
     audio->GetPlaybackPosition()
 );
+    conductor->Update(deltaTime);
+    
     if(conductor->IsBeatHit())
 {
     cameraController->BeatZoom(
@@ -335,7 +329,7 @@ healthManager->ApplyJudge(lastJudge);
 
     opponent->Update(deltaTime);
 
-    if(inputManager->IsLanePressed(0) ||
+    /*if(inputManager->IsLanePressed(0) ||
    inputManager->IsLanePressed(1) ||
    inputManager->IsLanePressed(2) ||
    inputManager->IsLanePressed(3))
@@ -343,7 +337,7 @@ healthManager->ApplyJudge(lastJudge);
     cameraController->FollowCharacter(
         player
     );
-}
+}*/
 
     stage->Update(deltaTime);
 

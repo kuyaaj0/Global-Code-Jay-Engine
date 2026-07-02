@@ -24,6 +24,10 @@ public:
 
     void Idle();
 
+    bool IsSinging() const;
+
+    void SetSinging(bool value);
+
     void SingLeft();
 
     void SingDown();
@@ -51,6 +55,12 @@ public:
     bool flipY;
 
 private:
+
+    bool singing;
+
+    float singTimer;
+
+    float singDuration;
 
     CharacterData characterData;
 

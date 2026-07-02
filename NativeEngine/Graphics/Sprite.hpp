@@ -20,6 +20,16 @@ public:
 
     Texture* texture;
 
+    int frameIndex;
+
+    float frameWidth;
+    float frameHeight;
+
+    float frameX;
+    float frameY;
+
+    void SetFrame(int frame);
+
     void Draw(Renderer* renderer);
 
 };

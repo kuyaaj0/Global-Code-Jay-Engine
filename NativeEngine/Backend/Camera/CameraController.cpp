@@ -8,6 +8,7 @@
 CameraController::CameraController()
 {
     camera = nullptr;
+
     targetCharacter = nullptr;
 
     targetPosition = Vector3(
@@ -16,7 +17,9 @@ CameraController::CameraController()
         0.0f
     );
 
-    targetFOV = 70.0f;
+    defaultFOV = 70.0f;
+
+    targetFOV = defaultFOV;
 
     shakeIntensity = 0.0f;
 }
@@ -43,6 +46,12 @@ void CameraController::SetFOV(
 float fov)
 {
     targetFOV = fov;
+}
+
+void CameraController::BeatZoom(
+float amount)
+{
+    targetFOV = defaultFOV - amount;
 }
 
 void CameraController::AddShake(
@@ -88,4 +97,10 @@ float deltaTime)
         if(shakeIntensity < 0.0f)
             shakeIntensity = 0.0f;
     }
+
+    targetFOV = CamUtil::Lerp(
+    targetFOV,
+    defaultFOV,
+    deltaTime * 8.0f
+);
 }

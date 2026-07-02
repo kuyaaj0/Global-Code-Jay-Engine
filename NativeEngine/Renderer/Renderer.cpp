@@ -68,7 +68,12 @@ const Matrix4& world,
 const Vector4 vertices[4])
 {
     DrawQuad(
-        world,
-        vertices
-    );
+    world,
+    quad,
+    texture,
+    frameX,
+    frameY,
+    frameWidth,
+    frameHeight
+);
 }

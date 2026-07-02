@@ -10,6 +10,21 @@ Sprite::Sprite()
     rotation = 0.0f;
 
     texture = nullptr;
+
+    frameIndex = 0;
+
+    frameWidth = 0.0f;
+
+    frameHeight = 0.0f;
+
+    frameX = 0.0f;
+
+    frameY = 0.0f;
+}
+
+void Sprite::SetFrame(int frame)
+{
+    frameIndex = frame;
 }
 
 void Sprite::Draw(Renderer* renderer)

@@ -9,6 +9,12 @@ Character::Character()
     flipX = false;
 
     flipY = false;
+
+    singing = false;
+
+    singTimer = 0.0f;
+
+    singDuration = 0.15f;
 }
 
 Vector3 Character::GetPosition() const
@@ -54,34 +60,57 @@ void Character::Idle()
     // Play idle animation
 }
 
+bool Character::IsSinging() const
+{
+    return singing;
+}
+
+void Character::SetSinging(bool value)
+{
+    singing = value;
+
+    if(value)
+        singTimer = 0.0f;
+}
+
 void Character::SingLeft()
 {
-
+    SetSinging(true);
 }
 
 void Character::SingDown()
 {
-
+    SetSinging(true);
 }
 
 void Character::SingUp()
 {
-
+    SetSinging(true);
 }
 
 void Character::SingRight()
 {
-
+    SetSinging(true);
 }
 
 void Character::Miss()
 {
-
+    SetSinging(true);
 }
 
 void Character::Update(float dt)
 {
+    if(singing)
+{
+    singTimer += dt;
 
+    if(singTimer >= singDuration)
+    {
+        singing = false;
+
+        Idle();
+    }
+}
 }
 
 void Character::Render(

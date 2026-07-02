@@ -35,6 +35,16 @@ public:
         float songPosition
     );
 
+    Note3D* FindClosestPlayerNote(
+    int lane,
+    float songPosition
+);
+
+    Note3D* FindClosestOpponentNote(
+    int lane,
+    float songPosition
+);
+
     Note3D* FindActiveHold(
     int lane
 );
@@ -52,5 +62,4 @@ public:
 private:
 
     std::vector<Note3D*> notes;
-
 };

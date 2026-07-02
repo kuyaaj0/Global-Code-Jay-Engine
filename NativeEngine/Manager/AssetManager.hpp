@@ -29,6 +29,14 @@ public:
         const std::string& name
     ) const;
 
+    bool HasSound(
+    const std::string& name
+    ) const;
+
+    bool HasFont(
+    const std::string& name
+    ) const;
+
     void Clear();
 
     std::string FindTexture(

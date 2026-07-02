@@ -3,6 +3,7 @@
 #include "../Transform/Transform.hpp"
 #include "../Gameplay/CharacterData.hpp"
 #include "../Graphics/Sprite.hpp"
+#include "../Animation/Animator.hpp"
 
 class Character
 {
@@ -55,6 +56,8 @@ public:
     bool flipY;
 
 private:
+
+    Animator animator;
 
     bool singing;
 

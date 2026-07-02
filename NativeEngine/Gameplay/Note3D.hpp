@@ -38,6 +38,9 @@ public:
     float GetHeight() const;
 
     bool IsHit() const;
+    void SetMustHit(bool value);
+
+    bool MustHit() const;
 
     void SetMissed(bool value);
     bool IsMissed() const;
@@ -62,6 +65,8 @@ private:
     int lane;
 
     float noteTime;
+
+    bool mustHit;
 
     float width;
     float height;

@@ -13,6 +13,8 @@ public:
         const std::string& path
     );
 
+    const std::string& GetPath() const;
+
     void Unload();
 
     int GetWidth() const;
@@ -22,6 +24,8 @@ public:
 private:
 
     unsigned int id;
+
+    std::string path;
 
     int width;
 

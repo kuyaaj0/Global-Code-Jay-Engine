@@ -75,3 +75,8 @@ int Texture::GetRows() const
 
     return height / frameHeight;
 }
+
+unsigned int Texture::GetID() const
+{
+    return id;
+}

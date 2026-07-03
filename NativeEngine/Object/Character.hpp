@@ -40,6 +40,9 @@ public:
 
     void SingRight();
 
+    void Sing(
+    int lane);
+
     void Miss();
 
     void Update(float dt);

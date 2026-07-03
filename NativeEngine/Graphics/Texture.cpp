@@ -3,6 +3,7 @@
 Texture::Texture()
 {
     id = 0;
+    path = "";
     width = 0;
     height = 0;
     frameWidth = 0;

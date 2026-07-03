@@ -34,6 +34,11 @@ Animation::GetFrames() const
     return frames;
 }
 
+int Animation::GetFrameCount() const
+{
+    return static_cast<int>(frames.size());
+}
+
 void Animation::Clear()
 {
     frames.clear();

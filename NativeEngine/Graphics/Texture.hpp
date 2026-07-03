@@ -34,6 +34,8 @@ public:
 
     int GetRows() const;
 
+    unsigned int GetID() const;
+
 private:
 
     unsigned int id;

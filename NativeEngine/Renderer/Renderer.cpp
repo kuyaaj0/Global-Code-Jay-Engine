@@ -52,15 +52,9 @@ const Vector4& vertex)
 
 void Renderer::DrawQuad(
 const Matrix4& world,
-const Vector4 vertices[4],
-Texture* texture,
-float frameX,
-float frameY,
-float frameWidth,
-float frameHeight
-)
+const Vector4 vertices[4])
 {
-    for(int i=0;i<4;i++)
+    for(int i = 0; i < 4; i++)
     {
         DrawVertex(
             world,
@@ -70,16 +64,17 @@ float frameHeight
 }
 
 void Renderer::DrawNote(
-const Matrix4& world,
-const Vector4 vertices[4])
+Texture* texture,
+const AtlasFrame& frame,
+const Matrix4& world)
 {
-    DrawQuad(
-    world,
-    quad,
-    texture,
-    frameX,
-    frameY,
-    frameWidth,
-    frameHeight
-);
+    if(texture == nullptr)
+        return;
+
+    if(texture->GetID() == 0)
+        return;
+
+    // TODO:
+    // Build UV coordinates from AtlasFrame
+    // Draw the selected frame from the texture atlas
 }

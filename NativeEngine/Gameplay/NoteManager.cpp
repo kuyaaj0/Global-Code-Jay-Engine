@@ -198,7 +198,7 @@ float songPosition)
         if(note->GetLane() != lane)
             continue;
 
-        if(!note->GetData().mustHit)
+        if(!note->MustHit())
             continue;
 
         float distance =

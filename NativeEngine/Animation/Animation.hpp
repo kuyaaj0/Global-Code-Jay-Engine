@@ -29,6 +29,8 @@ public:
 
     const std::vector<AnimationFrame>& GetFrames() const;
 
+    int GetFrameCount() const;
+
     void Clear();
 
 private:

@@ -4,6 +4,8 @@
 #include "Camera3D.hpp"
 #include "../Math/Matrix4.hpp"
 #include "../Math/Vector4.hpp"
+#include "../Graphics/Texture.hpp"
+#include "../Graphics/AtlasFrame.hpp"
 
 class Texture;
 class Sprite;
@@ -41,9 +43,10 @@ public:
 );
 
     void DrawNote(
-        const Matrix4& world,
-        const Vector4 vertices[4]
-    );
+    Texture* texture,
+    const AtlasFrame& frame,
+    const Matrix4& world
+);
 
     void DrawSprite(
     Texture* texture,

@@ -13,6 +13,9 @@
 #include "../Gameplay/NoteManager.hpp"
 #include "../Gameplay/Note3D.hpp"
 #include "../Gameplay/NoteData.hpp"
+#include "../Loader/NoteSkinLoader.hpp"
+#include "../Gameplay/NoteSkinData.hpp"
+#include "../Graphics/SpriteAtlas.hpp"
 #include "../Modifiers/ModifierManager.hpp"
 
 #include "InputManager.hpp"
@@ -135,6 +138,23 @@ stageLoader.LoadStage(
     stage = new Stage();
 
     stage->Load(stageInfo);
+
+    NoteSkinLoader noteSkinLoader;
+
+    NoteSkinData noteSkin;
+
+    if(noteSkinLoader.Load(
+    "Assets/Images/NoteSkins/Default.json",
+    noteSkin))
+{
+    // Loaded successfully
+}
+
+    SpriteAtlas noteAtlas;
+
+    noteAtlas.Load(
+    "Assets/Images/" + noteSkin.atlas
+);
 
     hud = new HUD();
 

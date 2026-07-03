@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "../Math/Vector3.hpp"
 
 struct CharacterData
 {
@@ -25,7 +26,8 @@ struct CharacterData
     bool flipX;
     bool flipY;
 
-    Vector3 GetCameraFocus() const;
+    // Camera
+    Vector3 cameraOffset;
 
     // Default Constructor
     CharacterData()
@@ -47,9 +49,7 @@ struct CharacterData
 
         flipX = false;
         flipY = false;
+
+        cameraOffset = Vector3(0.0f, 0.0f, 0.0f);
     }
-
-    private:
-
-        CharacterData* characterData;
 };

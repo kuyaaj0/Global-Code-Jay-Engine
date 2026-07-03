@@ -135,11 +135,15 @@ void Character::Update(float dt)
 }
     animator.Update(dt);
 }
-}
 
 void Character::Render(
-Renderer* renderer
-)
+Renderer* renderer)
 {
-    sprite.Draw(renderer);
+    if(renderer == nullptr)
+        return;
+
+    // TODO:
+    // Ask animator for current frame.
+    // Ask atlas for AtlasFrame.
+    // Draw using SpriteRenderer.
 }

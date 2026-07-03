@@ -33,6 +33,19 @@ const std::string& name) const
     return &it->second;
 }
 
+const std::unordered_map<
+std::string,
+AtlasFrame
+>& SpriteAtlas::GetFrames() const
+{
+    return frames;
+}
+
+size_t SpriteAtlas::GetFrameCount() const
+{
+    return frames.size();
+}
+
 void SpriteAtlas::Clear()
 {
     frames.clear();

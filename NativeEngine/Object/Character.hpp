@@ -3,6 +3,9 @@
 #include "../Transform/Transform.hpp"
 #include "../Gameplay/CharacterData.hpp"
 #include "../Graphics/Sprite.hpp"
+#include "../Graphics/Texture.hpp"
+#include "../Graphics/SpriteAtlas.hpp"
+#include "../Graphics/SpriteRenderer.hpp"
 #include "../Animation/Animator.hpp"
 
 class Character
@@ -57,7 +60,13 @@ public:
 
 private:
 
+    Texture texture;
+
+    SpriteAtlas atlas;
+
     Animator animator;
+
+    SpriteRenderer spriteRenderer;
 
     bool singing;
 

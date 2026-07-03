@@ -6,32 +6,18 @@ struct AtlasFrame
 {
     std::string name;
 
-    int x;
-    int y;
+    int x = 0;
+    int y = 0;
 
-    int width;
-    int height;
+    int width = 0;
+    int height = 0;
 
-    int frameX;
-    int frameY;
+    int frameX = 0;
+    int frameY = 0;
 
-    int frameWidth;
-    int frameHeight;
+    int frameWidth = 0;
+    int frameHeight = 0;
 
-    AtlasFrame()
-    {
-        name = "";
-
-        x = 0;
-        y = 0;
-
-        width = 0;
-        height = 0;
-
-        frameX = 0;
-        frameY = 0;
-
-        frameWidth = 0;
-        frameHeight = 0;
-    }
+    bool rotated = false;
+    bool trimmed = false;
 };

@@ -43,9 +43,8 @@ public:
 );
 
     void DrawNote(
-    Texture* texture,
-    const AtlasFrame& frame,
-    const Matrix4& world
+    const Matrix4& world,
+    const Vector4 vertices[4]
 );
 
     void DrawSprite(

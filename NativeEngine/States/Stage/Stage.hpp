@@ -3,6 +3,7 @@
 #include "../../Transform/Transform.hpp"
 #include "../../Gameplay/StageData.hpp"
 #include "../../Graphics/Sprite.hpp"
+#include "../../Graphics/Texture.hpp"
 
 class Renderer;
 
@@ -28,6 +29,12 @@ public:
     void Render(Renderer* renderer);
 
 private:
+
+    Sprite background;
+
+    Sprite foreground;
+
+    Sprite props;
 
     StageData stageData;
 

@@ -2,6 +2,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 #include "AtlasFrame.hpp"
 
@@ -22,6 +23,23 @@ public:
     const AtlasFrame* GetFrame(
         const std::string& name
     ) const;
+
+    const std::unordered_map<
+    std::string,
+    AtlasFrame
+    >& GetFrames() const;
+
+    size_t GetFrameCount() const;
+
+    bool ParseLine(
+    const std::string& line,
+    AtlasFrame& frame
+);
+
+    std::string GetAttribute(
+    const std::string& line,
+    const std::string& attribute
+);
 
     void Clear();
 

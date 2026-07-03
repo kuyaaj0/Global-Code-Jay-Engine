@@ -64,17 +64,17 @@ const Vector4 vertices[4])
 }
 
 void Renderer::DrawNote(
-Texture* texture,
-const AtlasFrame& frame,
-const Matrix4& world)
+const Matrix4& world,
+const Vector4 vertices[4]
+)
 {
-    if(texture == nullptr)
-        return;
-
-    if(texture->GetID() == 0)
-        return;
-
-    // TODO:
-    // Build UV coordinates from AtlasFrame
-    // Draw the selected frame from the texture atlas
+    DrawQuad(
+        world,
+        vertices,
+        nullptr,
+        0,
+        0,
+        0,
+        0
+    );
 }

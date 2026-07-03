@@ -24,7 +24,7 @@ Animation* animation)
 {
     currentAnimation = animation;
 
-    timer = 0.0f;
+    timer -= frames[currentFrame].duration;
 
     currentFrame = 0;
 
@@ -66,7 +66,7 @@ if(timer >= frames[currentFrame].duration)
 
     currentFrame++;
 
-    if(currentFrame >= frames.size())
+    if(currentFrame >= static_cast<int>(frames.size()))
     {
         if(loop)
             currentFrame = 0;

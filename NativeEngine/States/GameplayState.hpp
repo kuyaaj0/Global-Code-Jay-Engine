@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Gameplay/CharacterData.hpp"
-#include "../Loader/WeekData.hpp"
+#include "../Gameplay/WeekData.hpp"
 
 class SongLoader;
 class ChartParser;
